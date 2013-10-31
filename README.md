@@ -381,7 +381,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
         dragonball = 'z';
     ```
 
-  - Declara variables sin asignación al final. Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente, lo hace más notorio.
+  - Declara a las variables sin asignación al final. Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente, lo hace más notorio.
 
     ```javascript
     // mal
@@ -403,7 +403,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
         i;
     ```
 
-  - Asigne variables al inicio de su ámbito. Esto ayuda a evitar inconvenientes con la declaración de variables y temas relacionados a 'hoisting'.
+  - Asigna las variables al inicio de su ámbito. Esto ayuda a evitar inconvenientes con la declaración de variables y temas relacionados a 'hoisting'.
 
     ```javascript
     // mal
@@ -484,8 +484,8 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
       var declaredButNotAssigned = true;
     }
 
-    // El interprete esta haciendo hoisting.
-    // Lo que significa que nuestro ejemplo
+    // El interprete hizo hoisting.
+    // Eso significa que nuestro ejemplo
     // podria ser reescrito como:
     function example() {
       var declaredButNotAssigned;
@@ -560,7 +560,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - Usa `===` y `!==` en vez de `==` y `!=` respectivamente.
   - Expresiones condicionales son evaluadas usando coerción con el método `ToBoolean` y siempre obedecen a estas reglas sencillas:
 
-    + **Objects** es evaluado como **true**
+    + **Objects** son evaluados como **true**
     + **Undefined** es evaluado como **false**
     + **Null** es evaluado como **false**
     + **Booleans** son evaluados como **el valor del booleano**
@@ -696,7 +696,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
     ```
 
-  - Agregando a tus comentarios los prefijos `FIXME` o `TODO`, ayudará a otros desarrolladores a entender rápidamente si estás apuntando a un problema que precisa ser revisado o si estás sugiriendo una solución al problema que debería ser implementado. Estos son diferentes a comentarios regulares en el sentido que requieren alguna acción. Las acciones son `FIXME -- necesito resolver esto` or `TODO -- necesita implementarse`.
+  - Agregando a tus comentarios los prefijos `FIXME` o `TODO`, ayudará a otros desarrolladores a entender rápidamente si estás apuntando a un problema que precisa ser revisado o si estás sugiriendo una solución al problema que debería ser implementado. Estos son diferentes a comentarios regulares en el sentido que requieren alguna acción. Las acciones son `FIXME -- necesito resolver esto` o `TODO -- necesita implementarse`.
 
   - Usa `// FIXME:` para anotar problemas.
 
@@ -727,7 +727,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 ## <a name='whitespace'>Espacios en blanco</a>
 
-  - Usa tabulaciones blandas establecidas en dos espacios.
+  - Usa indentaciones blandas (sin TAB)  establecidas en dos espacios.
 
     ```javascript
     // mal
@@ -955,7 +955,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     var val = parseInt(inputValue, 10);
     ```
 
-  - Si por alguna razón estás haciendo algo salvaje y `parseInt` es tu cuello de botella y necesitas usar Bitshift por [razones de desempeño](http://jsperf.com/coercion-vs-casting/3), deja un comentario explicando qué y porqué lo estás haciendo.
+  - Si por alguna razón estás haciendo algo salvaje y `parseInt` es un cuello de botella por lo que necesitaste usar Bitshift por [razones de desempeño](http://jsperf.com/coercion-vs-casting/3), deja un comentario explicando qué y porqué lo estás haciendo.
 
     ```javascript
     // bien
@@ -1240,7 +1240,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 ## <a name='events'>Eventos</a>
 
-  - Cuando envies paquetes de datos a los eventos (ya sea con eventos del DOM o algo propietario como los eventos de Backbone), pasa un hash en vez de un valor directo. Esto permitirá a un próximo colaborador a agregar más datos al paquete de datos sin que tenga que encontrar o actualizar un handler para cada evento. Por ejemplo, en vez de:
+  - Cuando envies paquetes de datos a los eventos (ya sea con eventos del DOM o algo propietario como los eventos de Backbone), pasa un mapa en vez de un valor directo. Esto permitirá a un próximo colaborador a agregar más datos al paquete de datos sin que tenga que encontrar o actualizar un handler para cada evento. Por ejemplo, en vez de:
 
     ```js
     // mal
@@ -1249,7 +1249,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     ...
 
     $(this).on('listingUpdated', function(e, listingId) {
-      // do something with listingId
+      // hacer algo con listingId
     });
     ```
 
@@ -1262,7 +1262,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     ...
 
     $(this).on('listingUpdated', function(e, data) {
-      // do something with data.listingId
+      // hacer algo con data.listingId
     });
     ```
 
@@ -1271,7 +1271,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 ## <a name='modules'>Módulos</a>
 
-  - El módulo debe empezar con un `!`. Esto asegura que si un módulo mal formado olvide incluir al final un punto y coma, no hayan errores en producción cuando los scripts sean concatenados. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - El módulo debe empezar con un `!`. Esto asegura que si un módulo mal formado olvide incluir al final un punto y coma, no hayan errores en producción cuando los scripts sean concatenados. [Explicación](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - El archivo debe ser nombrado con camelCase, residir en un folder con el mismo nombre, y corresponder al nombre de la función a exportar.
   - Agrega un método noConflict() que reestablezca el módulo exportado a la versión anterior y retorne este módulo (para ser asignado a una variable).
   - Siempre declara `'use strict';` al inicio de cada módulo.
@@ -1312,7 +1312,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     var $sidebar = $('.sidebar');
     ```
 
-  - Guarde en variables los lookups de jQuery que necesiten posterior reuso.
+  - Guarde en variables los lookups de jQuery que se necesiten posteriormente.
 
     ```javascript
     // mal
@@ -1338,9 +1338,9 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
       });
     }
     ```
-
+  
   - Para consultas de elementos DOM usa el modo Cascada `$('.sidebar ul')` o parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Usa `find` para consultas guardadas en variables (Cache) previamente.
+  - Usa `find` solo con consultas guardadas en variables previamente.
 
     ```javascript
     // mal
@@ -1485,7 +1485,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 ## <a name='authors'>Colaboradores</a>
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [Vea a los colaboradores](https://github.com/airbnb/javascript/graphs/contributors)
 
 
 ## <a name='license'>Licencia</a>

@@ -208,7 +208,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
     // bien
     var errorMessage = 'This is a super long error that ' +
-      'was thrown because of Batman.' +
+      'was thrown because of Batman. ' +
       'When you stop to think about ' +
       'how Batman had anything to do ' +
       'with this, you would get nowhere ' +
@@ -957,6 +957,8 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     ```
 
   - Si por alguna razón estás haciendo algo salvaje y `parseInt` es un cuello de botella por lo que necesitaste usar Bitshift por [razones de desempeño](http://jsperf.com/coercion-vs-casting/3), deja un comentario explicando qué y porqué lo estás haciendo.
+  - **Nota:** Ten mucho cuidado al hacer operaciones de Bitshift. En Javascript los números son representados como [valores de 64-bit](http://es5.github.io/#x4.3.19), sin embargo las operaciones de Bitshift siempre retornan un entero de 32-bits ([fuente](http://es5.github.io/#x11.7)). Bitshift puede presentarnos un comportamiento inesperado para valores enteros mayores a 32 bits. [Discusión](https://github.com/airbnb/javascript/issues/109)
+
 
     ```javascript
     // bien
@@ -1008,7 +1010,6 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     // mal
     var OBJEcttsssss = {};
     var this_is_my_object = {};
-    var this-is-my-object = {};
     function c() {};
     var u = new user({
       name: 'Bob Parr'
@@ -1406,17 +1407,17 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 **Otras guías de estilo**
 
-  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
-  - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
-  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
+  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) (Guía de Estilo de Javascript de Google)
+  - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines) (Lineamientos de Estilo con el núcleo de jQuery)
+  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/) (Idiomatic Javascript: Principios de Escritura Consistente)
 
 **Otros estilos**
 
-  - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
-  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
-  - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript)
+  - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen (Nomenclatura en funciones anidadas)
+  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) (Callbacks condicionales)
+  - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) (Convenciones Populares de Programación con Javascript en Github)
 
-**Lectura más profunda**
+**Lecturas más profundas**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
@@ -1457,9 +1458,11 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   Esta es una lista de las organizaciones que están usando esta guía de estilo. Envíanos un pull request o abre un issue y te agregaremos a la lista.
 
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
+  - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
   - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
@@ -1469,6 +1472,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
+  - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
@@ -1483,6 +1487,10 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - :jp: **Japonés**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
   - :br: **Portugués**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - :cn: **Chino**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - :kr: **Coreano**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - :fr: **Francés**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - :ru: **Ruso**: [sbezludny/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
+  - :bg: **Búlgaro**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
 
 ## <a name='guide-guide'>La guía de la Guía de Estilos de Javascript</a>
 

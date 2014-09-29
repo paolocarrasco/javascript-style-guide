@@ -38,7 +38,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 ## <a name='types'>Tipos</a>
 
-  - **Primitivos**: Cuando accedes a un tipo primitivo, manejas directamente su valor
+  - **Primitivos**: Cuando acceses a un tipo primitivo, manejas directamente su valor
 
     + `string`
     + `number`
@@ -54,7 +54,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complejo**: Cuando accedes a un tipo complejo, manejas la referencia a su valor.
+  - **Complejo**: Cuando acceses a un tipo complejo, manejas la referencia a su valor.
 
     + `object`
     + `array`
@@ -69,7 +69,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 ## <a name='objects'>Objetos</a>
 
@@ -107,7 +107,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
       class: 'alien'
     };
 
-    // bien
+    // mal
     var superman = {
       klass: 'alien'
     };
@@ -117,7 +117,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
       type: 'alien'
     };
     ```
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 ## <a name='arrays'>Arreglos</a>
 
@@ -160,7 +160,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     itemsCopy = items.slice();
     ```
 
-  - Para convertir un objeto ["array-like"](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-7/array-like-objects) a un arreglo, usa Array#slice.
+  - Para convertir un objeto ["array-like" (similar a un arreglo)](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-7/array-like-objects) a un arreglo, usa Array#slice.
 
     ```javascript
     function trigger() {
@@ -169,7 +169,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='strings'>Cadenas de Texto</a>
@@ -190,7 +190,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Cadenas de texto con una longitud menor a 80 caracteres deben ser escritas en múltiples líneas usando concatenación.
+  - Las cadenas de texto con una longitud mayor a 80 caracteres deben ser escritas en múltiples líneas usando concatenación.
   - Nota: Cuando se usa sin criterio, las cadenas de texto largas pueden impactar en el desempeño. [jsPerf](http://jsperf.com/ya-string-concat) & [Discusión](https://github.com/airbnb/javascript/issues/40)
   
     ```javascript
@@ -198,21 +198,15 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
     // bien
-    var errorMessage = 'This is a super long error that \
-    was thrown because of Batman. \
-    When you stop to think about \
-    how Batman had anything to do \
-    with this, you would get nowhere \
-    fast.';
+    var errorMessage = 'This is a super long error that was thrown because\
+    of Batman. When you stop to think about how Batman had anything to do \
+    with this, you would get nowhere fast.';
 
 
     // bien
-    var errorMessage = 'This is a super long error that ' +
-      'was thrown because of Batman. ' +
-      'When you stop to think about ' +
-      'how Batman had anything to do ' +
-      'with this, you would get nowhere ' +
-      'fast.';
+    var errorMessage = 'This is a super long error that was thrown because' +
+      'of Batman. When you stop to think about how Batman had anything to do ' +
+      'with this, you would get nowhere fast.';
     ```
 
   - Cuando se crea programáticamente una cadena de texto, use Array#join en vez de concatenación. Sobretodo por IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).  
@@ -224,14 +218,14 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
         i;
 
     messages = [{
-        state: 'success',
-        message: 'This one worked.'
+      state: 'success',
+      message: 'This one worked.'
     },{
-        state: 'success',
-        message: 'This one worked as well.'
+      state: 'success',
+      message: 'This one worked as well.'
     },{
-        state: 'error',
-        message: 'This one did not work.'
+      state: 'error',
+      message: 'This one did not work.'
     }];
 
     length = messages.length;
@@ -259,7 +253,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='functions'>Funciones</a>
@@ -317,7 +311,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 
@@ -353,7 +347,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     var isJedi = getProp('jedi');
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='variables'>Variables</a>
@@ -462,7 +456,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='hoisting'>Hoisting</a>
@@ -552,7 +546,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
   - Para más información lee [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) por [Ben Cherry](http://www.adequatelygood.com/)
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 
@@ -601,7 +595,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
   - Para más información revisa [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) por Angus Croll
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='blocks'>Bloques</a>
@@ -630,7 +624,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='comments'>Comentarios</a>
@@ -723,7 +717,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
   ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='whitespace'>Espacios en blanco</a>
@@ -819,7 +813,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
         .call(tron.led);
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 ## <a name='commas'>Comas</a>
 
@@ -881,7 +875,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     ];
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='semicolons'>Puntos y Comas</a>
@@ -908,7 +902,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     })();
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='type-coercion'>Casting de Tipos & Coerción</a>
@@ -985,7 +979,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     var hasAge = !!age;
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='naming-conventions'>Convenciones de nomenclatura</a>
@@ -1098,7 +1092,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     };
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='accessors'>Funciones de Acceso</a>
@@ -1152,7 +1146,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     };
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='constructors'>Constructores</a>
@@ -1237,7 +1231,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     };
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='events'>Eventos</a>
@@ -1268,7 +1262,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     });
     ```
 
-  **[[⬆]](#TOC)**
+  **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='modules'>Módulos</a>
@@ -1299,7 +1293,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }(this);
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='jquery'>jQuery</a>
@@ -1361,7 +1355,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     $sidebar.find('ul');
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='es5'>Compatibilidad con ECMAScript 5</a>
@@ -1381,7 +1375,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     }
     ```
 
-    **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='performance'>Desempeño</a>
@@ -1395,7 +1389,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-  **[[⬆]](#TOC)**
+  **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='resources'>Recursos</a>
@@ -1451,7 +1445,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-  **[[⬆]](#TOC)**
+  **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 ## <a name='in-the-wild'>En la cancha</a>
 
@@ -1461,6 +1455,8 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
+  - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
+  - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
   - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
   - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
@@ -1472,6 +1468,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
+  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
   - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
@@ -1489,7 +1486,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - :cn: **Chino**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
   - :kr: **Coreano**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
   - :fr: **Francés**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - :ru: **Ruso**: [sbezludny/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
+  - :ru: **Ruso**: [uprock/javascript](https://github.com/uprock/javascript)
   - :bg: **Búlgaro**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
 
 ## <a name='guide-guide'>La guía de la Guía de Estilos de Javascript</a>
@@ -1526,7 +1523,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[[⬆]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 # };
 

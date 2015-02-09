@@ -1,6 +1,6 @@
 Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript)
 
-*Un enfoque razonable en gran parte para JavaScript*
+*Un enfoque altamente razonable para JavaScript*
 
 
 ## <a name='TOC'>Tabla de Contenido</a>

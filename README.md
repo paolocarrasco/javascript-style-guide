@@ -1,6 +1,6 @@
 Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript)
 
-*Un enfoque razonable para JavaScript*
+*Un enfoque razonable en gran parte para JavaScript*
 
 
 ## <a name='TOC'>Tabla de Contenido</a>
@@ -1015,14 +1015,14 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     // mal
     var OBJEcttsssss = {};
     var this_is_my_object = {};
-    function c() {};
+    function c() {}
     var u = new user({
       name: 'Bob Parr'
     });
 
     // bien
     var thisIsMyObject = {};
-    function thisIsMyFunction() {};
+    function thisIsMyFunction() {}
     var user = new User({
       name: 'Bob Parr'
     });

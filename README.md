@@ -38,7 +38,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 ## <a name='types'>Tipos</a>
 
-  - **Primitivos**: Cuando acceses a un tipo primitivo, manejas directamente su valor
+  - **Primitivos**: Cuando accesas a un tipo primitivo, manejas directamente su valor
 
     + `string`
     + `number`
@@ -54,7 +54,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complejo**: Cuando acceses a un tipo complejo, manejas la referencia a su valor.
+  - **Complejo**: Cuando accesas a un tipo complejo, manejas la referencia a su valor.
 
     + `object`
     + `array`

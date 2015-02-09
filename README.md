@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript)
 
 *Un enfoque altamente razonable para JavaScript*

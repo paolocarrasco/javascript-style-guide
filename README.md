@@ -47,8 +47,8 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     + `undefined`
 
     ```javascript
-    var foo = 1,
-        bar = foo;
+    var foo = 1;
+    var bar = foo;
 
     bar = 9;
 
@@ -61,8 +61,8 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     + `function`
 
     ```javascript
-    var foo = [1, 2],
-        bar = foo;
+    var foo = [1, 2];
+    var bar = foo;
 
     bar[0] = 9;
 
@@ -147,9 +147,9 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - Cuando necesites copiar un arreglo usa Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
-    var len = items.length,
-        itemsCopy = [],
-        i;
+    var len = items.length;
+    var itemsCopy = [];
+    var i;
 
     // mal
     for (i = 0; i < len; i++) {
@@ -212,10 +212,10 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   - Cuando se crea programáticamente una cadena de texto, use Array#join en vez de concatenación. Sobretodo por IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).  
   
     ```javascript
-    var items,
-        messages,
-        length,
-        i;
+    var items;
+    var messages;
+    var length;
+    var i;
 
     messages = [{
       state: 'success',
@@ -362,20 +362,26 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
     var superPower = new SuperPower();
     ```
 
-  - Usa una declaración `var` para múltiples variables y declara cada variable en una nueva línea.
+  - Usa una declaración `var` por variable. Es más fácil agregar nuevas declaraciones de variables de este modo, y no tendrás que preocuparte por reemplazar `;` por `,` o introducir diffs de sólo puntuación .
 
     ```javascript
     // mal
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball = 'z';
-
-    // bien
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
-    ```
 
+    // mal 
+    // (compara con lo de encima y trata de encontrar el error)
+    var items = getItems(),
+        goSportsTeam = true;
+        dragonball = 'z';
+    
+    // bien
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
+    ```
+    
   - Declara a las variables sin asignación al final. Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente, lo hace más notorio.
 
     ```javascript
@@ -385,17 +391,18 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
         goSportsTeam = true;
 
     // mal
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
+    var i;
+    var items = getItems();
+    var dragonball;
+    var goSportsTeam = true;
+    var len;
 
     // bien
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        length,
-        i;
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball;
+    var length;
+    var i;
     ```
 
   - Asigna las variables al inicio de su ámbito. Esto ayuda a evitar inconvenientes con la declaración de variables y temas relacionados a 'hoisting'.
@@ -821,14 +828,18 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
     ```javascript
     // mal
-    var once
+    var story = [
+        once
       , upon
-      , aTime;
+      , aTime
+    ];
 
     // bien
-    var once,
-        upon,
-        aTime;
+    var story = [
+      once,
+      upon,
+      aTime
+    ];
 
     // mal
     var hero = {

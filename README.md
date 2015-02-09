@@ -34,6 +34,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   1. [Traducciones](#translation)
   1. [La guía de la Guía del Estilo JavaScript](#guide-guide)
   1. [Colaboradores](#contributors)
+  2. [Charla cono nosotros sobre Javascript](#chat-with-us-about-javascript)
   1. [Licencia](#license)
 
 ## <a name='types'>Tipos</a>
@@ -1503,6 +1504,9 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 ## <a name='guide-guide'>La guía de la Guía de Estilos de Javascript</a>
 
   - [Referencia](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+
+## <a name='chat-with-us-about-javascript'>Charla con nosotros sobre Javascript</a>
+  - Encuéntranos en [gitter](https://gitter.im/airbnb/javascript).
 
 ## <a name='authors'>Colaboradores</a>
 

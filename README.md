@@ -86,7 +86,7 @@
     var item = {};
     ```
 
-  - No uses [palabras reservadas](http://es5.github.io/#x7.6.1) como nombres. No funciona en IE8. [Más información](https://github.com/airbnb/javascript/issues/61)
+  - No uses [palabras reservadas](http://es5.github.io/#x7.6.1) para nombres de propiedades. No funciona en IE8. [Más información](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // mal
@@ -102,7 +102,7 @@
     };
     ```
 
-  - Usa sinónimos legibles en lugar de palabras reservadas cuando sean necesarias.
+  - Usa sinónimos legibles en lugar de palabras reservadas.
 
     ```javascript
     // mal

@@ -1,6 +1,6 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript)
+[# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript)
 
 *Un enfoque altamente razonable para JavaScript*
 
@@ -15,7 +15,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   1. [Propiedades](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Expresiones condicionales e igualdad](#conditionals)
+  1. [Expresiones de comparación e igualdad](#conditionals)
   1. [Bloques](#blocks)
   1. [Comentarios](#comments)
   1. [Espacios en blanco](#whitespace)
@@ -36,7 +36,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
   1. [Traducciones](#translation)
   1. [La guía de la Guía del Estilo JavaScript](#guide-guide)
   1. [Colaboradores](#contributors)
-  2. [Charla cono nosotros sobre Javascript](#chat-with-us-about-javascript)
+  1. [Charla con nosotros sobre Javascript](#chat-with-us-about-javascript)
   1. [Licencia](#license)
 
 ## <a name='types'>Tipos</a>
@@ -560,7 +560,7 @@ Basado en [# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javasc
 
 
 
-## <a name='conditionals'>Expresiones condicionales e igualdad</a>
+## <a name='conditionals'>Expresiones de comparación e igualdad</a>
 
   - Usa `===` y `!==` en vez de `==` y `!=` respectivamente.
   - Expresiones condicionales son evaluadas usando coerción con el método `ToBoolean` y siempre obedecen a estas reglas sencillas:

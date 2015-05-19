@@ -134,7 +134,7 @@
     var items = [];
     ```
 
-  - Si no conoces la longitud del arreglo entonces usa Array#push.
+  - Usa Array#push, en vez de asignación directa, para agregar elementos a un arreglo.
 
     ```javascript
     var someStack = [];
@@ -373,19 +373,19 @@
         goSportsTeam = true,
         dragonball = 'z';
 
-    // mal 
+    // mal
     // (compara con lo de encima y trata de encontrar el error)
     var items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
-    
+
     // bien
     var items = getItems();
     var goSportsTeam = true;
     var dragonball = 'z';
     ```
-    
-  - Declara a las variables sin asignación al final. Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente, lo hace más notorio.
+
+  - Declara a las variables sin asignación al final. Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente.
 
     ```javascript
     // mal
@@ -443,13 +443,15 @@
       return name;
     }
 
-    // mal
+    // mal - llamada a funcion innecesaria
     function() {
       var name = getName();
 
       if (!arguments.length) {
         return false;
       }
+
+      this.setFirstName(name);
 
       return true;
     }
@@ -461,6 +463,7 @@
       }
 
       var name = getName();
+      this.setFirstName(name);
 
       return true;
     }
@@ -1348,7 +1351,7 @@
       });
     }
     ```
-  
+
   - Para consultas de elementos DOM usa el modo Cascada `$('.sidebar ul')` o parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - Usa `find` solo con consultas guardadas en variables previamente.
 

@@ -800,6 +800,39 @@
       breed: 'Bernese Mountain Dog'
     });
     ```
+
+  - Deja un espacio antes del paréntesis de apertura en las sentencias de control (```if```, ```while```, etc.). No deje espacios antes de la lista de argumentos en las invocaciones y declaraciones de funciones.
+    ```javascript
+    // mal
+    if(isJedi) {
+      fight ();
+    }
+
+    // bien
+    if (isJedi) {
+      fight();
+    }
+
+    // mal
+    function fight () {
+      console.log ('Swooosh!');
+    }
+
+    // bien
+    function fight() {
+      console.log('Swooosh!');
+    }
+    ```
+
+  - Separa a los operadores con espacios.
+    ```javascript
+    // mal
+    var x=y+5;
+
+    // bien
+    var x = y + 5;
+    ```
+
   - Deja una línea en blanco al final del archivo.
 
     ```javascript
@@ -810,18 +843,35 @@
     ```
 
     ```javascript
-    // bien
+    // mal
     (function(global) {
       // ...algo...
-    })(this);
+    })(this);↵
+    ↵
 
     ```
 
-  - Usa indentación cuando uses métodos largos con 'chaining'.
+    ```javascript
+    // bien
+    (function(global) {
+      // ...algo...
+    })(this);↵
+
+    ```
+
+  - Usa indentación cuando uses métodos largos con 'chaining'. Emplea un punto adelante en cada nueva línea, lo que enfatiza que es un método llamado no una nueva sentencia.
 
     ```javascript
     // mal
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+    // mal
+    $('#items').
+      find('.selected').
+        highlight().
+        end().
+      find('.open').
+        updateCount();
 
     // bien
     $('#items')
@@ -846,6 +896,43 @@
       .append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
+    ```
+
+  - Deja una línea en blanco luego de los bloques y antes de la siguiente sentencia.
+
+    ```javascript
+    // bad
+    if (foo) {
+      return bar;
+    }
+    return baz;
+
+    // good
+    if (foo) {
+      return bar;
+    }
+
+    return baz;
+
+    // bad
+    var obj = {
+      foo: function() {
+      },
+      bar: function() {
+      }
+    };
+    return obj;
+
+    // good
+    var obj = {
+      foo: function() {
+      },
+
+      bar: function() {
+      }
+    };
+
+    return obj;
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

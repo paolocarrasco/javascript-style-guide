@@ -193,7 +193,7 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Las cadenas de texto con una longitud mayor a 80 caracteres deben ser escritas en múltiples líneas usando concatenación.
+  - Las cadenas de texto con una longitud mayor a 100 caracteres deben ser escritas en múltiples líneas usando concatenación.
   - Nota: Cuando se usa sin criterio, las cadenas de texto largas pueden impactar en el desempeño. [jsPerf](http://jsperf.com/ya-string-concat) & [Discusión](https://github.com/airbnb/javascript/issues/40)
   
     ```javascript

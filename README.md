@@ -493,7 +493,8 @@
       var declaredButNotAssigned = true;
     }
 
-    // El interprete hizo hoisting.
+    // El interprete lleva la declaracion de la
+    // variable a la parte superior de la funcion.
     // Eso significa que nuestro ejemplo
     // podria ser reescrito como:
     function example() {

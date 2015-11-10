@@ -639,6 +639,26 @@
     }
     ```
 
+    - Si estás usando bloques de muchas líneas con ```if``` y ```else```, pon el ```else``` en la misma línea que el ```if```.
+    ```javascript
+    // mal
+    if (test) {
+      thing1();
+      thing2();
+    }
+    else {
+      thing3();
+    }
+
+    // bien
+    if (test) {
+      thing1();
+      thing2();
+    } else {
+      thing3();
+    }
+    ```
+
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 

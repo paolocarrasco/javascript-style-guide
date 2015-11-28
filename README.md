@@ -1135,17 +1135,12 @@
     // mal
     var OBJEcttsssss = {};
     var this_is_my_object = {};
+    var o = {};
     function c() {}
-    var u = new user({
-      name: 'Bob Parr'
-    });
 
     // bien
     var thisIsMyObject = {};
     function thisIsMyFunction() {}
-    var user = new User({
-      name: 'Bob Parr'
-    });
     ```
 
   - Usa PascalCase cuando nombres constructores o clases.

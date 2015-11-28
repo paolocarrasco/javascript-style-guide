@@ -1248,7 +1248,7 @@
 ## <a name='accessors'>Funciones de Acceso</a>
 
   - Funciones de acceso para las propiedades no son requeridas.
-  - Si creas funciones de acceso usa  getVal() y setVal('hello').
+  - Si creas funciones de acceso usa  ```getVal()``` y ```setVal('hello')```.
 
     ```javascript
     // mal
@@ -1264,7 +1264,7 @@
     dragon.setAge(25);
     ```
 
-  - Si la propiedad es un booleano, usa isVal() o hasVal().
+  - Si la propiedad es un booleano, usa ```isVal()``` o ```hasVal()```.
 
     ```javascript
     // mal
@@ -1278,7 +1278,7 @@
     }
     ```
 
-  - Está bien crear funciones get() y set(), pero sé consistente.
+  - Está bien crear funciones ```get()``` y ```set()```, pero sé consistente.
 
     ```javascript
     function Jedi(options) {
@@ -1386,7 +1386,7 @@
 
 ## <a name='events'>Eventos</a>
 
-  - Cuando envies paquetes de datos a los eventos (ya sea con eventos del DOM o algo propietario como los eventos de Backbone), pasa un mapa en vez de un valor directo. Esto permitirá a un próximo colaborador a agregar más datos al paquete de datos sin que tenga que encontrar o actualizar un handler para cada evento. Por ejemplo, en vez de:
+  - Cuando envíes paquetes de datos a los eventos (ya sea con eventos del DOM o algo propietario como los eventos de Backbone), pasa un mapa en vez de un valor directo. Esto permitirá a un próximo colaborador a agregar más datos al paquete de datos sin que tenga que encontrar o actualizar un handler para cada evento. Por ejemplo, en vez de:
 
     ```js
     // mal
@@ -1418,8 +1418,8 @@
 ## <a name='modules'>Módulos</a>
 
   - El módulo debe empezar con un `!`. Esto asegura que si un módulo mal formado olvide incluir al final un punto y coma, no hayan errores en producción cuando los scripts sean concatenados. [Explicación](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - El archivo debe ser nombrado con camelCase, residir en un folder con el mismo nombre, y corresponder al nombre de la función a exportar.
-  - Agrega un método noConflict() que reestablezca el módulo exportado a la versión anterior y retorne este módulo (para ser asignado a una variable).
+  - El archivo debe ser nombrado con camelCase, residir en un fólder con el mismo nombre, y corresponder al nombre de la función a exportar.
+  - Agrega un método `noConflict()` que reestablezca el módulo exportado a la versión anterior y retorne este módulo (para ser asignado a una variable).
   - Siempre declara `'use strict';` al inicio de cada módulo.
 
     ```javascript

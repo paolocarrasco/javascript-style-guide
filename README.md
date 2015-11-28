@@ -1549,22 +1549,33 @@
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
+**Tools**
+
+  Code Style Linters
+  - [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
+  - [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
+
 **Otras guías de estilo**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) (Guía de Estilo de Javascript de Google)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines) (Lineamientos de Estilo con el núcleo de jQuery)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/) (Idiomatic Javascript: Principios de Escritura Consistente)
+  - [JavaScript Standard Style](https://github.com/feross/standard) (Estilo estándar de JavaScript)
 
 **Otros estilos**
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen (Nomenclatura en funciones anidadas)
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) (Callbacks condicionales)
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) (Convenciones Populares de Programación con Javascript en Github)
+  - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman (Múltiples sentencias var en JavaScript, no superfluas)
 
 **Lecturas más profundas**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll (Entendiendo los Closures de JavaScript)
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer (JavaScript Básico para el programador impaciente)
+  - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz (Podrías no necesitar jQuery)
+  - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban (Características de ES6)
+  - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock (Lineamientos para el Frontend)
 
 **Libros**
 
@@ -1578,8 +1589,12 @@
   - [Smashing Node.js: JavaScript Everywhere](http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch (Increíble Node.js: JavaScript en todas partes)
   - [Secrets of the JavaScript Ninja](http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault (Secretos del JavaScript Ninja)
   - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg (JavaScript Humano)
-  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
-  - [JSBooks](http://jsbooks.revolunet.com/)
+  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy (Superhéroe.js)
+  - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
+  - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov (JavaScript de Terceros)
+  - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman (JavaScript Efectivo: 68 modos específicos para elevar el poder de JavaScript)
+  - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke (JavaScript Elocuente)
+  - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson (No sabes JS)
 
 **Blogs**
 
@@ -1594,6 +1609,10 @@
   - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
+
+**Podcasts**
+
+  - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
   **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 

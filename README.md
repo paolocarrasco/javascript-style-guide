@@ -354,7 +354,7 @@
 
 ## <a name='variables'>Variables</a>
 
-  - Siempre usa `var` para declarar variables. No hacerlo resultará en variables globales. Debemos evitar contaminar el espacio global (global namespace). El Capitán Planeta nos advirtió de eso.
+  - Siempre usa `var` para declarar variables. No hacerlo resultará en variables globales. Debemos evitar contaminar el espacio global (global namespace). El [Capitán Planeta](https://es.wikipedia.org/wiki/Capit%C3%A1n_Planeta_y_los_planetarios) nos advirtió de eso.
 
     ```javascript
     // mal

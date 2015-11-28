@@ -1649,14 +1649,20 @@
 
   Esta guía de estilo es también disponible en otros lenguajes:
 
-  - :de: **Alemán**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - :jp: **Japonés**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - :br: **Portugués**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - :cn: **Chino**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
-  - :kr: **Coreano**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - :fr: **Francés**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - :ru: **Ruso**: [uprock/javascript](https://github.com/uprock/javascript)
+  - :en: **Inglés (original)**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - :br: **Portugués Brasileño**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - :bg: **Búlgaro**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
+  - :ca: **Catalán**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
+  - :cn: **Chino (Tradicional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
+  - :cn: **Chino (Simplificado)**: [sivan/javascript-style-guide](https://github.com/sivan/javascript-style-guide)
+  - :fr: **Francés**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - :de: **Alemán**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - :it: **Italiano**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
+  - :jp: **Japonés**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - :kr: **Coreano**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - :pl: **Polaco**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
+  - :ru: **Ruso**: [uprock/javascript](https://github.com/uprock/javascript)
+  - :th: **Tailandés**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
 
 ## <a name='guide-guide'>La guía de la Guía de Estilos de Javascript</a>
 

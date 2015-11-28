@@ -568,7 +568,7 @@
   - Usa `===` y `!==` en vez de `==` y `!=` respectivamente.
   - Expresiones condicionales son evaluadas usando coerción con el método `ToBoolean` y siempre obedecen a estas reglas sencillas:
 
-    + **Objects** son evaluados como **true**
+    + **Objects** son evaluados como **true** (también considera así al objeto vacío ```{}``` y arreglos sin contenido ```[]```)
     + **Undefined** es evaluado como **false**
     + **Null** es evaluado como **false**
     + **Booleans** son evaluados como **el valor del booleano**

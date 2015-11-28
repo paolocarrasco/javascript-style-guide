@@ -1649,20 +1649,20 @@
 
   Esta guía de estilo es también disponible en otros lenguajes:
 
-  - :en: **Inglés (original)**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - :br: **Portugués Brasileño**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - :bg: **Búlgaro**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - :ca: **Catalán**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - :cn: **Chino (Tradicional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - :cn: **Chino (Simplificado)**: [sivan/javascript-style-guide](https://github.com/sivan/javascript-style-guide)
-  - :fr: **Francés**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - :de: **Alemán**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - :it: **Italiano**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
-  - :jp: **Japonés**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - :kr: **Coreano**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - :pl: **Polaco**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
-  - :ru: **Ruso**: [uprock/javascript](https://github.com/uprock/javascript)
-  - :th: **Tailandés**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
+  - ![us](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/United-States.png) **Inglés (original)**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portugués Brasileño**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Búlgaro**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
+  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalán**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
+  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chino (Tradicional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chino (Simplificado)**: [sivan/javascript-style-guide](https://github.com/sivan/javascript-style-guide)
+  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **Francés**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **Alemán**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italiano**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japonés**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Coreano**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polaco**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
+  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Ruso**: [uprock/javascript](https://github.com/uprock/javascript)
+  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Tailandés**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
 
 ## <a name='guide-guide'>La guía de la Guía de Estilos de Javascript</a>
 

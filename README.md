@@ -800,7 +800,7 @@
     });
     ```
 
-  - Deja un espacio antes del paréntesis de apertura en las sentencias de control (```if```, ```while```, etc.). No deje espacios antes de la lista de argumentos en las invocaciones y declaraciones de funciones.
+  - Deja un espacio antes del paréntesis de apertura en las sentencias de control (```if```, ```while```, etc.). No dejes espacios antes de la lista de argumentos en las invocaciones y declaraciones de funciones.
     ```javascript
     // mal
     if(isJedi) {
@@ -1020,7 +1020,8 @@
       return name;
     })();
 
-    // bien
+    // super bien (evita que la funcion se vuelva un argumento
+    // cuando dos archivos con IIFEs sean concatenados)
     ;(function() {
       var name = 'Skywalker';
       return name;

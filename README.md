@@ -373,7 +373,7 @@
         dragonball = 'z';
 
     // mal
-    // (compara con lo de encima y trata de encontrar el error)
+    // (compara con lo de arriba y encuentra el error)
     var items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
@@ -695,7 +695,7 @@
     }
     ```
 
-  - Usa `//` para comentarios de una sola línea. Ubica los comentarios de una sola línea encima del sujeto comentado. Deja una línea en blanco antes del comentario.
+  - Usa `//` para comentarios de una sola línea. Ubica los comentarios de una sola línea encima de la sentencia comentada. Deja una línea en blanco antes del comentario.
 
     ```javascript
     // mal

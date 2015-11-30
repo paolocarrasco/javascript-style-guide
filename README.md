@@ -13,6 +13,7 @@ Otras Guías de Estilos
 ## <a name='TOC'>Tabla de Contenido</a>
 
   1. [Tipos](#types)
+  1. [Referencias](#references)
   1. [Objetos](#objects)
   1. [Arreglos](#arrays)
   1. [Cadenas de Texto](#strings)
@@ -55,8 +56,8 @@ Otras Guías de Estilos
     + `undefined`
 
     ```javascript
-    var foo = 1;
-    var bar = foo;
+    const foo = 1;
+    let bar = foo;
 
     bar = 9;
 
@@ -69,8 +70,8 @@ Otras Guías de Estilos
     + `function`
 
     ```javascript
-    var foo = [1, 2];
-    var bar = foo;
+    const foo = [1, 2];
+    const bar = foo;
 
     bar[0] = 9;
 
@@ -78,6 +79,52 @@ Otras Guías de Estilos
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+
+## <a name='references'>Referencias</a>
+  - Usa `const` para todas tus referencias; evita usar `var`.
+  > ¿Por qué? Esto asegura que no reasignes tus referencias, lo
+  que puede llevar a bugs y dificultad para comprender el código.
+
+  ```javascript
+  // mal
+  var a = 1;
+  var b = 2;
+
+  // bien
+  const a = 1;
+  const b = 2;
+  ```
+
+  - Si vas a reasignar referencias, usa `let` en vez de `var`.
+  > ¿Por qué? El bloque `let` es de alcance a nivel de bloque a
+  diferencia del alcance a nivel de función de `var`.
+
+  ```javascript
+  // mal
+  var count = 1;
+  if (true) {
+    count += 1;
+  }
+
+  // bien, usa el let
+  let count = 1;
+  if (true) {
+    count += 1;
+  }
+  ```
+
+  - Nota que tanto `let` como `const` tienen alcance a nivel de bloque.
+
+  ```javascript
+  // const y let solo existen en los bloques donde
+  // estan definidos
+  {
+    let a = 1;
+    const b = 1;
+  }
+  console.log(a); // ReferenceError
+  console.log(b); // ReferenceError
+  ```
 
 ## <a name='objects'>Objetos</a>
 

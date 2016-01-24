@@ -235,17 +235,10 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    var name = "Bob Parr";
+    const name = "Bob Parr";
 
     // bien
-    var name = 'Bob Parr';
-
-    // mal
-    var fullName = "Bob " + this.lastName;
-
-    // bien
-    var fullName = 'Bob ' + this.lastName;
-    ```
+    const name = 'Bob Parr';
 
   - Las cadenas de texto con una longitud mayor a 100 caracteres deben ser escritas en múltiples líneas usando concatenación.
 
@@ -266,74 +259,47 @@ Otras Guías de Estilos
       'with this, you would get nowhere fast.';
     ```
 
-  - Cuando se crea programáticamente una cadena de texto, use Array#join en vez de concatenación. Sobretodo por IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).  
+  - Cuando se crean cadenas de texto de forma programática, usa template strings (cadena de plantillas) en vez de concatenación.
+
+  > ¿Por qué? Los template strings te dan mayor legibilidad, sintaxis concisa con nuevas líneas apropiadas y capacidades de interpolación.
 
     ```javascript
-    var items;
-    var messages;
-    var length;
-    var i;
-
-    messages = [{
-      state: 'success',
-      message: 'This one worked.'
-    },{
-      state: 'success',
-      message: 'This one worked as well.'
-    },{
-      state: 'error',
-      message: 'This one did not work.'
-    }];
-
-    length = messages.length;
+    // mal
+    function sayHi(name) {
+      return 'How are you, ' + name + '?';
+    }
 
     // mal
-    function inbox(messages) {
-      items = '<ul>';
-
-      for (i = 0; i < length; i++) {
-        items += '<li>' + messages[i].message + '</li>';
-      }
-
-      return items + '</ul>';
+    function sayHi(name) {
+      return ['How are you, ', name, '?'].join();
     }
 
     // bien
-    function inbox(messages) {
-      items = [];
-
-      for (i = 0; i < length; i++) {
-        // usa asignacion directa aqui porque estamos micro-optimizando
-        items[i] = '<li>' + messages[i].message + '</li>';
-      }
-
-      return '<ul>' + items.join('') + '</ul>';
+    function sayHi(name) {
+      return `How are you, ${name}?`;
     }
     ```
+
+  - Nunca uses `eval()` en una cadena de texto, abre una caja de Pandora de vulnerabilidades.
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='functions'>Funciones</a>
 
-  - Expresiones de función:
+  - Usa declaración de función en vez de expresiones de función.
 
-    ```javascript
-    // expresion de funcion anonima
-    var anonymous = function() {
-      return true;
-    };
+  > ¿Por qué? Las declaraciones de función son nombradas, por lo que son más sencillos de identificar en las pilas de llamadas. Además todo el contenido de una declaración de función es *hoisted*, mientras que solo la referencia de una expresión de función es *hoisted*. Esta regla hace posible que siempre se usen [Arrow Functions](#arrow-functions) en vez de las funciones de expresión.
 
-    // expresion de funcion nombrada
-    var named = function named() {
-      return true;
-    };
+  ```javascript
+   // mal
+   const foo = function () {
+   };
 
-    // expresion de funcion inmediatamente invocada (IIFE)
-    (function() {
-      console.log('Welcome to the Internet. Please follow me.');
-    })();
-    ```
+   // bien
+   function foo() {
+   }
+   ```
 
   - Nunca declares una función en un bloque que no sea de función (if, while, etc). En vez de ello, asigna la función a una variable. Los navegadores te permitirán hacerlo pero todos ellos lo interpretarán de modo diferente, lo que es lamentable.
 
@@ -348,9 +314,9 @@ Otras Guías de Estilos
     }
 
     // bien
-    var test;
+    let test;
     if (currentUser) {
-      test = function test() {
+      test = () => {
         console.log('Yup.');
       };
     }

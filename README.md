@@ -185,16 +185,16 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    var items = new Array();
+    const items = new Array();
 
     // bien
-    var items = [];
+    const items = [];
     ```
 
   - Usa Array#push, en vez de asignación directa, para agregar elementos a un arreglo.
 
     ```javascript
-    var someStack = [];
+    const someStack = [];
 
     // mal
     someStack[someStack.length] = 'abracadabra';
@@ -203,12 +203,12 @@ Otras Guías de Estilos
     someStack.push('abracadabra');
     ```
 
-  - Cuando necesites copiar un arreglo usa Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - Usa [spread de arrays](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Spread_operator) para copiar arreglos.
 
     ```javascript
-    var len = items.length;
-    var itemsCopy = [];
-    var i;
+    const len = items.length;
+    const itemsCopy = [];
+    let i;
 
     // mal
     for (i = 0; i < len; i++) {
@@ -216,16 +216,14 @@ Otras Guías de Estilos
     }
 
     // bien
-    itemsCopy = items.slice();
+    const itemsCopy = [...items];
     ```
 
-  - Para convertir un objeto ["array-like" (similar a un arreglo)](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-7/array-like-objects) a un arreglo, usa Array#slice.
+  - Para convertir un objeto ["array-like" (similar a un arreglo)](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-7/array-like-objects) a un arreglo, usa Array#from.
 
     ```javascript
-    function trigger() {
-      var args = Array.prototype.slice.call(arguments);
-      ...
-    }
+    const foo = document.querySelectorAll('.foo');
+    const nodes = Array.from(foo);
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

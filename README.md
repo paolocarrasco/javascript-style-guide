@@ -137,23 +137,23 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    var item = new Object();
+    const item = new Object();
 
     // bien
-    var item = {};
+    const item = {};
     ```
 
-  - No uses [palabras reservadas](http://es5.github.io/#x7.6.1) para nombres de propiedades. No funciona en IE8. [Más información](https://github.com/airbnb/javascript/issues/61)
+  - No uses [palabras reservadas](http://es5.github.io/#x7.6.1) para nombres de propiedades. No funciona en IE8 [Más información](https://github.com/airbnb/javascript/issues/61).
 
     ```javascript
     // mal
-    var superman = {
+    const superman = {
       default: { clark: 'kent' },
       private: true
     };
 
     // bien
-    var superman = {
+    const superman = {
       defaults: { clark: 'kent' },
       hidden: true
     };
@@ -163,17 +163,17 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    var superman = {
+    const superman = {
       class: 'alien'
     };
 
     // mal
-    var superman = {
+    const superman = {
       klass: 'alien'
     };
 
     // bien
-    var superman = {
+    const superman = {
       type: 'alien'
     };
     ```

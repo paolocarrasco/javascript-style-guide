@@ -431,22 +431,22 @@ Otras Guías de Estilos
   - Usa la notación de punto `.` cuando accedas a las propiedades.
 
     ```javascript
-    var luke = {
+    const luke = {
       jedi: true,
       age: 28
     };
 
     // mal
-    var isJedi = luke['jedi'];
+    const isJedi = luke['jedi'];
 
     // bien
-    var isJedi = luke.jedi;
+    const isJedi = luke.jedi;
     ```
 
   - Usa la notación subscript `[]` cuando accedas a las propiedades con una variable.
 
     ```javascript
-    var luke = {
+    const luke = {
       jedi: true,
       age: 28
     };
@@ -455,7 +455,7 @@ Otras Guías de Estilos
       return luke[prop];
     }
 
-    var isJedi = getProp('jedi');
+    const isJedi = getProp('jedi');
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

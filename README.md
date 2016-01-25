@@ -338,6 +338,92 @@ Otras Guías de Estilos
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
+## <a name='constructors'>Constructores</a>
+
+  - Siempre usa `class`. Evita manipular `prototype` directamente.
+
+    > ¿Por qué? La sintaxis `class` es más concisa y fácil con la cual lidiar.
+
+    ```javascript
+    // mal
+    function Queue(contents = []) {
+      this._queue = [...contents];
+    }
+    Queue.prototype.pop = function () {
+      const value = this._queue[0];
+      this._queue.splice(0, 1);
+      return value;
+    }
+
+
+    // bien
+    class Queue {
+      constructor(contents = []) {
+        this._queue = [...contents];
+      }
+      pop() {
+        const value = this._queue[0];
+        this._queue.splice(0, 1);
+        return value;
+      }
+    }
+    ```
+
+  - Métodos pueden retornar `this` para ayudar con el encadenamiento de métodos (chaining).
+
+  ```javascript
+    // mal
+    Jedi.prototype.jump = function () {
+      this.jumping = true;
+      return true;
+    };
+
+    Jedi.prototype.setHeight = function (height) {
+      this.height = height;
+    };
+
+    const luke = new Jedi();
+    luke.jump(); // => true
+    luke.setHeight(20); // => undefined
+
+    // bien
+    class Jedi {
+      jump() {
+        this.jumping = true;
+        return this;
+      }
+
+      setHeight(height) {
+        this.height = height;
+        return this;
+      }
+    }
+
+    const luke = new Jedi();
+
+    luke.jump()
+      .setHeight(20);
+    ```
+
+  - Está bien escribir un método toString() personalizado, solo asegúrate que funcione correctamente y no cause efectos colaterales.
+
+    ```javascript
+    class Jedi {
+      constructor(options = {}) {
+        this.name = options.name || 'no name';
+      }
+
+      getName() {
+        return this.name;
+      }
+
+      toString() {
+        return `Jedi - ${this.getName()}`;
+      }
+    }
+    ```
+
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
 ## <a name='properties'>Propiedades</a>
@@ -1314,91 +1400,6 @@ Otras Guías de Estilos
 
     Jedi.prototype.get = function(key) {
       return this[key];
-    };
-    ```
-
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
-
-
-## <a name='constructors'>Constructores</a>
-
-  - Asigna métodos al objeto prototype, en vez de sobreescribir prototype con un nuevo objeto. La sobreescritura de prototype hace la herencia imposible: ¡reseteando prototype sobreescribirás la base!
-
-    ```javascript
-    function Jedi() {
-      console.log('new jedi');
-    }
-
-    // mal
-    Jedi.prototype = {
-      fight: function fight() {
-        console.log('fighting');
-      },
-
-      block: function block() {
-        console.log('blocking');
-      }
-    };
-
-    // bien
-    Jedi.prototype.fight = function fight() {
-      console.log('fighting');
-    };
-
-    Jedi.prototype.block = function block() {
-      console.log('blocking');
-    };
-    ```
-
-  - Métodos pueden retornar `this` para ayudar con el encadenamiento de métodos (chaining).
-
-    ```javascript
-    // mal
-    Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return true;
-    };
-
-    Jedi.prototype.setHeight = function(height) {
-      this.height = height;
-    };
-
-    var luke = new Jedi();
-    luke.jump(); // => true
-    luke.setHeight(20) // => undefined
-
-    // bien
-    Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return this;
-    };
-
-    Jedi.prototype.setHeight = function(height) {
-      this.height = height;
-      return this;
-    };
-
-    var luke = new Jedi();
-
-    luke.jump()
-      .setHeight(20);
-    ```
-
-
-  - Está bien escribir un método toString() personalizado, solo asegúrate que funcione correctamente y no cause efectos colaterales.
-
-    ```javascript
-    function Jedi(options) {
-      options || (options = {});
-      this.name = options.name || 'no name';
-    }
-
-    Jedi.prototype.getName = function getName() {
-      return this.name;
-    };
-
-    Jedi.prototype.toString = function toString() {
-      return 'Jedi - ' + this.getName();
     };
     ```
 

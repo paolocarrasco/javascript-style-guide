@@ -463,119 +463,104 @@ Otras Guías de Estilos
 
 ## <a name='variables'>Variables</a>
 
-  - Siempre usa `var` para declarar variables. No hacerlo resultará en variables globales. Debemos evitar contaminar el espacio global (global namespace). El [Capitán Planeta](https://es.wikipedia.org/wiki/Capit%C3%A1n_Planeta_y_los_planetarios) nos advirtió de eso.
+  - Siempre usa `const` para declarar constantes o `let` para declarar variables. No hacerlo resultará en variables globales. Debemos evitar contaminar el espacio global (global namespace). El [Capitán Planeta](https://es.wikipedia.org/wiki/Capit%C3%A1n_Planeta_y_los_planetarios) nos advirtió de eso.
 
     ```javascript
     // mal
     superPower = new SuperPower();
 
     // bien
-    var superPower = new SuperPower();
+    const superPower = new SuperPower();
+
+    o
+
+    // bien
+    let aPower;
+    aPower = new SuperPower(); // esto puede cambiar a otro poder luego
     ```
 
-  - Usa una declaración `var` por variable. Es más fácil agregar nuevas declaraciones de variables de este modo, y no tendrás que preocuparte por reemplazar `;` por `,` o introducir diffs de sólo puntuación .
+  - Usa una declaración `const` o `let` por variable.
+
+    > ¿Por qué? Es más fácil agregar nuevas declaraciones de variables de este modo, y no tendrás que preocuparte por reemplazar `;` por `,` o introducir diffs de sólo puntuación .
 
     ```javascript
     // mal
-    var items = getItems(),
+    cost items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
 
     // mal
     // (compara con lo de arriba y encuentra el error)
-    var items = getItems(),
+    const items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
 
     // bien
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball = 'z';
+    const items = getItems();
+    const goSportsTeam = true;
+    const dragonball = 'z';
     ```
 
-  - Declara a las variables sin asignación al final. Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente.
+  - Agrupa tus `const`s y luego agrupa tus `let`s.
+    > ¿Por qué? Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente.
 
     ```javascript
-    // mal
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
+   // mal
+   let i, len, dragonball,
+       items = getItems(),
+       goSportsTeam = true;
 
-    // mal
-    var i;
-    var items = getItems();
-    var dragonball;
-    var goSportsTeam = true;
-    var len;
+   // mal
+   let i;
+   const items = getItems();
+   let dragonball;
+   const goSportsTeam = true;
+   let len;
 
-    // bien
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball;
-    var length;
-    var i;
-    ```
+   // bien
+   const goSportsTeam = true;
+   const items = getItems();
+   let dragonball;
+   let i;
+   let length;
+   ```
 
-  - Asigna las variables al inicio de su ámbito. Esto ayuda a evitar inconvenientes con la declaración de variables y temas relacionados a 'hoisting'.
+  - Asigna las variables cuando las necesites, pero ponlas en un lugar razonable.
+    > ¿Por qué? `let` y `const` están a nivel de bloque, no a  nivel de función.
 
     ```javascript
-    // mal
-    function() {
-      test();
-      console.log('doing stuff..');
+   // mal - llamada a funcion innecesaria
+   function checkName(hasName) {
+     const name = getName();
 
-      //..otras cosas..
+     if (hasName === 'test') {
+       return false;
+     }
 
-      var name = getName();
+     if (name === 'test') {
+       this.setName('');
+       return false;
+     }
 
-      if (name === 'test') {
-        return false;
-      }
+     return name;
+   }
 
-      return name;
-    }
+   // bien
+   function checkName(hasName) {
+     if (hasName === 'test') {
+       return false;
+     }
 
-    // bien
-    function() {
-      var name = getName();
+     const name = getName();
 
-      test();
-      console.log('doing stuff..');
+     if (name === 'test') {
+       this.setName('');
+       return false;
+     }
 
-      //..otras cosas..
-
-      if (name === 'test') {
-        return false;
-      }
-
-      return name;
-    }
-
-    // mal - llamada a funcion innecesaria
-    function() {
-      var name = getName();
-
-      if (!arguments.length) {
-        return false;
-      }
-
-      this.setFirstName(name);
-
-      return true;
-    }
-
-    // bien
-    function() {
-      if (!arguments.length) {
-        return false;
-      }
-
-      var name = getName();
-      this.setFirstName(name);
-
-      return true;
-    }
-    ```
+     return name;
+   }
+   ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 

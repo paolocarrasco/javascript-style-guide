@@ -239,6 +239,7 @@ Otras Guías de Estilos
 
     // bien
     const name = 'Bob Parr';
+    ```
 
   - Las cadenas de texto con una longitud mayor a 100 caracteres deben ser escritas en múltiples líneas usando concatenación.
 
@@ -355,7 +356,6 @@ Otras Guías de Estilos
       return value;
     }
 
-
     // bien
     class Queue {
       constructor(contents = []) {
@@ -369,7 +369,7 @@ Otras Guías de Estilos
     }
     ```
 
-  - Métodos pueden retornar `this` para ayudar con el encadenamiento de métodos (chaining).
+  - Métodos pueden retornar `this` para ayudar con el encadenamiento de métodos (*chaining*).
 
   ```javascript
     // mal
@@ -405,7 +405,7 @@ Otras Guías de Estilos
       .setHeight(20);
     ```
 
-  - Está bien escribir un método toString() personalizado, solo asegúrate que funcione correctamente y no cause efectos colaterales.
+  - Está bien escribir un método `toString()` personalizado, solo asegúrate que funcione correctamente y no cause efectos colaterales.
 
     ```javascript
     class Jedi {
@@ -476,7 +476,7 @@ Otras Guías de Estilos
 
     // bien
     let aPower;
-    aPower = new SuperPower(); // esto puede cambiar a otro poder luego
+    aPower = new SuperPower(); // esto puede cambiar a otro poder posteriormente
     ```
 
   - Usa una declaración `const` o `let` por variable.
@@ -485,7 +485,7 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    cost items = getItems(),
+    const items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
 

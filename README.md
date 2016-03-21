@@ -660,9 +660,9 @@ Otras Guías de Estilos
 ## <a name='conditionals'>Expresiones de comparación e igualdad</a>
 
   - Usa `===` y `!==` en vez de `==` y `!=` respectivamente.
-  - Expresiones condicionales son evaluadas usando coerción con el método `ToBoolean` y siempre obedecen a estas reglas sencillas:
+  - Las expresiones condicionales son evaluadas usando coerción con el método `ToBoolean` y siempre obedecen a estas reglas sencillas:
 
-    + **Objects** son evaluados como **true** (también considera así al objeto vacío ```{}``` y arreglos sin contenido ```[]```)
+    + **Objects** son evaluados como **true** (se considera así al objeto vacío `{}` y arreglos sin contenido `[]`)
     + **Undefined** es evaluado como **false**
     + **Null** es evaluado como **false**
     + **Booleans** son evaluados como **el valor del booleano**
@@ -670,9 +670,9 @@ Otras Guías de Estilos
     + **Strings** son evaluados como **false** si es una cadena de texto vacía `''`, de otro modo son **true**
 
     ```javascript
-    if ([0]) {
+    if ([0] && []) {
       // true
-      // un arreglo es un objeto, los objetos son evaluados como true
+      // un arreglo es un objeto (incluso uno vacío), los objetos son evaluados como true
     }
     ```
 
@@ -681,26 +681,74 @@ Otras Guías de Estilos
     ```javascript
     // mal
     if (name !== '') {
-      // ...stuff...
+      // ...cosas...
     }
 
     // bien
     if (name) {
-      // ...stuff...
+      // ...cosas...
     }
 
     // mal
     if (collection.length > 0) {
-      // ...stuff...
+      // ...cosas...
     }
 
     // bien
     if (collection.length) {
-      // ...stuff...
+      // ...cosas...
     }
     ```
 
   - Para más información revisa [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) por Angus Croll
+
+  - Usa llaves para crear bloques en cláusulas `case` y `default` que contengan
+  declaraciones léxicas (e.g. `let`, `const`, `function` y `class`).
+
+    > ¿Por qué? La declaración léxica es visible en todo el bloque `switch`
+    pero solo se inicializa al ser asignado, lo que solo ocurre cuando el bloque
+    `case` donde es declarado es alcanzado. Esto causa problemas cuando
+    múltiples bloques `case` intentan definir la misma variable.
+
+
+    ```javascript
+    // mal
+    switch (foo) {
+      case 1:
+        let x = 1;
+        break;
+      case 2:
+        const y = 2;
+        break;
+      case 3:
+        function f() {}
+        break;
+      default:
+        class C {}
+    }
+
+    // bien
+    switch (foo) {
+      case 1: {
+        let x = 1;
+        break;
+      }
+      case 2: {
+        const y = 2;
+        break;
+      }
+      case 3: {
+        function f() {}
+        break;
+      }
+      case 4:
+        bar();
+        break;
+      default: {
+        class C {}
+      }
+    }
+    ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 

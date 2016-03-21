@@ -666,7 +666,7 @@ Otras Guías de Estilos
     + **Undefined** es evaluado como **false**
     + **Null** es evaluado como **false**
     + **Booleans** son evaluados como **el valor del booleano**
-    + **Numbers** son evaluados como **false** si **+0**, **-0**, o **NaN**, de otro modo **true**
+    + **Numbers** son evaluados como **false** si su valor es **+0**, **-0**, o **NaN**, de otro modo **true**
     + **Strings** son evaluados como **false** si es una cadena de texto vacía `''`, de otro modo son **true**
 
     ```javascript

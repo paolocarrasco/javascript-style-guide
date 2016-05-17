@@ -837,7 +837,7 @@ Otras Guías de Estilos
     }
     ```
 
-  - Usa `//` para comentarios de una sola línea. Ubica los comentarios de una sola línea encima de la sentencia comentada. Deja una línea en blanco antes del comentario.
+  - Usa `//` para comentarios de una sola línea. Ubica los comentarios de una sola línea encima de la sentencia comentada. Deja una línea en blanco antes del comentario, a menos que sea la primera línea de un bloque.
 
     ```javascript
     // mal
@@ -872,26 +872,28 @@ Otras Guías de Estilos
   - Usa `// FIXME:` para anotar problemas.
 
     ```javascript
-    function Calculator() {
+    class Calculator extends Abacus {
+      constructor() {
+        super();
 
-      // FIXME: shouldn't use a global here
-      total = 0;
-
-      return this;
+        // FIXME: shouldn't use a global here
+        total = 0;
+      }
     }
     ```
 
   - Usa `// TODO:` para anotar soluciones a los problemas.
 
     ```javascript
-    function Calculator() {
+    class Calculator extends Abacus {
+      constructor() {
+        super();
 
-      // TODO: total should be configurable by an options param
-      this.total = 0;
-
-      return this;
+        // TODO: total should be configurable by an options param
+        this.total = 0;
+      }
     }
-  ```
+    ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 

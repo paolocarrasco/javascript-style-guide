@@ -21,7 +21,7 @@ Otras Guías de Estilos
   1. [Cadenas de Texto](#strings)
   1. [Funciones](#functions)
   1. [Notación de Funciones de Flecha](#arrow-functions)
-  1. [Constructores](#constructors)
+  1. [Clases y Constructores](#constructors)
   1. [Módulos](#modules)
   1. [Iteradores y Generadores](#iterators-and-generators)
   1. [Propiedades](#properties)
@@ -339,7 +339,7 @@ Otras Guías de Estilos
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='constructors'>Constructores</a>
+## <a name='constructors'>Clases y Constructores</a>
 
   - Siempre usa `class`. Evita manipular `prototype` directamente.
 

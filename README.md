@@ -841,17 +841,17 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    var active = true;  // is current tab
+    const active = true;  // is current tab
 
     // bien
     // is current tab
-    var active = true;
+    const active = true;
 
     // mal
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
-      var type = this._type || 'no type';
+      const type = this._type || 'no type';
 
       return type;
     }
@@ -861,7 +861,7 @@ Otras Guías de Estilos
       console.log('fetching type...');
 
       // set the default type to 'no type'
-      var type = this._type || 'no type';
+      const type = this._type || 'no type';
 
       return type;
     }
@@ -904,18 +904,18 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    function() {
-    ∙∙∙∙var name;
+    function foo() {
+    ∙∙∙∙const name;
     }
 
     // mal
-    function() {
-    ∙var name;
+    function bar() {
+    ∙const name;
     }
 
     // bien
-    function() {
-    ∙∙var name;
+    function baz() {
+    ∙∙const name;
     }
     ```
   - Deja un espacio antes de la llave de apertura.

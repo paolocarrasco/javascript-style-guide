@@ -970,10 +970,10 @@ Otras Guías de Estilos
   - Separa a los operadores con espacios.
     ```javascript
     // mal
-    var x=y+5;
+    const x=y+5;
 
     // bien
-    var x = y + 5;
+    const x = y + 5;
     ```
 
   - Deja una línea en blanco al final del archivo.
@@ -1002,7 +1002,7 @@ Otras Guías de Estilos
 
     ```
 
-  - Usa indentación cuando uses métodos largos con 'chaining'. Emplea un punto adelante en cada nueva línea, lo que enfatiza que es un método llamado no una nueva sentencia.
+  - Usa indentación cuando uses métodos largos con 'chaining' (más de dos métodos encadenados). Emplea un punto adelante en cada nueva línea, lo que enfatiza que es un método llamado no una nueva sentencia.
 
     ```javascript
     // mal
@@ -1025,13 +1025,13 @@ Otras Guías de Estilos
         .updateCount();
 
     // mal
-    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
         .attr('width',  (radius + margin) * 2).append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
 
     // bien
-    var leds = stage.selectAll('.led')
+    const leds = stage.selectAll('.led')
         .data(data)
       .enter().append('svg:svg')
         .class('led', true)
@@ -1044,38 +1044,58 @@ Otras Guías de Estilos
   - Deja una línea en blanco luego de los bloques y antes de la siguiente sentencia.
 
     ```javascript
-    // bad
+    // mal
     if (foo) {
       return bar;
     }
     return baz;
 
-    // good
+    // bien
     if (foo) {
       return bar;
     }
 
     return baz;
 
-    // bad
-    var obj = {
-      foo: function() {
+    // mal
+    const obj = {
+      foo() {
       },
-      bar: function() {
+      bar() {
       }
     };
     return obj;
 
-    // good
-    var obj = {
-      foo: function() {
+    // bien
+    const obj = {
+      foo() {
       },
 
-      bar: function() {
+      bar() {
       }
     };
 
     return obj;
+
+    // mal
+    const arr = [
+      function foo() {
+      },
+      function bar() {
+      },
+    ];
+    return arr;
+
+    // bien
+    const arr = [
+      function foo() {
+      },
+
+      function bar() {
+      },
+    ];
+
+    return arr;
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

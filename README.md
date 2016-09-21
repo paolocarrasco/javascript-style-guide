@@ -6,8 +6,9 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Otras Guías de Estilos
-- [ES5](es5/)
+- [ES5](es5/) (Obsoleto)
 - [React](https://github.com/airbnb/javascript/tree/master/react)
+- [CSS-in-JavaScript](https://github.com/airbnb/javascript/tree/master/css-in-javascript/)
 - [CSS & SASS](https://github.com/airbnb/css)
 - [Ruby](https://github.com/airbnb/ruby)
 
@@ -39,7 +40,7 @@ Otras Guías de Estilos
   1. [Eventos](#events)
   1. [jQuery](#jquery)
   1. [Compatibilidad con ES5](#es5)
-  1. [Estilos de ES6](#ecmascript-6-styles)
+  1. [Estilos de ES6+ (ES2015+)](#ecmascript-6-styles)
   1. [Pruebas](#testing)
   1. [Desempeño](#performance)
   1. [Recursos](#resources)
@@ -1106,61 +1107,75 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    var story = [
+    const story = [
         once
       , upon
       , aTime
     ];
 
     // bien
-    var story = [
+    const story = [
       once,
       upon,
-      aTime
+      aTime,
     ];
 
     // mal
-    var hero = {
-        firstName: 'Bob'
-      , lastName: 'Parr'
-      , heroName: 'Mr. Incredible'
+    const hero = {
+        firstName: 'Ada'
+      , lastName: 'Lovelace'
+      , birthYear: 1815
       , superPower: 'strength'
     };
 
     // bien
-    var hero = {
-      firstName: 'Bob',
-      lastName: 'Parr',
-      heroName: 'Mr. Incredible',
-      superPower: 'strength'
+    const hero = {
+      firstName: 'Ada',
+      lastName: 'Lovelace',
+      birthYear: 1815,
+      superPower: 'computers',
     };
     ```
 
-  - Coma adicional al final: **Nop.** Esto puede provocar problemas en IE6/7 o IE9 si está en quirksmode. Además, en algunas implementaciones de ES3 se puede aumentar la longitud del arreglo si se tiene una coma adicional al final. Esto fue clarificado en ES5 ([fuente](http://es5.github.io/#D)):
-
-  > La Edición 5 aclara el hecho de que dejar una coma al final de un ArrayInitialiser (inicialización de un arreglo) no aumenta la longitud del arreglo. Esto no es un cambio semántico a la Edición 3 pero algunas implementaciones tal vez malinterpretaron esto.
+  - Coma adicional al final: **Sip.**
+  > ¿Por qué? Esto lleva a diferenciales en git más claros. Además los transpiladores como Babel removerán la coma del final en el código transpilado lo que significa que no te tendrás que preocupar del [problema de la coma adicional al final](es5/README.md#commas) en navegadores antiguos.
 
     ```javascript
-    // mal
-    var hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn',
+    // mal - git diff sin coma adicional al final
+    const hero = {
+         firstName: 'Florence',
+    -    lastName: 'Nightingale'
+    +    lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    var heroes = [
+    // bien - git diff con coma adicional al final
+    const hero = {
+         firstName: 'Florence',
+         lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb chart', 'modern nursing'],
+    };
+
+    // mal
+    const hero = {
+      firstName: 'Dana',
+      lastName: 'Scully'
+    };
+
+    const heroes = [
       'Batman',
-      'Superman',
+      'Superman'
     ];
 
     // bien
-    var hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn'
+    const hero = {
+      firstName: 'Dana',
+      lastName: 'Scully',
     };
 
-    var heroes = [
+    const heroes = [
       'Batman',
-      'Superman'
+      'Superman',
     ];
     ```
 

@@ -1445,21 +1445,31 @@ Otras Guías de Estilos
 ## <a name='accessors'>Funciones de Acceso</a>
 
   - Funciones de acceso para las propiedades no son requeridas.
-  - Si creas funciones de acceso usa  ```getVal()``` y ```setVal('hello')```.
+  - No uses getters/setters de JavaScript ya que causan efectos colaterales no esperados y son difíciles de probar, mantener y razonar. En vez de ello, si creas funciones de acceso usa  ```getVal()``` y ```setVal('hello')```.
 
-    ```javascript
-    // mal
-    dragon.age();
+  ```javascript
+     // Maintainable-JavaScript-Nicholas-C-Zakas
+     class Dragon {
+       get age() {
+         // ...
+       }
 
-    // bien
-    dragon.getAge();
+       set age(value) {
+         // ...
+       }
+     }
 
-    // mal
-    dragon.age(25);
+     // bien
+     class Dragon {
+       getAge() {
+         // ...
+       }
 
-    // bien
-    dragon.setAge(25);
-    ```
+       setAge(value) {
+         // ...
+       }
+     }
+     ```
 
   - Si la propiedad es un booleano, usa ```isVal()``` o ```hasVal()```.
 
@@ -1478,19 +1488,20 @@ Otras Guías de Estilos
   - Está bien crear funciones ```get()``` y ```set()```, pero sé consistente.
 
     ```javascript
-    function Jedi(options) {
-      options || (options = {});
-      var lightsaber = options.lightsaber || 'blue';
-      this.set('lightsaber', lightsaber);
+    class Jedi {
+      constructor(options = {}) {
+        const lightsaber = options.lightsaber || 'blue';
+        this.set('lightsaber', lightsaber);
+      }
+
+      set(key, val) {
+        this[key] = val;
+      }
+
+      get(key) {
+        return this[key];
+      }
     }
-
-    Jedi.prototype.set = function(key, val) {
-      this[key] = val;
-    };
-
-    Jedi.prototype.get = function(key) {
-      return this[key];
-    };
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

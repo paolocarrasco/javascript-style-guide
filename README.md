@@ -1603,15 +1603,38 @@ Otras Guías de Estilos
 
   - Revisa la [tabla de compatibilidad](http://kangax.github.com/es5-compat-table/) de ES5 de [Kangax](https://twitter.com/kangax/).
 
-  **[[⬆]](#TOC)**
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
+## <a name="ecmascript-6-styles"></a>Estilos de ES6+ (ES 2015+)
+
+    - A continuación, un conjunto de enlaces hacia los estilos para las nuevas características de ES6:
+
+  1. [Notación Funciones de Flecha](#arrow-functions)
+  1. [Clases](#classes--constructors)
+  1. [Declaración abreviada para objeto](#es6-object-shorthand)
+  1. [Declaración de objeto concisa](#es6-object-concise)
+  1. [Propiedades computadas de objeto](#es6-computed-properties)
+  1. [Plantillas de texto](#es6-template-literals)
+  1. [Destructuring](#destructuring)
+  1. [Parámetros por defecto](#es6-default-parameters)
+  1. [Rest](#es6-rest)
+  1. [Spreads de arreglos](#es6-array-spreads)
+  1. [Let y Const](#references)
+  1. [Iteradores y Generadores](#iterators-and-generators)
+  1. [Módulos](#modules)
+
+    - No uses [las propuestas de TC39](https://github.com/tc39/proposals) puesto que aún no han llegado a la tercera etapa.
+
+      > ¿Por qué? [No están finalizadas](https://tc39.github.io/process-document/), y están sujetas a cambios o reescritas completamente. Vamos a usar JavaScript y las propuestas aún no son JavaScript.
+
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 ## <a name='testing'>Pruebas</a>
 
   - **Sip**.
 
     ```javascript
-    function() {
+    function foo() {
       return true;
     }
     ```

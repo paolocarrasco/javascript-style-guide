@@ -1639,8 +1639,15 @@ Otras Guías de Estilos
     }
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+  - **No, but seriously**:
+   - Cualquiera que sea el framework de testing que emplees, ¡deberías escribir tests!
+   - Esfuérzate por escribir funciones pequeñas y puras, además de minimizar las posibles mutaciones que pudiesen ocurrir.
+   - Sé cuidados con los stubs y los mocks - pueden hacer tus tests más frágiles.
+   - Usamos principalmente [`mocha`](https://www.npmjs.com/package/mocha) en Airbnb. [`tape`](https://www.npmjs.com/package/tape) es también usado ocasionalmente para módulos pequeños y separados.
+   - 100% de cobertura de pruebas es una buena meta a perseguir, a pesar que no es siempre práctico conseguirlo.
+   - Cuando corrijas una incidencia (bug), _escribe una prueba de regresión_. Una incidencia sin una prueba de regresión es casi seguro que volverá a ocurrir en el futuro.
 
+    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 ## <a name='performance'>Desempeño</a>
 

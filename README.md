@@ -1219,43 +1219,40 @@ Otras Guías de Estilos
     //  => this.reviewScore = 9;
 
     // mal
-    var totalScore = this.reviewScore + '';
-
-    // bien
-    var totalScore = '' + this.reviewScore;
+    const totalScore = this.reviewScore + ''; // invoca a this.reviewScore.valueOf()
 
     // mal
-    var totalScore = '' + this.reviewScore + ' total score';
+    const totalScore = this.reviewScore.toString(); // no se garantiza que retorne una cadena de texto
 
     // bien
-    var totalScore = this.reviewScore + ' total score';
+    const totalScore = String(this.reviewScore);
     ```
 
-  - Usa `parseInt` para números y siempre con la base numérica para el casting de tipo.
+  - Números: Usa `Number` para el casting de tipo y `parseInt` siempre con la base numérica para el casting de textos.
 
     ```javascript
-    var inputValue = '4';
+    const inputValue = '4';
 
     // mal
-    var val = new Number(inputValue);
+    const val = new Number(inputValue);
 
     // mal
-    var val = +inputValue;
+    const val = +inputValue;
 
     // mal
-    var val = inputValue >> 0;
+    const val = inputValue >> 0;
 
     // mal
-    var val = parseInt(inputValue);
+    const val = parseInt(inputValue);
 
     // bien
-    var val = Number(inputValue);
+    const val = Number(inputValue);
 
     // bien
-    var val = parseInt(inputValue, 10);
+    const val = parseInt(inputValue, 10);
     ```
 
-  - Si por alguna razón estás haciendo algo salvaje y `parseInt` es un cuello de botella por lo que necesitaste usar Bitshift por [razones de desempeño](http://jsperf.com/coercion-vs-casting/3), deja un comentario explicando qué y porqué lo estás haciendo.
+  - Si por alguna razón estás haciendo algo salvaje y `parseInt` es un cuello de botella por lo que necesitaste usar Bitshift por [razones de desempeño](http://jsperf.com/coercion-vs-casting/3), deja un comentario explicando la razón y resumen de lo que estás haciendo.
 
     ```javascript
     // bien
@@ -1264,7 +1261,7 @@ Otras Guías de Estilos
      * Bitshifting the String to coerce it to a
      * Number made it a lot faster.
      */
-    var val = inputValue >> 0;
+    const val = inputValue >> 0;
     ```
 
   > **Nota:** Ten mucho cuidado al hacer operaciones de Bitshift. En Javascript los números son representados como [valores de 64-bit](http://es5.github.io/#x4.3.19), sin embargo las operaciones de Bitshift siempre retornan un entero de 32-bits ([fuente](http://es5.github.io/#x11.7)). Bitshift puede presentarnos un comportamiento inesperado para valores enteros mayores a 32 bits. [Discusión](https://github.com/airbnb/javascript/issues/109). El mayor entero con signo de 32 bits es 2,147,483,647:
@@ -1277,16 +1274,16 @@ Otras Guías de Estilos
   - Booleans:
 
     ```javascript
-    var age = 0;
+    const age = 0;
 
     // mal
-    var hasAge = new Boolean(age);
+    const hasAge = new Boolean(age);
 
     // bien
-    var hasAge = Boolean(age);
+    const hasAge = Boolean(age);
 
     // bien
-    var hasAge = !!age;
+    const hasAge = !!age;
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

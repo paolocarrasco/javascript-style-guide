@@ -1537,48 +1537,16 @@ Otras Guías de Estilos
 
   **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-
-## <a name='modules'>Módulos</a>
-
-  - El módulo debe empezar con un `!`. Esto asegura que si un módulo mal formado olvide incluir al final un punto y coma, no hayan errores en producción cuando los scripts sean concatenados. [Explicación](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - El archivo debe ser nombrado con camelCase, residir en un fólder con el mismo nombre, y corresponder al nombre de la función a exportar.
-  - Agrega un método `noConflict()` que reestablezca el módulo exportado a la versión anterior y retorne este módulo (para ser asignado a una variable).
-  - Siempre declara `'use strict';` al inicio de cada módulo.
-
-    ```javascript
-    // fancyInput/fancyInput.js
-
-    !function(global) {
-      'use strict';
-
-      var previousFancyInput = global.FancyInput;
-
-      function FancyInput(options) {
-        this.options = options || {};
-      }
-
-      FancyInput.noConflict = function noConflict() {
-        global.FancyInput = previousFancyInput;
-        return FancyInput;
-      };
-
-      global.FancyInput = FancyInput;
-    }(this);
-    ```
-
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
-
-
 ## <a name='jquery'>jQuery</a>
 
   - Nombre las variables de objetos jQuery con un prefijo `$`.
 
     ```javascript
     // mal
-    var sidebar = $('.sidebar');
+    const sidebar = $('.sidebar');
 
     // bien
-    var $sidebar = $('.sidebar');
+    const $sidebar = $('.sidebar');
     ```
 
   - Guarde en variables los lookups de jQuery que se necesiten posteriormente.
@@ -1597,7 +1565,7 @@ Otras Guías de Estilos
 
     // bien
     function setSidebar() {
-      var $sidebar = $('.sidebar');
+      const $sidebar = $('.sidebar');
       $sidebar.hide();
 
       // ...algo...

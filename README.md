@@ -1517,7 +1517,7 @@ Otras Guías de Estilos
 
     ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on('listingUpdated', (e, listingId) => {
       // hacer algo con listingId
     });
     ```
@@ -1530,7 +1530,7 @@ Otras Guías de Estilos
 
     ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on('listingUpdated', (e, data) => {
       // hacer algo con data.listingId
     });
     ```

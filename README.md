@@ -1309,9 +1309,9 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    var OBJEcttsssss = {};
-    var this_is_my_object = {};
-    var o = {};
+    const OBJEcttsssss = {};
+    const this_is_my_object = {};
+    const o = {};
     function c() {}
 
     // bien
@@ -1327,37 +1327,42 @@ Otras Guías de Estilos
       this.name = options.name;
     }
 
-    var bad = new user({
+    const bad = new user({
       name: 'nope'
     });
 
     // bien
-    function User(options) {
-      this.name = options.name;
+    class User {
+      constructor(options) {
+        this.name = options.name;
+      }
     }
 
-    var good = new User({
-      name: 'yup'
+    const good = new User({
+      name: 'yup',
     });
     ```
 
-  - Usa un guión bajo `_` adelante de la variable cuando nombres propiedades privadas.
+  - No uses prefijos ni sufijos de guiones bajo.
+  > ¿Por qué? JavaScript no tiene el concepto de privacidad en términos de propiedades o métodos. A pesar que un guión bajo como prefijo es una convención común para indicar que son "privados", la realidad es que estas propiedades son absolutamente públicas, y por ello, parte de tu contrato público de API. La convención del prefijo de guión bajo podría orientar a los desarrolladores a pensar erróneamente que un cambio a aquellos no será de impacto o que los tests no son necesarios.
 
     ```javascript
     // mal
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
+    this._firstName = 'Panda';
+
 
     // bien
-    this._firstName = 'Panda';
+    this.firstName = 'Panda';
     ```
 
-  - Cuando guardes una referencia a `this` usa `_this`.
+  - Nunca guardes referencias a `this`. Usa funciones arrow o la función [#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
 
     ```javascript
     // mal
     function() {
-      var self = this;
+      const self = this;
       return function() {
         console.log(self);
       };
@@ -1365,56 +1370,74 @@ Otras Guías de Estilos
 
     // mal
     function() {
-      var that = this;
+      const that = this;
       return function() {
         console.log(that);
       };
     }
 
     // bien
-    function() {
-      var _this = this;
-      return function() {
-        console.log(_this);
+    function foo() {
+      return () => {
+        console.log(this);
       };
     }
     ```
 
-  - Nombra tus funciones. Esto será de ayuda cuando hagas seguimiento de la pila de llamadas (e.g. en caso de errores).
+  - El nombre del archivo base debe corresponder exactamente con el nombre de su export por defecto.
 
-    ```javascript
-    // mal
-    var log = function(msg) {
-      console.log(msg);
-    };
+  ```javascript
+   // contenido archivo 1
+   class CheckBox {
+     // ...
+   }
+   export default CheckBox;
 
-    // bien
-    var log = function log(msg) {
-      console.log(msg);
-    };
-    ```
+   // contenido archivo 2
+   export default function fortyTwo() { return 42; }
 
-  > **Nota:**  En IE8 e inferiores se tienen algunas inconveniencias con las expresiones de función nombradas. Mira http://kangax.github.io/nfe/ para más información.
+   // contenido archivo 3
+   export default function insideDirectory() {}
 
-  - Si tu archivo exporta una sola clase, el nombre de tu archivo debe ser exactamente el nombre de tu clase.
+   // en algún otro archivo
+   // mal
+   import CheckBox from './checkBox'; // importacion/exportacion PascalCase, nombre de archivo camelCase
+   import FortyTwo from './FortyTwo'; // importacion/nombre de archivo PascalCase, exportacion camelCase
+   import InsideDirectory from './InsideDirectory'; // importacion/nombre de archivo PascalCase, exportacion camelCase
 
-    ```javascript
-    // contenido del archivo
-    class CheckBox {
-      // ...
+   // mal
+   import CheckBox from './check_box'; // importacion/exportacion PascalCase, nombre de archivo snake_case
+   import forty_two from './forty_two'; // importacion/nombre de archivo snake_case, exportacion camelCase
+   import inside_directory from './inside_directory'; // importacion snake_case, exportacion camelCase
+   import index from './inside_directory/index'; // requiere el archivo de index explicitamente
+   import insideDirectory from './insideDirectory/index'; // requiere el archivo de index explicitamente
+
+   // bien
+   import CheckBox from './CheckBox'; // importacion/exportacion/nombre de archivo PascalCase
+   import fortyTwo from './fortyTwo'; // importacion/exportacion/nombre de archivo camelCase
+   import insideDirectory from './insideDirectory'; // importacion/exportacion/nombre directorio/archivo "index" implícito
+   // ^ soporta tanto insideDirectory.js e insideDirectory/index.js
+
+   ```
+
+  - Usa camelCase cuando exportes por defecto una función. Tu nombre de archivo debe ser idéntico al nombre de tu función.
+
+  ```javascript
+  function makeStyleGuide() {
+  }
+
+  export default makeStyleGuide;
+  ```
+
+  - Usa camelCase cuando exportes un objeto constructor / clase / singleton / librería de función / esqueleto.
+  ```javascript
+  const AirbnbStyleGuide = {
+    es6: {
     }
-    module.exports = CheckBox;
+  };
 
-    // en algun otro archivo
-    // mal
-    var CheckBox = require('./checkBox');
-
-    // mal
-    var CheckBox = require('./check_box');
-
-    // bien
-    var CheckBox = require('./CheckBox');
-    ```
+  export default AirbnbStyleGuide;
+  ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 

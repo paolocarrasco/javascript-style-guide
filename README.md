@@ -53,7 +53,7 @@ Otras Guías de Estilos
 
 ## <a name='types'>Tipos</a>
 
-  - **Primitivos**: Cuando accesas a un tipo primitivo, manejas directamente su valor
+  - **Primitivos**: Cuando accedes a un tipo primitivo, manejas directamente su valor
 
     + `string`
     + `number`
@@ -69,7 +69,7 @@ Otras Guías de Estilos
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complejo**: Cuando accesas a un tipo complejo, manejas la referencia a su valor.
+  - **Complejo**: Cuando accedes a un tipo complejo, manejas la referencia a su valor.
 
     + `object`
     + `array`

@@ -1658,6 +1658,7 @@ Otras Guías de Estilos
   - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
   - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
+  - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
   **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
@@ -1665,10 +1666,16 @@ Otras Guías de Estilos
 
 ## <a name='resources'>Recursos</a>
 
+**Learning ES6**
+
+  - [Draft ECMA 2015 (ES6) Spec](https://people.mozilla.org/~jorendorff/es6-draft.html)
+  - [ExploringJS](http://exploringjs.com/)
+  - [Tabla de compatibilidad de ES6](https://kangax.github.io/compat-table/es6/)
+  - [Vistazo comprensivo de las nuevas características de ES6](http://es6-features.org/)
 
 **Lee esto**
 
-  - [Annotated ECMAScript 5.1](http://es5.github.com/)
+  - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
 **Tools**
 
@@ -1681,7 +1688,6 @@ Otras Guías de Estilos
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) (Guía de Estilo de Javascript de Google)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines) (Lineamientos de Estilo con el núcleo de jQuery)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/) (Idiomatic Javascript: Principios de Escritura Consistente)
-  - [JavaScript Standard Style](https://github.com/feross/standard) (Estilo estándar de JavaScript)
 
 **Otros estilos**
 
@@ -1715,7 +1721,7 @@ Otras Guías de Estilos
   - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov (JavaScript de Terceros)
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman (JavaScript Efectivo: 68 modos específicos para elevar el poder de JavaScript)
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke (JavaScript Elocuente)
-  - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson (No sabes JS)
+  - [You Don't Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson (No sabes JS: ES6 y más allá)
 
 **Blogs**
 
@@ -1733,6 +1739,7 @@ Otras Guías de Estilos
 
 **Podcasts**
 
+  - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
   **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

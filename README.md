@@ -1791,7 +1791,7 @@ Otras Guías de Estilos
   - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polaco**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Ruso**: [uprock/javascript](https://github.com/uprock/javascript)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Tailandés**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-
+  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnamita**: [giangpii/javascript-style-guide](https://github.com/giangpii/javascript-style-guide)
 ## <a name='guide-guide'>La guía de la Guía de Estilos de Javascript</a>
 
   - [Referencia](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
@@ -1808,7 +1808,7 @@ Otras Guías de Estilos
 
 (The MIT License)
 
-Copyright (c) 2012 Airbnb
+Copyright (c) 2014-2016 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -1830,5 +1830,9 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+
+## Enmiendas
+
+Te recomendamos hacer fork de esta guía y cambiar las reglas para que se adecúen a la guía de estilos de tu equipo. Abajo podrás encontrar algunas enmiendas a la guía de estilos. Esto te permitirá actualizar periódicamente tu guía de estilos sin tener que lidiar con conflictos al hacer merge.
 
 # };

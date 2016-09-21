@@ -1188,23 +1188,23 @@ Otras Guías de Estilos
 
     ```javascript
     // mal
-    (function() {
-      var name = 'Skywalker'
+    (function () {
+      const name = 'Skywalker'
       return name
     })()
 
     // bien
-    (function() {
-      var name = 'Skywalker';
+    (() => {
+      const name = 'Skywalker';
       return name;
-    })();
+    }());
 
-    // super bien (evita que la funcion se vuelva un argumento
+    // bien, pero arcaico (evita que la funcion se vuelva un argumento
     // cuando dos archivos con IIFEs sean concatenados)
-    ;(function() {
-      var name = 'Skywalker';
+    ;(() => {
+      const name = 'Skywalker';
       return name;
-    })();
+    }());
     ```
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**

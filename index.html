@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Javascript-style-guide by paolocarrasco</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Javascript-style-guide</h1>
+        <h2>Guía de Estilo en JavaScript</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/paolocarrasco/javascript-style-guide/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/paolocarrasco/javascript-style-guide/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/paolocarrasco/javascript-style-guide" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <p><a href="https://github.com/airbnb/javascript"># Airbnb JavaScript Style Guide() {</a></p>
+
+<p><em>Un enfoque altamente razonable para JavaScript</em></p>
+
+<p><a href="https://www.npmjs.com/package/eslint-config-airbnb"><img src="https://img.shields.io/npm/dm/eslint-config-airbnb.svg" alt="Downloads"></a>
+<a href="https://gitter.im/airbnb/javascript?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
+
+<p>Otras Guías de Estilos</p>
+
+<ul>
+<li>
+<a href="es5/">ES5</a> (Obsoleto)</li>
+<li><a href="https://github.com/airbnb/javascript/tree/master/react">React</a></li>
+<li><a href="https://github.com/airbnb/javascript/tree/master/css-in-javascript/">CSS-in-JavaScript</a></li>
+<li><a href="https://github.com/airbnb/css">CSS &amp; SASS</a></li>
+<li><a href="https://github.com/airbnb/ruby">Ruby</a></li>
+</ul>
+
+<h2>
+<a id="tabla-de-contenido" class="anchor" href="#tabla-de-contenido" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="TOC">Tabla de Contenido</a>
+</h2>
+
+<ol>
+<li><a href="#types">Tipos</a></li>
+<li><a href="#references">Referencias</a></li>
+<li><a href="#objects">Objetos</a></li>
+<li><a href="#arrays">Arreglos</a></li>
+<li><a href="#destructuring">Destructuring</a></li>
+<li><a href="#strings">Cadenas de Texto</a></li>
+<li><a href="#functions">Funciones</a></li>
+<li><a href="#arrow-functions">Notación de Funciones de Flecha</a></li>
+<li><a href="#constructors">Clases y Constructores</a></li>
+<li><a href="#modules">Módulos</a></li>
+<li><a href="#iterators-and-generators">Iteradores y Generadores</a></li>
+<li><a href="#properties">Propiedades</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#hoisting">Hoisting</a></li>
+<li><a href="#conditionals">Expresiones de comparación e igualdad</a></li>
+<li><a href="#blocks">Bloques</a></li>
+<li><a href="#comments">Comentarios</a></li>
+<li><a href="#whitespace">Espacios en blanco</a></li>
+<li><a href="#commas">Comas</a></li>
+<li><a href="#semicolons">Puntos y Comas</a></li>
+<li><a href="#type-coercion">Casting de Tipos &amp; Coerción</a></li>
+<li><a href="#naming-conventions">Convenciones de nomenclatura</a></li>
+<li><a href="#accessors">Funciones de Acceso</a></li>
+<li><a href="#events">Eventos</a></li>
+<li><a href="#jquery">jQuery</a></li>
+<li><a href="#es5">Compatibilidad con ES5</a></li>
+<li><a href="#ecmascript-6-styles">Estilos de ES6+ (ES2015+)</a></li>
+<li><a href="#testing">Pruebas</a></li>
+<li><a href="#performance">Desempeño</a></li>
+<li><a href="#resources">Recursos</a></li>
+<li><a href="#in-the-wild">En la cancha</a></li>
+<li><a href="#translation">Traducciones</a></li>
+<li><a href="#guide-guide">La guía de la Guía del Estilo JavaScript</a></li>
+<li><a href="#chat-with-us-about-javascript">Charla con nosotros sobre Javascript</a></li>
+<li><a href="#contributors">Colaboradores</a></li>
+<li><a href="#license">Licencia</a></li>
+</ol>
+
+<h2>
+<a id="tipos" class="anchor" href="#tipos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="types">Tipos</a>
+</h2>
+
+<ul>
+<li>
+<p><strong>Primitivos</strong>: Cuando accedes a un tipo primitivo, manejas directamente su valor</p>
+
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>boolean</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">foo</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+<span class="pl-k">let</span> bar <span class="pl-k">=</span> foo;
+
+bar <span class="pl-k">=</span> <span class="pl-c1">9</span>;
+
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(foo, bar); <span class="pl-c">// =&gt; 1, 9</span></pre></div>
+</li>
+<li>
+<p><strong>Complejo</strong>: Cuando accedes a un tipo complejo, manejas la referencia a su valor.</p>
+
+<ul>
+<li><code>object</code></li>
+<li><code>array</code></li>
+<li><code>function</code></li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">foo</span> <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>];
+<span class="pl-k">const</span> <span class="pl-c1">bar</span> <span class="pl-k">=</span> foo;
+
+bar[<span class="pl-c1">0</span>] <span class="pl-k">=</span> <span class="pl-c1">9</span>;
+
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(foo[<span class="pl-c1">0</span>], bar[<span class="pl-c1">0</span>]); <span class="pl-c">// =&gt; 9, 9</span></pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="referencias" class="anchor" href="#referencias" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="references">Referencias</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa <code>const</code> para todas tus referencias; evita usar <code>var</code>.</p>
+
+<blockquote>
+<p>¿Por qué? Esto asegura que no reasignes tus referencias, lo
+que puede llevar a bugs y dificultad para comprender el código.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+<span class="pl-k">var</span> b <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">a</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+<span class="pl-k">const</span> <span class="pl-c1">b</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>;</pre></div>
+</li>
+<li>
+<p>Si vas a reasignar referencias, usa <code>let</code> en vez de <code>var</code>.</p>
+
+<blockquote>
+<p>¿Por qué? El bloque <code>let</code> es de alcance a nivel de bloque a
+diferencia del alcance a nivel de función de <code>var</code>.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">var</span> count <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+<span class="pl-k">if</span> (<span class="pl-c1">true</span>) {
+  count <span class="pl-k">+=</span> <span class="pl-c1">1</span>;
+}
+
+<span class="pl-c">// bien, usa el let</span>
+<span class="pl-k">let</span> count <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+<span class="pl-k">if</span> (<span class="pl-c1">true</span>) {
+  count <span class="pl-k">+=</span> <span class="pl-c1">1</span>;
+}</pre></div>
+</li>
+<li>
+<p>Nota que tanto <code>let</code> como <code>const</code> tienen alcance a nivel de bloque.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// const y let solo existen en los bloques donde</span>
+<span class="pl-c">// estan definidos</span>
+{
+  <span class="pl-k">let</span> a <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+  <span class="pl-k">const</span> <span class="pl-c1">b</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+}
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(a); <span class="pl-c">// ReferenceError</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(b); <span class="pl-c">// ReferenceError</span></pre></div>
+</li>
+</ul>
+
+<h2>
+<a id="objetos" class="anchor" href="#objetos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="objects">Objetos</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa la sintaxis literal para la creación de un objeto.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">item</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Object</span>();
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">item</span> <span class="pl-k">=</span> {};</pre></div>
+</li>
+<li>
+<p>No uses <a href="http://es5.github.io/#x7.6.1">palabras reservadas</a> para nombres de propiedades. No funciona en IE8 <a href="https://github.com/airbnb/javascript/issues/61">Más información</a>. No hay problema de usarlo en módulos de ES6 y en código de servidor.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">superman</span> <span class="pl-k">=</span> {
+  default<span class="pl-k">:</span> { clark<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kent<span class="pl-pds">'</span></span> },
+  private<span class="pl-k">:</span> <span class="pl-c1">true</span>
+};
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">superman</span> <span class="pl-k">=</span> {
+  defaults<span class="pl-k">:</span> { clark<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kent<span class="pl-pds">'</span></span> },
+  hidden<span class="pl-k">:</span> <span class="pl-c1">true</span>
+};</pre></div>
+</li>
+<li>
+<p>Usa sinónimos legibles en lugar de palabras reservadas.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">superman</span> <span class="pl-k">=</span> {
+  class<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>alien<span class="pl-pds">'</span></span>
+};
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">superman</span> <span class="pl-k">=</span> {
+  klass<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>alien<span class="pl-pds">'</span></span>
+};
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">superman</span> <span class="pl-k">=</span> {
+  type<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>alien<span class="pl-pds">'</span></span>
+};</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="arreglos" class="anchor" href="#arreglos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="arrays">Arreglos</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa la sintaxis literal para la creación de arreglos</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Array</span>();
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> [];</pre></div>
+</li>
+<li>
+<p>Usa Array#push, en vez de asignación directa, para agregar elementos a un arreglo.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">someStack</span> <span class="pl-k">=</span> [];
+
+<span class="pl-c">// mal</span>
+someStack[<span class="pl-smi">someStack</span>.<span class="pl-c1">length</span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>abracadabra<span class="pl-pds">'</span></span>;
+
+<span class="pl-c">// bien</span>
+<span class="pl-smi">someStack</span>.<span class="pl-c1">push</span>(<span class="pl-s"><span class="pl-pds">'</span>abracadabra<span class="pl-pds">'</span></span>);</pre></div>
+</li>
+<li>
+<p>Usa <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Spread_operator">spread de arrays</a> para copiar arreglos.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">len</span> <span class="pl-k">=</span> <span class="pl-smi">items</span>.<span class="pl-c1">length</span>;
+<span class="pl-k">const</span> <span class="pl-c1">itemsCopy</span> <span class="pl-k">=</span> [];
+<span class="pl-k">let</span> i;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> len; i<span class="pl-k">++</span>) {
+  itemsCopy[i] <span class="pl-k">=</span> items[i];
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">itemsCopy</span> <span class="pl-k">=</span> [<span class="pl-k">...</span>items];</pre></div>
+</li>
+<li>
+<p>Para convertir un objeto <a href="https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-7/array-like-objects">"array-like" (similar a un arreglo)</a> a un arreglo, usa Array#from.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">foo</span> <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.foo<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> <span class="pl-c1">nodes</span> <span class="pl-k">=</span> <span class="pl-c1">Array</span>.<span class="pl-en">from</span>(foo);</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="cadenas-de-texto" class="anchor" href="#cadenas-de-texto" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="strings">Cadenas de Texto</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa comillas simples <code>''</code> para las cadenas de texto</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Bob Parr<span class="pl-pds">"</span></span>;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Bob Parr<span class="pl-pds">'</span></span>;</pre></div>
+</li>
+<li>
+<p>Las cadenas de texto con una longitud mayor a 100 caracteres deben ser escritas en múltiples líneas usando concatenación.</p>
+
+<blockquote>
+<p><strong>Nota:</strong> Cuando se usa sin criterio, las cadenas de texto largas pueden impactar en el desempeño. <a href="http://jsperf.com/ya-string-concat">jsPerf</a> &amp; <a href="https://github.com/airbnb/javascript/issues/40">Discusión</a></p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// mal</span>
+  <span class="pl-k">var</span> errorMessage <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.<span class="pl-pds">'</span></span>;
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-k">var</span> errorMessage <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>This is a super long error that was thrown because\</span>
+<span class="pl-s">  of Batman. When you stop to think about how Batman had anything to do \</span>
+<span class="pl-s">  with this, you would get nowhere fast.<span class="pl-pds">'</span></span>;
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-k">var</span> errorMessage <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>This is a super long error that was thrown because<span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+    <span class="pl-s"><span class="pl-pds">'</span>of Batman. When you stop to think about how Batman had anything to do <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+    <span class="pl-s"><span class="pl-pds">'</span>with this, you would get nowhere fast.<span class="pl-pds">'</span></span>;</pre></div>
+</li>
+<li>
+<p>Cuando se crean cadenas de texto de forma programática, usa template strings (cadena de plantillas) en vez de concatenación.</p>
+
+<blockquote>
+<p>¿Por qué? Los template strings te dan mayor legibilidad, sintaxis concisa con nuevas líneas apropiadas y capacidades de interpolación.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// mal</span>
+  <span class="pl-k">function</span> <span class="pl-en">sayHi</span>(<span class="pl-smi">name</span>) {
+    <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>How are you, <span class="pl-pds">'</span></span> <span class="pl-k">+</span> name <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>?<span class="pl-pds">'</span></span>;
+  }
+
+  <span class="pl-c">// mal</span>
+  <span class="pl-k">function</span> <span class="pl-en">sayHi</span>(<span class="pl-smi">name</span>) {
+    <span class="pl-k">return</span> [<span class="pl-s"><span class="pl-pds">'</span>How are you, <span class="pl-pds">'</span></span>, name, <span class="pl-s"><span class="pl-pds">'</span>?<span class="pl-pds">'</span></span>].<span class="pl-c1">join</span>();
+  }
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-k">function</span> <span class="pl-en">sayHi</span>(<span class="pl-smi">name</span>) {
+    <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">`</span>How are you, <span class="pl-s1"><span class="pl-pse">${</span>name<span class="pl-pse">}</span></span>?<span class="pl-pds">`</span></span>;
+  }</pre></div>
+</li>
+<li>
+<p>Nunca uses <code>eval()</code> en una cadena de texto, abre una caja de Pandora de vulnerabilidades.</p>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="funciones" class="anchor" href="#funciones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="functions">Funciones</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa declaración de función en vez de expresiones de función.</p>
+
+<blockquote>
+<p>¿Por qué? Las declaraciones de función son nombradas, por lo que son más sencillos de identificar en las pilas de llamadas. Además todo el contenido de una declaración de función es <em>hoisted</em>, mientras que solo la referencia de una expresión de función es <em>hoisted</em>. Esta regla hace posible que siempre se usen <a href="#arrow-functions">Arrow Functions</a> en vez de las funciones de expresión.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">foo</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+};
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+}</pre></div>
+</li>
+<li>
+<p>Nunca declares una función en un bloque que no sea de función (if, while, etc). En vez de ello, asigna la función a una variable. Los navegadores te permitirán hacerlo pero todos ellos lo interpretarán de modo diferente, lo que es lamentable.</p>
+
+<blockquote>
+<p><strong>Nota:</strong> ECMA-262 define un bloque como una lista de sentencias. Una declaración de función no es una sentencia. <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97">Lee la nota de ECMA-262 sobre este inconveniente</a>.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// mal</span>
+  <span class="pl-k">if</span> (currentUser) {
+    <span class="pl-k">function</span> <span class="pl-en">test</span>() {
+      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Nope.<span class="pl-pds">'</span></span>);
+    }
+  }
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-k">let</span> test;
+  <span class="pl-k">if</span> (currentUser) {
+    <span class="pl-en">test</span> <span class="pl-k">=</span> () <span class="pl-k">=&gt;</span> {
+      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Yup.<span class="pl-pds">'</span></span>);
+    };
+  }</pre></div>
+</li>
+<li>
+<p>Nunca nombres a un parámetro como <code>arguments</code>, esto tendrá precedencia sobre el objeto <code>arguments</code> que es brindado en cada ámbito de función.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">nope</span>(<span class="pl-smi">name</span>, <span class="pl-smi">options</span>, <span class="pl-v">arguments</span>) {
+  <span class="pl-c">// ...algo...</span>
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">yup</span>(<span class="pl-smi">name</span>, <span class="pl-smi">options</span>, <span class="pl-smi">args</span>) {
+  <span class="pl-c">// ...algo...</span>
+}</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="clases-y-constructores" class="anchor" href="#clases-y-constructores" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="constructors">Clases y Constructores</a>
+</h2>
+
+<ul>
+<li>
+<p>Siempre usa <code>class</code>. Evita manipular <code>prototype</code> directamente.</p>
+
+<blockquote>
+<p>¿Por qué? La sintaxis <code>class</code> es más concisa y fácil con la cual lidiar.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">Queue</span>(<span class="pl-smi">contents</span> <span class="pl-k">=</span> []) {
+  <span class="pl-v">this</span>.<span class="pl-smi">_queue</span> <span class="pl-k">=</span> [<span class="pl-k">...</span>contents];
+}
+<span class="pl-smi">Queue</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">pop</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+  <span class="pl-k">const</span> <span class="pl-c1">value</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">_queue</span>[<span class="pl-c1">0</span>];
+  <span class="pl-v">this</span>.<span class="pl-smi">_queue</span>.<span class="pl-c1">splice</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>);
+  <span class="pl-k">return</span> value;
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">class</span> <span class="pl-en">Queue</span> {
+  <span class="pl-en">constructor</span>(<span class="pl-smi">contents</span> <span class="pl-k">=</span> []) {
+    <span class="pl-v">this</span>.<span class="pl-smi">_queue</span> <span class="pl-k">=</span> [<span class="pl-k">...</span>contents];
+  }
+  <span class="pl-en">pop</span>() {
+    <span class="pl-k">const</span> <span class="pl-c1">value</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">_queue</span>[<span class="pl-c1">0</span>];
+    <span class="pl-v">this</span>.<span class="pl-smi">_queue</span>.<span class="pl-c1">splice</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>);
+    <span class="pl-k">return</span> value;
+  }
+}</pre></div>
+</li>
+<li>
+<p>Métodos pueden retornar <code>this</code> para ayudar con el encadenamiento de métodos (<em>chaining</em>).</p>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// mal</span>
+  <span class="pl-smi">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">jump</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+    <span class="pl-v">this</span>.<span class="pl-smi">jumping</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+    <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+  };
+
+  <span class="pl-smi">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">setHeight</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">height</span>) {
+    <span class="pl-v">this</span>.<span class="pl-c1">height</span> <span class="pl-k">=</span> height;
+  };
+
+  <span class="pl-k">const</span> <span class="pl-c1">luke</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Jedi</span>();
+  <span class="pl-smi">luke</span>.<span class="pl-en">jump</span>(); <span class="pl-c">// =&gt; true</span>
+  <span class="pl-smi">luke</span>.<span class="pl-en">setHeight</span>(<span class="pl-c1">20</span>); <span class="pl-c">// =&gt; undefined</span>
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-k">class</span> <span class="pl-en">Jedi</span> {
+    <span class="pl-en">jump</span>() {
+      <span class="pl-v">this</span>.<span class="pl-smi">jumping</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+      <span class="pl-k">return</span> <span class="pl-v">this</span>;
+    }
+
+    <span class="pl-en">setHeight</span>(<span class="pl-smi">height</span>) {
+      <span class="pl-v">this</span>.<span class="pl-c1">height</span> <span class="pl-k">=</span> height;
+      <span class="pl-k">return</span> <span class="pl-v">this</span>;
+    }
+  }
+
+  <span class="pl-k">const</span> <span class="pl-c1">luke</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Jedi</span>();
+
+  <span class="pl-smi">luke</span>.<span class="pl-en">jump</span>()
+    .<span class="pl-en">setHeight</span>(<span class="pl-c1">20</span>);</pre></div>
+</li>
+<li>
+<p>Está bien escribir un método <code>toString()</code> personalizado, solo asegúrate que funcione correctamente y no cause efectos colaterales.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">class</span> <span class="pl-en">Jedi</span> {
+  <span class="pl-en">constructor</span>(<span class="pl-smi">options</span> <span class="pl-k">=</span> {}) {
+    <span class="pl-v">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-smi">options</span>.<span class="pl-c1">name</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>no name<span class="pl-pds">'</span></span>;
+  }
+
+  <span class="pl-en">getName</span>() {
+    <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-c1">name</span>;
+  }
+
+  <span class="pl-en">toString</span>() {
+    <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">`</span>Jedi - <span class="pl-s1"><span class="pl-pse">${</span><span class="pl-v">this</span>.<span class="pl-en">getName</span>()<span class="pl-pse">}</span></span><span class="pl-pds">`</span></span>;
+  }
+}</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="propiedades" class="anchor" href="#propiedades" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="properties">Propiedades</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa la notación de punto <code>.</code> cuando accedas a las propiedades.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">luke</span> <span class="pl-k">=</span> {
+  jedi<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  age<span class="pl-k">:</span> <span class="pl-c1">28</span>
+};
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">isJedi</span> <span class="pl-k">=</span> luke[<span class="pl-s"><span class="pl-pds">'</span>jedi<span class="pl-pds">'</span></span>];
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">isJedi</span> <span class="pl-k">=</span> <span class="pl-smi">luke</span>.<span class="pl-smi">jedi</span>;</pre></div>
+</li>
+<li>
+<p>Usa la notación subscript <code>[]</code> cuando accedas a las propiedades con una variable.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">luke</span> <span class="pl-k">=</span> {
+  jedi<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  age<span class="pl-k">:</span> <span class="pl-c1">28</span>
+};
+
+<span class="pl-k">function</span> <span class="pl-en">getProp</span>(<span class="pl-smi">prop</span>) {
+  <span class="pl-k">return</span> luke[prop];
+}
+
+<span class="pl-k">const</span> <span class="pl-c1">isJedi</span> <span class="pl-k">=</span> <span class="pl-en">getProp</span>(<span class="pl-s"><span class="pl-pds">'</span>jedi<span class="pl-pds">'</span></span>);</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="variables" class="anchor" href="#variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="variables">Variables</a>
+</h2>
+
+<ul>
+<li>
+<p>Siempre usa <code>const</code> para declarar constantes o <code>let</code> para declarar variables. No hacerlo resultará en variables globales. Debemos evitar contaminar el espacio global (global namespace). El <a href="https://es.wikipedia.org/wiki/Capit%C3%A1n_Planeta_y_los_planetarios">Capitán Planeta</a> nos advirtió de eso.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+superPower <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SuperPower</span>();
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">superPower</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SuperPower</span>();
+
+o
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">let</span> aPower;
+aPower <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SuperPower</span>(); <span class="pl-c">// esto puede cambiar a otro poder posteriormente</span></pre></div>
+</li>
+<li>
+<p>Usa una declaración <code>const</code> o <code>let</code> por variable.</p>
+
+<blockquote>
+<p>¿Por qué? Es más fácil agregar nuevas declaraciones de variables de este modo, y no tendrás que preocuparte por reemplazar <code>;</code> por <code>,</code> o introducir diffs de sólo puntuación .</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> <span class="pl-en">getItems</span>(),
+    goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>,
+    dragonball <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>z<span class="pl-pds">'</span></span>;
+
+<span class="pl-c">// mal</span>
+<span class="pl-c">// (compara con lo de arriba y encuentra el error)</span>
+<span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> <span class="pl-en">getItems</span>(),
+    goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+    dragonball <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>z<span class="pl-pds">'</span></span>;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> <span class="pl-en">getItems</span>();
+<span class="pl-k">const</span> <span class="pl-c1">goSportsTeam</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+<span class="pl-k">const</span> <span class="pl-c1">dragonball</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>z<span class="pl-pds">'</span></span>;</pre></div>
+</li>
+<li>
+<p>Agrupa tus <code>const</code>s y luego agrupa tus <code>let</code>s.</p>
+
+<blockquote>
+<p>¿Por qué? Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">let</span> i, len, dragonball,
+   items <span class="pl-k">=</span> <span class="pl-en">getItems</span>(),
+   goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">let</span> i;
+<span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> <span class="pl-en">getItems</span>();
+<span class="pl-k">let</span> dragonball;
+<span class="pl-k">const</span> <span class="pl-c1">goSportsTeam</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+<span class="pl-k">let</span> len;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">goSportsTeam</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+<span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> <span class="pl-en">getItems</span>();
+<span class="pl-k">let</span> dragonball;
+<span class="pl-k">let</span> i;
+<span class="pl-k">let</span> length;</pre></div>
+</li>
+<li>
+<p>Asigna las variables cuando las necesites, pero ponlas en un lugar razonable.</p>
+
+<blockquote>
+<p>¿Por qué? <code>let</code> y <code>const</code> están a nivel de bloque, no a  nivel de función.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal - llamada a funcion innecesaria</span>
+<span class="pl-k">function</span> <span class="pl-en">checkName</span>(<span class="pl-smi">hasName</span>) {
+ <span class="pl-k">const</span> <span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-en">getName</span>();
+
+ <span class="pl-k">if</span> (hasName <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) {
+   <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+ }
+
+ <span class="pl-k">if</span> (name <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) {
+   <span class="pl-v">this</span>.<span class="pl-en">setName</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);
+   <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+ }
+
+ <span class="pl-k">return</span> name;
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">checkName</span>(<span class="pl-smi">hasName</span>) {
+ <span class="pl-k">if</span> (hasName <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) {
+   <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+ }
+
+ <span class="pl-k">const</span> <span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-en">getName</span>();
+
+ <span class="pl-k">if</span> (name <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) {
+   <span class="pl-v">this</span>.<span class="pl-en">setName</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);
+   <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+ }
+
+ <span class="pl-k">return</span> name;
+}</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="hoisting" class="anchor" href="#hoisting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="hoisting">Hoisting</a>
+</h2>
+
+<ul>
+<li>
+<p>Las declaraciones de variables son movidas a la parte superior de su ámbito, sin embargo su asignación no.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// sabemos que esto no funcionara (asumiendo</span>
+<span class="pl-c">// que no hay una variable global notDefined)</span>
+<span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(notDefined); <span class="pl-c">// =&gt; lanza un ReferenceError</span>
+}
+
+<span class="pl-c">// crear una declaracion de variable luego</span>
+<span class="pl-c">// que referencies a la variable funcionara</span>
+<span class="pl-c">// por el hoisting. Nota: A la asignacion</span>
+<span class="pl-c">// del valor `true` no se le aplico hoisting.</span>
+<span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(declaredButNotAssigned); <span class="pl-c">// =&gt; undefined</span>
+  <span class="pl-k">var</span> declaredButNotAssigned <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+}
+
+<span class="pl-c">// El interprete lleva la declaracion de la</span>
+<span class="pl-c">// variable a la parte superior de la funcion.</span>
+<span class="pl-c">// Eso significa que nuestro ejemplo</span>
+<span class="pl-c">// podria ser reescrito como:</span>
+<span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-k">var</span> declaredButNotAssigned;
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(declaredButNotAssigned); <span class="pl-c">// =&gt; undefined</span>
+  declaredButNotAssigned <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+}</pre></div>
+</li>
+<li>
+<p>Expresiones de función anónimas hacen hoisting de su nombre de variable, pero no de la asignación de la función.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(anonymous); <span class="pl-c">// =&gt; undefined</span>
+
+  <span class="pl-en">anonymous</span>(); <span class="pl-c">// =&gt; TypeError anonymous is not a function</span>
+
+  <span class="pl-k">var</span> <span class="pl-en">anonymous</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>anonymous function expression<span class="pl-pds">'</span></span>);
+  };
+}</pre></div>
+</li>
+<li>
+<p>Expresiones de función nombradas hacen hoisting de su nombre de variable, pero no del nombre de la función ni del contenido de la función.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(named); <span class="pl-c">// =&gt; undefined</span>
+
+  <span class="pl-en">named</span>(); <span class="pl-c">// =&gt; TypeError named is not a function</span>
+
+  <span class="pl-en">superPower</span>(); <span class="pl-c">// =&gt; ReferenceError superPower is not defined</span>
+
+  <span class="pl-k">var</span> <span class="pl-en">named</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">superPower</span>() {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Flying<span class="pl-pds">'</span></span>);
+  };
+}
+
+<span class="pl-c">// lo mismo es cierto cuando el nombre</span>
+<span class="pl-c">// de la funcion es igual al nombre de</span>
+<span class="pl-c">// la variable.</span>
+<span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(named); <span class="pl-c">// =&gt; undefined</span>
+
+  <span class="pl-en">named</span>(); <span class="pl-c">// =&gt; TypeError named is not a function</span>
+
+  <span class="pl-k">var</span> <span class="pl-en">named</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">named</span>() {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>named<span class="pl-pds">'</span></span>);
+  }
+}</pre></div>
+</li>
+<li>
+<p>Las declaraciones de función hacen hoist de su nombre y del contenido de la función.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">superPower</span>(); <span class="pl-c">// =&gt; Flying</span>
+
+  <span class="pl-k">function</span> <span class="pl-en">superPower</span>() {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Flying<span class="pl-pds">'</span></span>);
+  }
+}</pre></div>
+</li>
+<li>
+<p>Para más información lee <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting">JavaScript Scoping &amp; Hoisting</a> por <a href="http://www.adequatelygood.com/">Ben Cherry</a></p>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="expresiones-de-comparación-e-igualdad" class="anchor" href="#expresiones-de-comparaci%C3%B3n-e-igualdad" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="conditionals">Expresiones de comparación e igualdad</a>
+</h2>
+
+<ul>
+<li>Usa <code>===</code> y <code>!==</code> en vez de <code>==</code> y <code>!=</code> respectivamente.</li>
+<li>
+<p>Las expresiones condicionales son evaluadas usando coerción con el método <code>ToBoolean</code> y siempre obedecen a estas reglas sencillas:</p>
+
+<ul>
+<li>
+<strong>Objects</strong> son evaluados como <strong>true</strong> (se considera así al objeto vacío <code>{}</code> y arreglos sin contenido <code>[]</code>)</li>
+<li>
+<strong>Undefined</strong> es evaluado como <strong>false</strong>
+</li>
+<li>
+<strong>Null</strong> es evaluado como <strong>false</strong>
+</li>
+<li>
+<strong>Booleans</strong> son evaluados como <strong>el valor del booleano</strong>
+</li>
+<li>
+<strong>Numbers</strong> son evaluados como <strong>false</strong> si su valor es <strong>+0</strong>, <strong>-0</strong>, o <strong>NaN</strong>, de otro modo <strong>true</strong>
+</li>
+<li>
+<strong>Strings</strong> son evaluados como <strong>false</strong> si es una cadena de texto vacía <code>''</code>, de otro modo son <strong>true</strong>
+</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">if</span> ([<span class="pl-c1">0</span>] <span class="pl-k">&amp;&amp;</span> []) {
+  <span class="pl-c">// true</span>
+  <span class="pl-c">// un arreglo es un objeto (incluso uno vacío), los objetos son evaluados como true</span>
+}</pre></div>
+</li>
+<li>
+<p>Usa atajos.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">if</span> (name <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>) {
+  <span class="pl-c">// ...cosas...</span>
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (name) {
+  <span class="pl-c">// ...cosas...</span>
+}
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">if</span> (<span class="pl-smi">collection</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {
+  <span class="pl-c">// ...cosas...</span>
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (<span class="pl-smi">collection</span>.<span class="pl-c1">length</span>) {
+  <span class="pl-c">// ...cosas...</span>
+}</pre></div>
+</li>
+<li><p>Para más información revisa <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108">Truth Equality and JavaScript</a> por Angus Croll</p></li>
+<li>
+<p>Usa llaves para crear bloques en cláusulas <code>case</code> y <code>default</code> que contengan
+declaraciones léxicas (e.g. <code>let</code>, <code>const</code>, <code>function</code> y <code>class</code>).</p>
+
+<blockquote>
+<p>¿Por qué? La declaración léxica es visible en todo el bloque <code>switch</code>
+  pero solo se inicializa al ser asignado, lo que solo ocurre cuando el bloque
+  <code>case</code> donde es declarado es alcanzado. Esto causa problemas cuando
+  múltiples bloques <code>case</code> intentan definir la misma variable.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// mal</span>
+  <span class="pl-k">switch</span> (foo) {
+    <span class="pl-k">case</span> <span class="pl-c1">1</span>:
+      <span class="pl-k">let</span> x <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+      <span class="pl-k">break</span>;
+    <span class="pl-k">case</span> <span class="pl-c1">2</span>:
+      <span class="pl-k">const</span> <span class="pl-c1">y</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+      <span class="pl-k">break</span>;
+    <span class="pl-k">case</span> <span class="pl-c1">3</span>:
+      <span class="pl-k">function</span> <span class="pl-en">f</span>() {}
+      <span class="pl-k">break</span>;
+    <span class="pl-k">default</span>:
+      <span class="pl-k">class</span> <span class="pl-en">C</span> {}
+  }
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-k">switch</span> (foo) {
+    <span class="pl-k">case</span> <span class="pl-c1">1</span>: {
+      <span class="pl-k">let</span> x <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+      <span class="pl-k">break</span>;
+    }
+    <span class="pl-k">case</span> <span class="pl-c1">2</span>: {
+      <span class="pl-k">const</span> <span class="pl-c1">y</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+      <span class="pl-k">break</span>;
+    }
+    <span class="pl-k">case</span> <span class="pl-c1">3</span>: {
+      <span class="pl-k">function</span> <span class="pl-en">f</span>() {}
+      <span class="pl-k">break</span>;
+    }
+    <span class="pl-k">case</span> <span class="pl-c1">4</span>:
+      <span class="pl-en">bar</span>();
+      <span class="pl-k">break</span>;
+    <span class="pl-k">default</span>: {
+      <span class="pl-k">class</span> <span class="pl-en">C</span> {}
+    }
+  }</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="bloques" class="anchor" href="#bloques" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="blocks">Bloques</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa llaves con todos los bloques de múltiples líneas.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">if</span> (test)
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (test) <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (test) {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-c1">false</span>; }
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}</pre></div>
+</li>
+<li>
+<p>Si estás usando bloques de muchas líneas con <code>if</code> y <code>else</code>, pon el <code>else</code> en la misma línea que el <code>if</code>.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">if</span> (test) {
+  <span class="pl-en">thing1</span>();
+  <span class="pl-en">thing2</span>();
+}
+<span class="pl-k">else</span> {
+  <span class="pl-en">thing3</span>();
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (test) {
+  <span class="pl-en">thing1</span>();
+  <span class="pl-en">thing2</span>();
+} <span class="pl-k">else</span> {
+  <span class="pl-en">thing3</span>();
+}</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="comentarios" class="anchor" href="#comentarios" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="comments">Comentarios</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa <code>/** ... */</code> para comentarios de múltiples líneas. Incluye una descripción, especificación de tipos y valores para todos los parámetros y valores de retorno.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-c">// make() returns a new element</span>
+<span class="pl-c">// based on the passed in tag name</span>
+<span class="pl-c">//</span>
+<span class="pl-c">// @param {String} tag</span>
+<span class="pl-c">// @return {Element} element</span>
+<span class="pl-k">function</span> <span class="pl-en">make</span>(<span class="pl-smi">tag</span>) {
+
+  <span class="pl-c">// ...stuff...</span>
+
+  <span class="pl-k">return</span> element;
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-c">/**</span>
+<span class="pl-c"> * make() returns a new element</span>
+<span class="pl-c"> * based on the passed in tag name</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">tag</span></span>
+<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{Element}</span> element</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">function</span> <span class="pl-en">make</span>(<span class="pl-smi">tag</span>) {
+
+  <span class="pl-c">// ...stuff...</span>
+
+  <span class="pl-k">return</span> element;
+}</pre></div>
+</li>
+<li>
+<p>Usa <code>//</code> para comentarios de una sola línea. Ubica los comentarios de una sola línea encima de la sentencia comentada. Deja una línea en blanco antes del comentario, a menos que sea la primera línea de un bloque.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">active</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;  <span class="pl-c">// is current tab</span>
+
+<span class="pl-c">// bien</span>
+<span class="pl-c">// is current tab</span>
+<span class="pl-k">const</span> <span class="pl-c1">active</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">getType</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>fetching type...<span class="pl-pds">'</span></span>);
+  <span class="pl-c">// set the default type to 'no type'</span>
+  <span class="pl-k">const</span> <span class="pl-c1">type</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">_type</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>no type<span class="pl-pds">'</span></span>;
+
+  <span class="pl-k">return</span> type;
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">getType</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>fetching type...<span class="pl-pds">'</span></span>);
+
+  <span class="pl-c">// set the default type to 'no type'</span>
+  <span class="pl-k">const</span> <span class="pl-c1">type</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">_type</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>no type<span class="pl-pds">'</span></span>;
+
+  <span class="pl-k">return</span> type;
+}</pre></div>
+</li>
+<li><p>Agregando a tus comentarios los prefijos <code>FIXME</code> o <code>TODO</code>, ayudará a otros desarrolladores a entender rápidamente si estás apuntando a un problema que precisa ser revisado o si estás sugiriendo una solución al problema que debería ser implementado. Estos son diferentes a comentarios regulares en el sentido que requieren alguna acción. Las acciones son <code>FIXME -- necesito resolver esto</code> o <code>TODO -- necesita implementarse</code>.</p></li>
+<li>
+<p>Usa <code>// FIXME:</code> para anotar problemas.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">class</span> <span class="pl-en">Calculator</span> <span class="pl-k">extends</span> <span class="pl-e">Abacus</span> {
+  <span class="pl-en">constructor</span>() {
+    <span class="pl-v">super</span>();
+
+    <span class="pl-c">// FIXME: shouldn't use a global here</span>
+    total <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+  }
+}</pre></div>
+</li>
+<li>
+<p>Usa <code>// TODO:</code> para anotar soluciones a los problemas.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">class</span> <span class="pl-en">Calculator</span> <span class="pl-k">extends</span> <span class="pl-e">Abacus</span> {
+  <span class="pl-en">constructor</span>() {
+    <span class="pl-v">super</span>();
+
+    <span class="pl-c">// TODO: total should be configurable by an options param</span>
+    <span class="pl-v">this</span>.<span class="pl-smi">total</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+  }
+}</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="espacios-en-blanco" class="anchor" href="#espacios-en-blanco" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="whitespace">Espacios en blanco</a>
+</h2>
+
+<ul>
+<li>
+<p>Usa indentaciones blandas (sin TAB)  establecidas en dos espacios.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+∙∙∙∙<span class="pl-k">const</span> <span class="pl-c1">name</span>;
+}
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">bar</span>() {
+∙<span class="pl-k">const</span> <span class="pl-c1">name</span>;
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">baz</span>() {
+∙∙<span class="pl-k">const</span> <span class="pl-c1">name</span>;
+}</pre></div>
+</li>
+<li>
+<p>Deja un espacio antes de la llave de apertura.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">test</span>(){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>);
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">test</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>);
+}
+
+<span class="pl-c">// mal</span>
+<span class="pl-smi">dog</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>,{
+  age<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 year<span class="pl-pds">'</span></span>,
+  breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bernese Mountain Dog<span class="pl-pds">'</span></span>
+});
+
+<span class="pl-c">// bien</span>
+<span class="pl-smi">dog</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>, {
+  age<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 year<span class="pl-pds">'</span></span>,
+  breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bernese Mountain Dog<span class="pl-pds">'</span></span>
+});</pre></div>
+</li>
+<li>
+<p>Deja un espacio antes del paréntesis de apertura en las sentencias de control (<code>if</code>, <code>while</code>, etc.). No dejes espacios antes de la lista de argumentos en las invocaciones y declaraciones de funciones.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">if</span>(isJedi) {
+  <span class="pl-en">fight</span> ();
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (isJedi) {
+  <span class="pl-en">fight</span>();
+}
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">fight</span> () {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span> (<span class="pl-s"><span class="pl-pds">'</span>Swooosh!<span class="pl-pds">'</span></span>);
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">fight</span>() {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Swooosh!<span class="pl-pds">'</span></span>);
+}</pre></div>
+</li>
+<li>
+<p>Separa a los operadores con espacios.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">x</span><span class="pl-k">=</span>y<span class="pl-k">+</span><span class="pl-c1">5</span>;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">x</span> <span class="pl-k">=</span> y <span class="pl-k">+</span> <span class="pl-c1">5</span>;</pre></div>
+</li>
+<li>
+<p>Deja una línea en blanco al final del archivo.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+(<span class="pl-k">function</span>(<span class="pl-c1">global</span>) {
+  <span class="pl-c">// ...algo...</span>
+})(<span class="pl-v">this</span>);</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+(<span class="pl-k">function</span>(<span class="pl-c1">global</span>) {
+  <span class="pl-c">// ...algo...</span>
+})(<span class="pl-v">this</span>);↵
+↵
+</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// bien</span>
+(<span class="pl-k">function</span>(<span class="pl-c1">global</span>) {
+  <span class="pl-c">// ...algo...</span>
+})(<span class="pl-v">this</span>);↵
+</pre></div>
+</li>
+<li>
+<p>Usa indentación cuando uses métodos largos con 'chaining' (más de dos métodos encadenados). Emplea un punto adelante en cada nueva línea, lo que enfatiza que es un método llamado no una nueva sentencia.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#items<span class="pl-pds">'</span></span>).<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.selected<span class="pl-pds">'</span></span>).<span class="pl-en">highlight</span>().<span class="pl-en">end</span>().<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.open<span class="pl-pds">'</span></span>).<span class="pl-en">updateCount</span>();
+
+<span class="pl-c">// mal</span>
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#items<span class="pl-pds">'</span></span>).
+  <span class="pl-en">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.selected<span class="pl-pds">'</span></span>).
+    <span class="pl-en">highlight</span>().
+    <span class="pl-en">end</span>().
+  <span class="pl-en">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.open<span class="pl-pds">'</span></span>).
+    <span class="pl-en">updateCount</span>();
+
+<span class="pl-c">// bien</span>
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#items<span class="pl-pds">'</span></span>)
+  .<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.selected<span class="pl-pds">'</span></span>)
+    .<span class="pl-en">highlight</span>()
+    .<span class="pl-en">end</span>()
+  .<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.open<span class="pl-pds">'</span></span>)
+    .<span class="pl-en">updateCount</span>();
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">leds</span> <span class="pl-k">=</span> <span class="pl-smi">stage</span>.<span class="pl-en">selectAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.led<span class="pl-pds">'</span></span>).<span class="pl-c1">data</span>(data).<span class="pl-en">enter</span>().<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:svg<span class="pl-pds">'</span></span>).<span class="pl-en">class</span>(<span class="pl-s"><span class="pl-pds">'</span>led<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>)
+    .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>,  (radius <span class="pl-k">+</span> margin) <span class="pl-k">*</span> <span class="pl-c1">2</span>).<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:g<span class="pl-pds">'</span></span>)
+    .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>transform<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>translate(<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>)<span class="pl-pds">'</span></span>)
+    .<span class="pl-c1">call</span>(<span class="pl-smi">tron</span>.<span class="pl-smi">led</span>);
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">leds</span> <span class="pl-k">=</span> <span class="pl-smi">stage</span>.<span class="pl-en">selectAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.led<span class="pl-pds">'</span></span>)
+    .<span class="pl-c1">data</span>(data)
+  .<span class="pl-en">enter</span>().<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:svg<span class="pl-pds">'</span></span>)
+    .<span class="pl-en">class</span>(<span class="pl-s"><span class="pl-pds">'</span>led<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>)
+    .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>,  (radius <span class="pl-k">+</span> margin) <span class="pl-k">*</span> <span class="pl-c1">2</span>)
+  .<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:g<span class="pl-pds">'</span></span>)
+    .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>transform<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>translate(<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>)<span class="pl-pds">'</span></span>)
+    .<span class="pl-c1">call</span>(<span class="pl-smi">tron</span>.<span class="pl-smi">led</span>);</pre></div>
+</li>
+<li>
+<p>Deja una línea en blanco luego de los bloques y antes de la siguiente sentencia.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">if</span> (foo) {
+  <span class="pl-k">return</span> bar;
+}
+<span class="pl-k">return</span> baz;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (foo) {
+  <span class="pl-k">return</span> bar;
+}
+
+<span class="pl-k">return</span> baz;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">obj</span> <span class="pl-k">=</span> {
+  <span class="pl-en">foo</span>() {
+  },
+  <span class="pl-en">bar</span>() {
+  }
+};
+<span class="pl-k">return</span> obj;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">obj</span> <span class="pl-k">=</span> {
+  <span class="pl-en">foo</span>() {
+  },
+
+  <span class="pl-en">bar</span>() {
+  }
+};
+
+<span class="pl-k">return</span> obj;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">arr</span> <span class="pl-k">=</span> [
+  <span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+  },
+  <span class="pl-k">function</span> <span class="pl-en">bar</span>() {
+  },
+];
+<span class="pl-k">return</span> arr;
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">arr</span> <span class="pl-k">=</span> [
+  <span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+  },
+
+  <span class="pl-k">function</span> <span class="pl-en">bar</span>() {
+  },
+];
+
+<span class="pl-k">return</span> arr;</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="comas" class="anchor" href="#comas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="commas">Comas</a>
+</h2>
+
+<ul>
+<li>
+<p>Comas al inicio de línea: <strong>Nop.</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">story</span> <span class="pl-k">=</span> [
+    once
+  , upon
+  , aTime
+];
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">story</span> <span class="pl-k">=</span> [
+  once,
+  upon,
+  aTime,
+];
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">hero</span> <span class="pl-k">=</span> {
+    firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Ada<span class="pl-pds">'</span></span>
+  , lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lovelace<span class="pl-pds">'</span></span>
+  , birthYear<span class="pl-k">:</span> <span class="pl-c1">1815</span>
+  , superPower<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>strength<span class="pl-pds">'</span></span>
+};
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">hero</span> <span class="pl-k">=</span> {
+  firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Ada<span class="pl-pds">'</span></span>,
+  lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lovelace<span class="pl-pds">'</span></span>,
+  birthYear<span class="pl-k">:</span> <span class="pl-c1">1815</span>,
+  superPower<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>computers<span class="pl-pds">'</span></span>,
+};</pre></div>
+</li>
+<li>
+<p>Coma adicional al final: <strong>Sip.</strong></p>
+
+<blockquote>
+<p>¿Por qué? Esto lleva a diferenciales en git más claros. Además los transpiladores como Babel removerán la coma del final en el código transpilado lo que significa que no te tendrás que preocupar del <a href="es5/README.md#commas">problema de la coma adicional al final</a> en navegadores antiguos.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// mal - git diff sin coma adicional al final</span>
+  <span class="pl-k">const</span> <span class="pl-c1">hero</span> <span class="pl-k">=</span> {
+       firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Florence<span class="pl-pds">'</span></span>,
+  <span class="pl-k">-</span>    lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Nightingale<span class="pl-pds">'</span></span>
+  <span class="pl-k">+</span>    lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Nightingale<span class="pl-pds">'</span></span>,
+  <span class="pl-k">+</span>    inventorOf<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>coxcomb chart<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>modern nursing<span class="pl-pds">'</span></span>]
+  };
+
+  <span class="pl-c">// bien - git diff con coma adicional al final</span>
+  <span class="pl-k">const</span> <span class="pl-c1">hero</span> <span class="pl-k">=</span> {
+       firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Florence<span class="pl-pds">'</span></span>,
+       lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Nightingale<span class="pl-pds">'</span></span>,
+  <span class="pl-k">+</span>    inventorOf<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>coxcomb chart<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>modern nursing<span class="pl-pds">'</span></span>],
+  };
+
+  <span class="pl-c">// mal</span>
+  <span class="pl-k">const</span> <span class="pl-c1">hero</span> <span class="pl-k">=</span> {
+    firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Dana<span class="pl-pds">'</span></span>,
+    lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Scully<span class="pl-pds">'</span></span>
+  };
+
+  <span class="pl-k">const</span> <span class="pl-c1">heroes</span> <span class="pl-k">=</span> [
+    <span class="pl-s"><span class="pl-pds">'</span>Batman<span class="pl-pds">'</span></span>,
+    <span class="pl-s"><span class="pl-pds">'</span>Superman<span class="pl-pds">'</span></span>
+  ];
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-k">const</span> <span class="pl-c1">hero</span> <span class="pl-k">=</span> {
+    firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Dana<span class="pl-pds">'</span></span>,
+    lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Scully<span class="pl-pds">'</span></span>,
+  };
+
+  <span class="pl-k">const</span> <span class="pl-c1">heroes</span> <span class="pl-k">=</span> [
+    <span class="pl-s"><span class="pl-pds">'</span>Batman<span class="pl-pds">'</span></span>,
+    <span class="pl-s"><span class="pl-pds">'</span>Superman<span class="pl-pds">'</span></span>,
+  ];</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="puntos-y-comas" class="anchor" href="#puntos-y-comas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="semicolons">Puntos y Comas</a>
+</h2>
+
+<ul>
+<li>
+<p><strong>Sip.</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+(<span class="pl-k">function</span> () {
+  <span class="pl-k">const</span> <span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Skywalker<span class="pl-pds">'</span></span>
+  <span class="pl-k">return</span> name
+})()
+
+<span class="pl-c">// bien</span>
+(() <span class="pl-k">=&gt;</span> {
+  <span class="pl-k">const</span> <span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Skywalker<span class="pl-pds">'</span></span>;
+  <span class="pl-k">return</span> name;
+}());
+
+<span class="pl-c">// bien, pero arcaico (evita que la funcion se vuelva un argumento</span>
+<span class="pl-c">// cuando dos archivos con IIFEs sean concatenados)</span>
+;(() <span class="pl-k">=&gt;</span> {
+  <span class="pl-k">const</span> <span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Skywalker<span class="pl-pds">'</span></span>;
+  <span class="pl-k">return</span> name;
+}());</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="casting-de-tipos--coerción" class="anchor" href="#casting-de-tipos--coerci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="type-coercion">Casting de Tipos &amp; Coerción</a>
+</h2>
+
+<ul>
+<li>Ejecuta coerción al inicio de una sentencia.</li>
+<li>
+<p>Strings:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//  =&gt; this.reviewScore = 9;</span>
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">totalScore</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">reviewScore</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>; <span class="pl-c">// invoca a this.reviewScore.valueOf()</span>
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">totalScore</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">reviewScore</span>.<span class="pl-c1">toString</span>(); <span class="pl-c">// no se garantiza que retorne una cadena de texto</span>
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">totalScore</span> <span class="pl-k">=</span> <span class="pl-c1">String</span>(<span class="pl-v">this</span>.<span class="pl-smi">reviewScore</span>);</pre></div>
+</li>
+<li>
+<p>Números: Usa <code>Number</code> para el casting de tipo y <code>parseInt</code> siempre con la base numérica para el casting de textos.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">inputValue</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>4<span class="pl-pds">'</span></span>;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">val</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Number</span>(inputValue);
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">val</span> <span class="pl-k">=</span> <span class="pl-k">+</span>inputValue;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">val</span> <span class="pl-k">=</span> inputValue <span class="pl-k">&gt;&gt;</span> <span class="pl-c1">0</span>;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">val</span> <span class="pl-k">=</span> <span class="pl-c1">parseInt</span>(inputValue);
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">val</span> <span class="pl-k">=</span> <span class="pl-c1">Number</span>(inputValue);
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">val</span> <span class="pl-k">=</span> <span class="pl-c1">parseInt</span>(inputValue, <span class="pl-c1">10</span>);</pre></div>
+</li>
+<li>
+<p>Si por alguna razón estás haciendo algo salvaje y <code>parseInt</code> es un cuello de botella por lo que necesitaste usar Bitshift por <a href="http://jsperf.com/coercion-vs-casting/3">razones de desempeño</a>, deja un comentario explicando la razón y resumen de lo que estás haciendo.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// bien</span>
+<span class="pl-c">/**</span>
+<span class="pl-c"> * parseInt was the reason my code was slow.</span>
+<span class="pl-c"> * Bitshifting the String to coerce it to a</span>
+<span class="pl-c"> * Number made it a lot faster.</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">const</span> <span class="pl-c1">val</span> <span class="pl-k">=</span> inputValue <span class="pl-k">&gt;&gt;</span> <span class="pl-c1">0</span>;</pre></div>
+
+<blockquote>
+<p><strong>Nota:</strong> Ten mucho cuidado al hacer operaciones de Bitshift. En Javascript los números son representados como <a href="http://es5.github.io/#x4.3.19">valores de 64-bit</a>, sin embargo las operaciones de Bitshift siempre retornan un entero de 32-bits (<a href="http://es5.github.io/#x11.7">fuente</a>). Bitshift puede presentarnos un comportamiento inesperado para valores enteros mayores a 32 bits. <a href="https://github.com/airbnb/javascript/issues/109">Discusión</a>. El mayor entero con signo de 32 bits es 2,147,483,647:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">2147483647</span> <span class="pl-k">&gt;&gt;</span> <span class="pl-c1">0</span> <span class="pl-c">//=&gt; 2147483647</span>
+<span class="pl-c1">2147483648</span> <span class="pl-k">&gt;&gt;</span> <span class="pl-c1">0</span> <span class="pl-c">//=&gt; -2147483648</span>
+<span class="pl-c1">2147483649</span> <span class="pl-k">&gt;&gt;</span> <span class="pl-c1">0</span> <span class="pl-c">//=&gt; -2147483647</span></pre></div>
+</blockquote>
+</li>
+<li>
+<p>Booleans:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">age</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">hasAge</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Boolean</span>(age);
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">hasAge</span> <span class="pl-k">=</span> <span class="pl-c1">Boolean</span>(age);
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">hasAge</span> <span class="pl-k">=</span> <span class="pl-k">!!</span>age;</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="convenciones-de-nomenclatura" class="anchor" href="#convenciones-de-nomenclatura" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="naming-conventions">Convenciones de nomenclatura</a>
+</h2>
+
+<ul>
+<li>
+<p>Evita nombres de una sola letra. Sé descriptivo con tus nombres.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">q</span>() {
+  <span class="pl-c">// ...algo...</span>
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">query</span>() {
+  <span class="pl-c">// ...algo...</span>
+}</pre></div>
+</li>
+<li>
+<p>Usa camelCase cuando nombres tus objetos, funciones e instancias.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">OBJEcttsssss</span> <span class="pl-k">=</span> {};
+<span class="pl-k">const</span> <span class="pl-c1">this_is_my_object</span> <span class="pl-k">=</span> {};
+<span class="pl-k">const</span> <span class="pl-c1">o</span> <span class="pl-k">=</span> {};
+<span class="pl-k">function</span> <span class="pl-en">c</span>() {}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">var</span> thisIsMyObject <span class="pl-k">=</span> {};
+<span class="pl-k">function</span> <span class="pl-en">thisIsMyFunction</span>() {}</pre></div>
+</li>
+<li>
+<p>Usa PascalCase cuando nombres constructores o clases.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">user</span>(<span class="pl-smi">options</span>) {
+  <span class="pl-v">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-smi">options</span>.<span class="pl-c1">name</span>;
+}
+
+<span class="pl-k">const</span> <span class="pl-c1">bad</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">user</span>({
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>nope<span class="pl-pds">'</span></span>
+});
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">class</span> <span class="pl-en">User</span> {
+  <span class="pl-en">constructor</span>(<span class="pl-smi">options</span>) {
+    <span class="pl-v">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-smi">options</span>.<span class="pl-c1">name</span>;
+  }
+}
+
+<span class="pl-k">const</span> <span class="pl-c1">good</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">User</span>({
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>yup<span class="pl-pds">'</span></span>,
+});</pre></div>
+</li>
+<li>
+<p>No uses prefijos ni sufijos de guiones bajo.</p>
+
+<blockquote>
+<p>¿Por qué? JavaScript no tiene el concepto de privacidad en términos de propiedades o métodos. A pesar que un guión bajo como prefijo es una convención común para indicar que son "privados", la realidad es que estas propiedades son absolutamente públicas, y por ello, parte de tu contrato público de API. La convención del prefijo de guión bajo podría orientar a los desarrolladores a pensar erróneamente que un cambio a aquellos no será de impacto o que los tests no son necesarios.</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// mal</span>
+  <span class="pl-v">this</span>.<span class="pl-smi">__firstName__</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Panda<span class="pl-pds">'</span></span>;
+  <span class="pl-v">this</span>.<span class="pl-smi">firstName_</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Panda<span class="pl-pds">'</span></span>;
+  <span class="pl-v">this</span>.<span class="pl-smi">_firstName</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Panda<span class="pl-pds">'</span></span>;
+
+
+  <span class="pl-c">// bien</span>
+  <span class="pl-v">this</span>.<span class="pl-smi">firstName</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Panda<span class="pl-pds">'</span></span>;</pre></div>
+</li>
+<li>
+<p>Nunca guardes referencias a <code>this</code>. Usa funciones arrow o la función <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">#bind</a></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">const</span> <span class="pl-c1">self</span> <span class="pl-k">=</span> <span class="pl-v">this</span>;
+  <span class="pl-k">return</span> <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(self);
+  };
+}
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">const</span> <span class="pl-c1">that</span> <span class="pl-k">=</span> <span class="pl-v">this</span>;
+  <span class="pl-k">return</span> <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(that);
+  };
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+  <span class="pl-k">return</span> () <span class="pl-k">=&gt;</span> {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-v">this</span>);
+  };
+}</pre></div>
+</li>
+<li>
+<p>El nombre del archivo base debe corresponder exactamente con el nombre de su export por defecto.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// contenido archivo 1</span>
+<span class="pl-k">class</span> <span class="pl-en">CheckBox</span> {
+ <span class="pl-c">// ...</span>
+}
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-smi">CheckBox</span>;
+
+<span class="pl-c">// contenido archivo 2</span>
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-k">function</span> <span class="pl-en">fortyTwo</span>() { <span class="pl-k">return</span> <span class="pl-c1">42</span>; }
+
+<span class="pl-c">// contenido archivo 3</span>
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-k">function</span> <span class="pl-en">insideDirectory</span>() {}
+
+<span class="pl-c">// en algún otro archivo</span>
+<span class="pl-c">// mal</span>
+<span class="pl-k">import</span> <span class="pl-smi">CheckBox</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./checkBox<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/exportacion PascalCase, nombre de archivo camelCase</span>
+<span class="pl-k">import</span> <span class="pl-smi">FortyTwo</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./FortyTwo<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/nombre de archivo PascalCase, exportacion camelCase</span>
+<span class="pl-k">import</span> <span class="pl-smi">InsideDirectory</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./InsideDirectory<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/nombre de archivo PascalCase, exportacion camelCase</span>
+
+<span class="pl-c">// mal</span>
+<span class="pl-k">import</span> <span class="pl-smi">CheckBox</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./check_box<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/exportacion PascalCase, nombre de archivo snake_case</span>
+<span class="pl-k">import</span> <span class="pl-smi">forty_two</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./forty_two<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/nombre de archivo snake_case, exportacion camelCase</span>
+<span class="pl-k">import</span> <span class="pl-smi">inside_directory</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./inside_directory<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion snake_case, exportacion camelCase</span>
+<span class="pl-k">import</span> <span class="pl-smi">index</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./inside_directory/index<span class="pl-pds">'</span></span>; <span class="pl-c">// requiere el archivo de index explicitamente</span>
+<span class="pl-k">import</span> <span class="pl-smi">insideDirectory</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./insideDirectory/index<span class="pl-pds">'</span></span>; <span class="pl-c">// requiere el archivo de index explicitamente</span>
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">import</span> <span class="pl-smi">CheckBox</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./CheckBox<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/exportacion/nombre de archivo PascalCase</span>
+<span class="pl-k">import</span> <span class="pl-smi">fortyTwo</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./fortyTwo<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/exportacion/nombre de archivo camelCase</span>
+<span class="pl-k">import</span> <span class="pl-smi">insideDirectory</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./insideDirectory<span class="pl-pds">'</span></span>; <span class="pl-c">// importacion/exportacion/nombre directorio/archivo "index" implícito</span>
+<span class="pl-c">// ^ soporta tanto insideDirectory.js e insideDirectory/index.js</span>
+</pre></div>
+</li>
+<li>
+<p>Usa camelCase cuando exportes por defecto una función. Tu nombre de archivo debe ser idéntico al nombre de tu función.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">makeStyleGuide</span>() {
+}
+
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-smi">makeStyleGuide</span>;</pre></div>
+</li>
+<li>
+<p>Usa camelCase cuando exportes un objeto constructor / clase / singleton / librería de función / esqueleto.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">AirbnbStyleGuide</span> <span class="pl-k">=</span> {
+  es6<span class="pl-k">:</span> {
+  }
+};
+
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-smi">AirbnbStyleGuide</span>;</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="funciones-de-acceso" class="anchor" href="#funciones-de-acceso" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="accessors">Funciones de Acceso</a>
+</h2>
+
+<ul>
+<li>Funciones de acceso para las propiedades no son requeridas.</li>
+<li>
+<p>No uses getters/setters de JavaScript ya que causan efectos colaterales no esperados y son difíciles de probar, mantener y razonar. En vez de ello, si creas funciones de acceso usa  <code>getVal()</code> y <code>setVal('hello')</code>.</p>
+
+<div class="highlight highlight-source-js"><pre>   <span class="pl-c">// Maintainable-JavaScript-Nicholas-C-Zakas</span>
+   <span class="pl-k">class</span> <span class="pl-en">Dragon</span> {
+     get <span class="pl-en">age</span>() {
+       <span class="pl-c">// ...</span>
+     }
+
+     set <span class="pl-en">age</span>(<span class="pl-smi">value</span>) {
+       <span class="pl-c">// ...</span>
+     }
+   }
+
+   <span class="pl-c">// bien</span>
+   <span class="pl-k">class</span> <span class="pl-en">Dragon</span> {
+     <span class="pl-en">getAge</span>() {
+       <span class="pl-c">// ...</span>
+     }
+
+     <span class="pl-en">setAge</span>(<span class="pl-smi">value</span>) {
+       <span class="pl-c">// ...</span>
+     }
+   }</pre></div>
+</li>
+<li>
+<p>Si la propiedad es un booleano, usa <code>isVal()</code> o <code>hasVal()</code>.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">dragon</span>.<span class="pl-en">age</span>()) {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">dragon</span>.<span class="pl-en">hasAge</span>()) {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}</pre></div>
+</li>
+<li>
+<p>Está bien crear funciones <code>get()</code> y <code>set()</code>, pero sé consistente.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">class</span> <span class="pl-en">Jedi</span> {
+  <span class="pl-en">constructor</span>(<span class="pl-smi">options</span> <span class="pl-k">=</span> {}) {
+    <span class="pl-k">const</span> <span class="pl-c1">lightsaber</span> <span class="pl-k">=</span> <span class="pl-smi">options</span>.<span class="pl-smi">lightsaber</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>blue<span class="pl-pds">'</span></span>;
+    <span class="pl-v">this</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>lightsaber<span class="pl-pds">'</span></span>, lightsaber);
+  }
+
+  <span class="pl-en">set</span>(<span class="pl-smi">key</span>, <span class="pl-smi">val</span>) {
+    <span class="pl-v">this</span>[key] <span class="pl-k">=</span> val;
+  }
+
+  <span class="pl-en">get</span>(<span class="pl-smi">key</span>) {
+    <span class="pl-k">return</span> <span class="pl-v">this</span>[key];
+  }
+}</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="eventos" class="anchor" href="#eventos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="events">Eventos</a>
+</h2>
+
+<ul>
+<li>
+<p>Cuando envíes paquetes de datos a los eventos (ya sea con eventos del DOM o algo propietario como los eventos de Backbone), pasa un mapa en vez de un valor directo. Esto permitirá a un próximo colaborador a agregar más datos al paquete de datos sin que tenga que encontrar o actualizar un handler para cada evento. Por ejemplo, en vez de:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">'</span>listingUpdated<span class="pl-pds">'</span></span>, <span class="pl-smi">listing</span>.<span class="pl-c1">id</span>);
+
+<span class="pl-k">...</span>
+
+<span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>listingUpdated<span class="pl-pds">'</span></span>, (<span class="pl-smi">e</span>, <span class="pl-smi">listingId</span>) <span class="pl-k">=&gt;</span> {
+  <span class="pl-c">// hacer algo con listingId</span>
+});</pre></div>
+
+<p>prefiere:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// bien</span>
+<span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">'</span>listingUpdated<span class="pl-pds">'</span></span>, { listingId <span class="pl-k">:</span> <span class="pl-smi">listing</span>.<span class="pl-c1">id</span> });
+
+<span class="pl-k">...</span>
+
+<span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>listingUpdated<span class="pl-pds">'</span></span>, (<span class="pl-smi">e</span>, <span class="pl-smi">data</span>) <span class="pl-k">=&gt;</span> {
+  <span class="pl-c">// hacer algo con data.listingId</span>
+});</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="jquery" class="anchor" href="#jquery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="jquery">jQuery</a>
+</h2>
+
+<ul>
+<li>
+<p>Nombre las variables de objetos jQuery con un prefijo <code>$</code>.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">const</span> <span class="pl-c1">sidebar</span> <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">const</span> <span class="pl-c1">$sidebar</span> <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>);</pre></div>
+</li>
+<li>
+<p>Guarde en variables los lookups de jQuery que se necesiten posteriormente.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-k">function</span> <span class="pl-en">setSidebar</span>() {
+  <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>).<span class="pl-en">hide</span>();
+
+  <span class="pl-c">// ...algo...</span>
+
+  <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>).<span class="pl-en">css</span>({
+    <span class="pl-s"><span class="pl-pds">'</span>background-color<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>pink<span class="pl-pds">'</span></span>
+  });
+}
+
+<span class="pl-c">// bien</span>
+<span class="pl-k">function</span> <span class="pl-en">setSidebar</span>() {
+  <span class="pl-k">const</span> <span class="pl-c1">$sidebar</span> <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>);
+  <span class="pl-smi">$sidebar</span>.<span class="pl-en">hide</span>();
+
+  <span class="pl-c">// ...algo...</span>
+
+  <span class="pl-smi">$sidebar</span>.<span class="pl-en">css</span>({
+    <span class="pl-s"><span class="pl-pds">'</span>background-color<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>pink<span class="pl-pds">'</span></span>
+  });
+}</pre></div>
+</li>
+<li><p>Para consultas de elementos DOM usa el modo Cascada <code>$('.sidebar ul')</code> o parent &gt; child <code>$('.sidebar &gt; ul')</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p></li>
+<li>
+<p>Usa <code>find</code> solo con consultas guardadas en variables previamente.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// mal</span>
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>).<span class="pl-en">hide</span>();
+
+<span class="pl-c">// mal</span>
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>).<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>).<span class="pl-en">hide</span>();
+
+<span class="pl-c">// bien</span>
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar ul<span class="pl-pds">'</span></span>).<span class="pl-en">hide</span>();
+
+<span class="pl-c">// bien</span>
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.sidebar &gt; ul<span class="pl-pds">'</span></span>).<span class="pl-en">hide</span>();
+
+<span class="pl-c">// bien</span>
+<span class="pl-smi">$sidebar</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>);</pre></div>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="compatibilidad-con-ecmascript-5" class="anchor" href="#compatibilidad-con-ecmascript-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="es5">Compatibilidad con ECMAScript 5</a>
+</h2>
+
+<ul>
+<li>
+<p>Revisa la <a href="http://kangax.github.com/es5-compat-table/">tabla de compatibilidad</a> de ES5 de <a href="https://twitter.com/kangax/">Kangax</a>.</p>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="estilos-de-es6-es-2015" class="anchor" href="#estilos-de-es6-es-2015" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="ecmascript-6-styles"></a>Estilos de ES6+ (ES 2015+)</h2>
+
+<pre><code>- A continuación, un conjunto de enlaces hacia los estilos para las nuevas características de ES6:
+</code></pre>
+
+<ol>
+<li><a href="#arrow-functions">Notación Funciones de Flecha</a></li>
+<li><a href="#classes--constructors">Clases</a></li>
+<li><a href="#es6-object-shorthand">Declaración abreviada para objeto</a></li>
+<li><a href="#es6-object-concise">Declaración de objeto concisa</a></li>
+<li><a href="#es6-computed-properties">Propiedades computadas de objeto</a></li>
+<li><a href="#es6-template-literals">Plantillas de texto</a></li>
+<li><a href="#destructuring">Destructuring</a></li>
+<li><a href="#es6-default-parameters">Parámetros por defecto</a></li>
+<li><a href="#es6-rest">Rest</a></li>
+<li><a href="#es6-array-spreads">Spreads de arreglos</a></li>
+<li><a href="#references">Let y Const</a></li>
+<li><a href="#iterators-and-generators">Iteradores y Generadores</a></li>
+<li>
+<p><a href="#modules">Módulos</a></p>
+
+<ul>
+<li>
+<p>No uses <a href="https://github.com/tc39/proposals">las propuestas de TC39</a> puesto que aún no han llegado a la tercera etapa.</p>
+
+<blockquote>
+<p>¿Por qué? <a href="https://tc39.github.io/process-document/">No están finalizadas</a>, y están sujetas a cambios o reescritas completamente. Vamos a usar JavaScript y las propuestas aún no son JavaScript.</p>
+</blockquote>
+</li>
+</ul>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ol>
+
+<h2>
+<a id="pruebas" class="anchor" href="#pruebas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="testing">Pruebas</a>
+</h2>
+
+<ul>
+<li>
+<p><strong>Sip</strong>.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+}</pre></div>
+</li>
+<li>
+<p><strong>No, but seriously</strong>:</p>
+
+<ul>
+<li>Cualquiera que sea el framework de testing que emplees, ¡deberías escribir tests!</li>
+<li>Esfuérzate por escribir funciones pequeñas y puras, además de minimizar las posibles mutaciones que pudiesen ocurrir.</li>
+<li>Sé cuidados con los stubs y los mocks - pueden hacer tus tests más frágiles.</li>
+<li>Usamos principalmente <a href="https://www.npmjs.com/package/mocha"><code>mocha</code></a> en Airbnb. <a href="https://www.npmjs.com/package/tape"><code>tape</code></a> es también usado ocasionalmente para módulos pequeños y separados.</li>
+<li>100% de cobertura de pruebas es una buena meta a perseguir, a pesar que no es siempre práctico conseguirlo.</li>
+<li>Cuando corrijas una incidencia (bug), <em>escribe una prueba de regresión</em>. Una incidencia sin una prueba de regresión es casi seguro que volverá a ocurrir en el futuro.</li>
+</ul>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="desempeño" class="anchor" href="#desempe%C3%B1o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="performance">Desempeño</a>
+</h2>
+
+<ul>
+<li><a href="http://kellegous.com/j/2013/01/26/layout-performance/">On Layout &amp; Web Performance</a></li>
+<li><a href="http://jsperf.com/string-vs-array-concat/2">String vs Array Concat</a></li>
+<li><a href="http://jsperf.com/try-catch-in-loop-cost">Try/Catch Cost In a Loop</a></li>
+<li><a href="http://jsperf.com/bang-function">Bang Function</a></li>
+<li><a href="http://jsperf.com/jquery-find-vs-context-sel/13">jQuery Find vs Context, Selector</a></li>
+<li><a href="http://jsperf.com/innerhtml-vs-textcontent-for-script-text">innerHTML vs textContent for script text</a></li>
+<li><a href="http://jsperf.com/ya-string-concat">Long String Concatenation</a></li>
+<li><a href="https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta">Are Javascript functions like <code>map()</code>, <code>reduce()</code>, and <code>filter()</code> optimized for traversing arrays?</a></li>
+<li>
+<p>Loading...</p>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="recursos" class="anchor" href="#recursos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="resources">Recursos</a>
+</h2>
+
+<p><strong>Learning ES6</strong></p>
+
+<ul>
+<li><a href="https://people.mozilla.org/%7Ejorendorff/es6-draft.html">Draft ECMA 2015 (ES6) Spec</a></li>
+<li><a href="http://exploringjs.com/">ExploringJS</a></li>
+<li><a href="https://kangax.github.io/compat-table/es6/">Tabla de compatibilidad de ES6</a></li>
+<li><a href="http://es6-features.org/">Vistazo comprensivo de las nuevas características de ES6</a></li>
+</ul>
+
+<p><strong>Lee esto</strong></p>
+
+<ul>
+<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html">Standard ECMA-262</a></li>
+</ul>
+
+<p><strong>Tools</strong></p>
+
+<p>Code Style Linters</p>
+
+<ul>
+<li>
+<a href="http://www.jshint.com/">JSHint</a> - <a href="https://github.com/airbnb/javascript/blob/master/linters/.jshintrc">Airbnb Style .jshintrc</a>
+</li>
+<li>
+<a href="https://github.com/jscs-dev/node-jscs">JSCS</a> - <a href="https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json">Airbnb Style Preset</a>
+</li>
+</ul>
+
+<p><strong>Otras guías de estilo</strong></p>
+
+<ul>
+<li>
+<a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google JavaScript Style Guide</a> (Guía de Estilo de Javascript de Google)</li>
+<li>
+<a href="http://docs.jquery.com/JQuery_Core_Style_Guidelines">jQuery Core Style Guidelines</a> (Lineamientos de Estilo con el núcleo de jQuery)</li>
+<li>
+<a href="https://github.com/rwldrn/idiomatic.js/">Principles of Writing Consistent, Idiomatic JavaScript</a> (Idiomatic Javascript: Principios de Escritura Consistente)</li>
+</ul>
+
+<p><strong>Otros estilos</strong></p>
+
+<ul>
+<li>
+<a href="https://gist.github.com/4135065">Naming this in nested functions</a> - Christian Johansen (Nomenclatura en funciones anidadas)</li>
+<li>
+<a href="https://github.com/airbnb/javascript/issues/52">Conditional Callbacks</a> (Callbacks condicionales)</li>
+<li>
+<a href="http://sideeffect.kr/popularconvention/#javascript">Popular JavaScript Coding Conventions on Github</a> (Convenciones Populares de Programación con Javascript en Github)</li>
+<li>
+<a href="http://benalman.com/news/2012/05/multiple-var-statements-javascript/">Multiple var statements in JavaScript, not superfluous</a> - Ben Alman (Múltiples sentencias var en JavaScript, no superfluas)</li>
+</ul>
+
+<p><strong>Lecturas más profundas</strong></p>
+
+<ul>
+<li>
+<a href="http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/">Understanding JavaScript Closures</a> - Angus Croll (Entendiendo los Closures de JavaScript)</li>
+<li>
+<a href="http://www.2ality.com/2013/06/basic-javascript.html">Basic JavaScript for the impatient programmer</a> - Dr. Axel Rauschmayer (JavaScript Básico para el programador impaciente)</li>
+<li>
+<a href="http://youmightnotneedjquery.com/">You Might Not Need jQuery</a> - Zack Bloom &amp; Adam Schwartz (Podrías no necesitar jQuery)</li>
+<li>
+<a href="https://github.com/lukehoban/es6features">ES6 Features</a> - Luke Hoban (Características de ES6)</li>
+<li>
+<a href="https://github.com/bendc/frontend-guidelines">Frontend Guidelines</a> - Benjamin De Cock (Lineamientos para el Frontend)</li>
+</ul>
+
+<p><strong>Libros</strong></p>
+
+<ul>
+<li>
+<a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742">JavaScript: The Good Parts</a> - Douglas Crockford (JavaScript: Las Buenas Partes)</li>
+<li>
+<a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752">JavaScript Patterns</a> - Stoyan Stefanov (Patrones JavaScript)</li>
+<li>
+<a href="http://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X">Pro JavaScript Design Patterns</a>  - Ross Harmes and Dustin Diaz (Patrones de Diseño Avanzados en Javascript)</li>
+<li>
+<a href="http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309">High Performance Web Sites: Essential Knowledge for Front-End Engineers</a> - Steve Souders (Sitios Web de Alto Desempeño: Conocimiento Esencial para los Ingenieros de Capa de Presentación)</li>
+<li>
+<a href="http://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680">Maintainable JavaScript</a> - Nicholas C. Zakas (JavaScript Mantenible)</li>
+<li>
+<a href="http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X">JavaScript Web Applications</a> - Alex MacCaw (Aplicaciones Web JavaScript)</li>
+<li>
+<a href="http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273">Pro JavaScript Techniques</a> - John Resig (Técnicas Avanzadas JavaScript)</li>
+<li>
+<a href="http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595">Smashing Node.js: JavaScript Everywhere</a> - Guillermo Rauch (Increíble Node.js: JavaScript en todas partes)</li>
+<li>
+<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">Secrets of the JavaScript Ninja</a> - John Resig and Bear Bibeault (Secretos del JavaScript Ninja)</li>
+<li>
+<a href="http://humanjavascript.com/">Human JavaScript</a> - Henrik Joreteg (JavaScript Humano)</li>
+<li>
+<a href="http://superherojs.com/">Superhero.js</a> - Kim Joar Bekkelund, Mads Mobæk, &amp; Olav Bjorkoy (Superhéroe.js)</li>
+<li>
+<a href="http://jsbooks.revolunet.com/">JSBooks</a> - Julien Bouquillon</li>
+<li>
+<a href="http://manning.com/vinegar/">Third Party JavaScript</a> - Ben Vinegar and Anton Kovalyov (JavaScript de Terceros)</li>
+<li>
+<a href="http://amzn.com/0321812182">Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript</a> - David Herman (JavaScript Efectivo: 68 modos específicos para elevar el poder de JavaScript)</li>
+<li>
+<a href="http://eloquentjavascript.net/">Eloquent JavaScript</a> - Marijn Haverbeke (JavaScript Elocuente)</li>
+<li>
+<a href="http://shop.oreilly.com/product/0636920033769.do">You Don't Know JS: ES6 &amp; Beyond</a> - Kyle Simpson (No sabes JS: ES6 y más allá)</li>
+</ul>
+
+<p><strong>Blogs</strong></p>
+
+<ul>
+<li><a href="http://dailyjs.com/">DailyJS</a></li>
+<li><a href="http://javascriptweekly.com/">JavaScript Weekly</a></li>
+<li><a href="http://javascriptweblog.wordpress.com/">JavaScript, JavaScript...</a></li>
+<li><a href="http://weblog.bocoup.com/">Bocoup Weblog</a></li>
+<li><a href="http://www.adequatelygood.com/">Adequately Good</a></li>
+<li><a href="http://www.nczonline.net/">NCZOnline</a></li>
+<li><a href="http://perfectionkills.com/">Perfection Kills</a></li>
+<li><a href="http://benalman.com/">Ben Alman</a></li>
+<li><a href="http://dmitry.baranovskiy.com/">Dmitry Baranovskiy</a></li>
+<li><a href="http://dustindiaz.com/">Dustin Diaz</a></li>
+<li><a href="http://net.tutsplus.com/?s=javascript">nettuts</a></li>
+</ul>
+
+<p><strong>Podcasts</strong></p>
+
+<ul>
+<li><a href="https://javascriptair.com/">JavaScript Air</a></li>
+<li>
+<p><a href="http://devchat.tv/js-jabber/">JavaScript Jabber</a></p>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+</li>
+</ul>
+
+<h2>
+<a id="en-la-cancha" class="anchor" href="#en-la-cancha" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="in-the-wild">En la cancha</a>
+</h2>
+
+<p>Esta es una lista de las organizaciones que están usando esta guía de estilo. Envíanos un pull request o abre un issue y te agregaremos a la lista.</p>
+
+<ul>
+<li>
+<strong>Airbnb</strong>: <a href="https://github.com/airbnb/javascript">airbnb/javascript</a>
+</li>
+<li>
+<strong>Aan Zee</strong>: <a href="https://github.com/AanZee/javascript">AanZee/javascript</a>
+</li>
+<li>
+<strong>American Insitutes for Research</strong>: <a href="https://github.com/AIRAST/javascript">AIRAST/javascript</a>
+</li>
+<li>
+<strong>Compass Learning</strong>: <a href="https://github.com/compasslearning/javascript-style-guide">compasslearning/javascript-style-guide</a>
+</li>
+<li>
+<strong>DailyMotion</strong>: <a href="https://github.com/dailymotion/javascript">dailymotion/javascript</a>
+</li>
+<li>
+<strong>Evernote</strong>: <a href="https://github.com/evernote/javascript-style-guide">evernote/javascript-style-guide</a>
+</li>
+<li>
+<strong>ExactTarget</strong>: <a href="https://github.com/ExactTarget/javascript">ExactTarget/javascript</a>
+</li>
+<li>
+<strong>Gawker Media</strong>: <a href="https://github.com/gawkermedia/javascript">gawkermedia/javascript</a>
+</li>
+<li>
+<strong>GeneralElectric</strong>: <a href="https://github.com/GeneralElectric/javascript">GeneralElectric/javascript</a>
+</li>
+<li>
+<strong>GoodData</strong>: <a href="https://github.com/gooddata/gdc-js-style">gooddata/gdc-js-style</a>
+</li>
+<li>
+<strong>Grooveshark</strong>: <a href="https://github.com/grooveshark/javascript">grooveshark/javascript</a>
+</li>
+<li>
+<strong>How About We</strong>: <a href="https://github.com/howaboutwe/javascript">howaboutwe/javascript</a>
+</li>
+<li>
+<strong>Mighty Spring</strong>: <a href="https://github.com/mightyspring/javascript">mightyspring/javascript</a>
+</li>
+<li>
+<strong>MinnPost</strong>: <a href="https://github.com/MinnPost/javascript">MinnPost/javascript</a>
+</li>
+<li>
+<strong>ModCloth</strong>: <a href="https://github.com/modcloth/javascript">modcloth/javascript</a>
+</li>
+<li>
+<strong>National Geographic</strong>: <a href="https://github.com/natgeo/javascript">natgeo/javascript</a>
+</li>
+<li>
+<strong>National Park Service</strong>: <a href="https://github.com/nationalparkservice/javascript">nationalparkservice/javascript</a>
+</li>
+<li>
+<strong>reddit</strong>: <a href="https://github.com/reddit/styleguide/tree/master/javascript">reddit/styleguide/javascript</a>
+</li>
+<li>
+<strong>REI</strong>: <a href="https://github.com/reidev/js-style-guide">reidev/js-style-guide</a>
+</li>
+<li>
+<strong>Razorfish</strong>: <a href="https://github.com/razorfish/javascript-style-guide">razorfish/javascript-style-guide</a>
+</li>
+<li>
+<strong>Shutterfly</strong>: <a href="https://github.com/shutterfly/javascript">shutterfly/javascript</a>
+</li>
+<li>
+<strong>Userify</strong>: <a href="https://github.com/userify/javascript">userify/javascript</a>
+</li>
+<li>
+<strong>Zillow</strong>: <a href="https://github.com/zillow/javascript">zillow/javascript</a>
+</li>
+<li>
+<strong>ZocDoc</strong>: <a href="https://github.com/ZocDoc/javascript">ZocDoc/javascript</a>
+</li>
+</ul>
+
+<h2>
+<a id="traducciones" class="anchor" href="#traducciones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="translation">Traducciones</a>
+</h2>
+
+<p>Esta guía de estilo es también disponible en otros lenguajes:</p>
+
+<ul>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/United-States.png" alt="us"> <strong>Inglés (original)</strong>: <a href="https://github.com/airbnb/javascript">airbnb/javascript</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png" alt="br"> <strong>Portugués Brasileño</strong>: <a href="https://github.com/armoucar/javascript-style-guide">armoucar/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png" alt="bg"> <strong>Búlgaro</strong>: <a href="https://github.com/borislavvv/javascript">borislavvv/javascript</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png" alt="ca"> <strong>Catalán</strong>: <a href="https://github.com/fpmweb/javascript-style-guide">fpmweb/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png" alt="tw"> <strong>Chino (Tradicional)</strong>: <a href="https://github.com/jigsawye/javascript">jigsawye/javascript</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png" alt="cn"> <strong>Chino (Simplificado)</strong>: <a href="https://github.com/sivan/javascript-style-guide">sivan/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png" alt="fr"> <strong>Francés</strong>: <a href="https://github.com/nmussy/javascript-style-guide">nmussy/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png" alt="de"> <strong>Alemán</strong>: <a href="https://github.com/timofurrer/javascript-style-guide">timofurrer/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png" alt="it"> <strong>Italiano</strong>: <a href="https://github.com/sinkswim/javascript-style-guide">sinkswim/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png" alt="jp"> <strong>Japonés</strong>: <a href="https://github.com/mitsuruog/javacript-style-guide">mitsuruog/javacript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png" alt="kr"> <strong>Coreano</strong>: <a href="https://github.com/tipjs/javascript-style-guide">tipjs/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png" alt="pl"> <strong>Polaco</strong>: <a href="https://github.com/mjurczyk/javascript">mjurczyk/javascript</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png" alt="ru"> <strong>Ruso</strong>: <a href="https://github.com/uprock/javascript">uprock/javascript</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png" alt="th"> <strong>Tailandés</strong>: <a href="https://github.com/lvarayut/javascript-style-guide">lvarayut/javascript-style-guide</a>
+</li>
+<li>
+<img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png" alt="vn"> <strong>Vietnamita</strong>: <a href="https://github.com/giangpii/javascript-style-guide">giangpii/javascript-style-guide</a>
+</li>
+</ul>
+
+<h2>
+<a id="la-guía-de-la-guía-de-estilos-de-javascript" class="anchor" href="#la-gu%C3%ADa-de-la-gu%C3%ADa-de-estilos-de-javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="guide-guide">La guía de la Guía de Estilos de Javascript</a>
+</h2>
+
+<ul>
+<li><a href="https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide">Referencia</a></li>
+</ul>
+
+<h2>
+<a id="charla-con-nosotros-sobre-javascript" class="anchor" href="#charla-con-nosotros-sobre-javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="chat-with-us-about-javascript">Charla con nosotros sobre Javascript</a>
+</h2>
+
+<ul>
+<li>Encuéntranos en <a href="https://gitter.im/airbnb/javascript">gitter</a>.</li>
+</ul>
+
+<h2>
+<a id="colaboradores" class="anchor" href="#colaboradores" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="authors">Colaboradores</a>
+</h2>
+
+<ul>
+<li><a href="https://github.com/airbnb/javascript/graphs/contributors">Vea a los colaboradores</a></li>
+</ul>
+
+<h2>
+<a id="licencia" class="anchor" href="#licencia" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="license">Licencia</a>
+</h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2014-2016 Airbnb</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<p><strong><a href="#TOC">[⬆ regresar a la Tabla de Contenido]</a></strong></p>
+
+<h2>
+<a id="enmiendas" class="anchor" href="#enmiendas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Enmiendas</h2>
+
+<p>Te recomendamos hacer fork de esta guía y cambiar las reglas para que se adecúen a la guía de estilos de tu equipo. Abajo podrás encontrar algunas enmiendas a la guía de estilos. Esto te permitirá actualizar periódicamente tu guía de estilos sin tener que lidiar con conflictos al hacer merge.</p>
+
+<h1>
+<a id="" class="anchor" href="#" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>};</h1>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

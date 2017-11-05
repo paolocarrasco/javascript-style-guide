@@ -1,4 +1,4 @@
-[# Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript)
+# Airbnb JavaScript Style Guide() {
 
 *Un enfoque altamente razonable para JavaScript*
 
@@ -14,46 +14,46 @@ Otras Guías de Estilos
 - [CSS & SASS](https://github.com/airbnb/css)
 - [Ruby](https://github.com/airbnb/ruby)
 
-## <a name='TOC'>Tabla de Contenido</a>
+## Tabla de Contenido
 
-  1. [Tipos](#types)
-  1. [Referencias](#references)
-  1. [Objetos](#objects)
-  1. [Arreglos](#arrays)
+  1. [Tipos](#tipos)
+  1. [Referencias](#referencias)
+  1. [Objetos](#objetos)
+  1. [Arreglos](#arreglos)
   1. [Destructuring](#destructuring)
-  1. [Cadenas de Texto](#strings)
-  1. [Funciones](#functions)
-  1. [Notación de Funciones de Flecha](#arrow-functions)
-  1. [Clases y Constructores](#constructors)
-  1. [Módulos](#modules)
-  1. [Iteradores y Generadores](#iterators-and-generators)
-  1. [Propiedades](#properties)
+  1. [Cadenas de Texto](#cadenas-de-texto)
+  1. [Funciones](#funciones)
+  1. [Notación de Funciones de Flecha](#notacion-de-funciones-de-flecha)
+  1. [Clases y Constructores](#clases-y constructores)
+  1. [Módulos](#modulos)
+  1. [Iteradores y Generadores](#iteradores-y-generadores)
+  1. [Propiedades](#propiedades)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Expresiones de comparación e igualdad](#conditionals)
-  1. [Bloques](#blocks)
-  1. [Comentarios](#comments)
-  1. [Espacios en blanco](#whitespace)
-  1. [Comas](#commas)
-  1. [Puntos y Comas](#semicolons)
-  1. [Casting de Tipos & Coerción](#type-coercion)
-  1. [Convenciones de nomenclatura](#naming-conventions)
-  1. [Funciones de Acceso](#accessors)
-  1. [Eventos](#events)
+  1. [Expresiones de comparación e igualdad](#expresiones-de-comparacion-e-igualdad)
+  1. [Bloques](#bloques)
+  1. [Comentarios](#comentarios)
+  1. [Espacios en blanco](#espacios-en-blanco)
+  1. [Comas](#comas)
+  1. [Puntos y Comas](#puntos-y-comas)
+  1. [Casting de Tipos y Coerción](#casting-de-tipos-y-coercion)
+  1. [Convenciones de nomenclatura](#convenciones-de-nomenclatura)
+  1. [Funciones de Acceso](#funciones-de-acceso)
+  1. [Eventos](#eventos)
   1. [jQuery](#jquery)
-  1. [Compatibilidad con ES5](#es5)
-  1. [Estilos de ES6+ (ES2015+)](#ecmascript-6-styles)
-  1. [Pruebas](#testing)
-  1. [Desempeño](#performance)
-  1. [Recursos](#resources)
-  1. [En la cancha](#in-the-wild)
-  1. [Traducciones](#translation)
-  1. [La guía de la Guía del Estilo JavaScript](#guide-guide)
-  1. [Charla con nosotros sobre Javascript](#chat-with-us-about-javascript)
-  1. [Colaboradores](#contributors)
-  1. [Licencia](#license)
+  1. [Compatibilidad con ES5](#compatibilidad-con-es5)
+  1. [Estilos de EcmaScript6+ (ES2015+)](#estilos-de-ecmascript6-es2015)
+  1. [Pruebas](#pruebas)
+  1. [Desempeño](#desempeño)
+  1. [Recursos](#recursos)
+  1. [En la cancha](#en-la-cancha)
+  1. [Traducciones](#traducciones)
+  1. [La guía de la Guía del Estilo JavaScript](#la-guia-de-la-guia-del-estilo-javascript)
+  1. [Charla con nosotros sobre Javascript](#charla-con-nosotros-sobre-javascript)
+  1. [Colaboradores](#colaboradores)
+  1. [Licencia](#licencia)
 
-## <a name='types'>Tipos</a>
+## Tipos
 
   - **Primitivos**: Cuando accedes a un tipo primitivo, manejas directamente su valor
 
@@ -88,7 +88,7 @@ Otras Guías de Estilos
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='references'>Referencias</a>
+## Referencias
   - Usa `const` para todas tus referencias; evita usar `var`.
   > ¿Por qué? Esto asegura que no reasignes tus referencias, lo
   que puede llevar a bugs y dificultad para comprender el código.
@@ -134,7 +134,7 @@ Otras Guías de Estilos
   console.log(b); // ReferenceError
   ```
 
-## <a name='objects'>Objetos</a>
+## Objetos
 
   - Usa la sintaxis literal para la creación de un objeto.
 
@@ -182,7 +182,7 @@ Otras Guías de Estilos
     ```
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='arrays'>Arreglos</a>
+## Arreglos
 
   - Usa la sintaxis literal para la creación de arreglos
 
@@ -232,7 +232,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='strings'>Cadenas de Texto</a>
+## Cadenas de Texto
 
   - Usa comillas simples `''` para las cadenas de texto
 
@@ -289,7 +289,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='functions'>Funciones</a>
+## Funciones
 
   - Usa declaración de función en vez de expresiones de función.
 
@@ -342,7 +342,7 @@ Otras Guías de Estilos
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='constructors'>Clases y Constructores</a>
+## Clases y Constructores
 
   - Siempre usa `class`. Evita manipular `prototype` directamente.
 
@@ -429,7 +429,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='properties'>Propiedades</a>
+## Propiedades
 
   - Usa la notación de punto `.` cuando accedas a las propiedades.
 
@@ -464,7 +464,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='variables'>Variables</a>
+## Variables
 
   - Siempre usa `const` para declarar constantes o `let` para declarar variables. No hacerlo resultará en variables globales. Debemos evitar contaminar el espacio global (global namespace). El [Capitán Planeta](https://es.wikipedia.org/wiki/Capit%C3%A1n_Planeta_y_los_planetarios) nos advirtió de eso.
 
@@ -568,7 +568,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='hoisting'>Hoisting</a>
+## Hoisting
 
   - Las declaraciones de variables son movidas a la parte superior de su ámbito, sin embargo su asignación no.
 
@@ -660,7 +660,7 @@ Otras Guías de Estilos
 
 
 
-## <a name='conditionals'>Expresiones de comparación e igualdad</a>
+## Expresiones de comparación e igualdad
 
   - Usa `===` y `!==` en vez de `==` y `!=` respectivamente.
   - Las expresiones condicionales son evaluadas usando coerción con el método `ToBoolean` y siempre obedecen a estas reglas sencillas:
@@ -756,7 +756,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='blocks'>Bloques</a>
+## Bloques
 
   - Usa llaves con todos los bloques de múltiples líneas.
 
@@ -806,7 +806,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='comments'>Comentarios</a>
+## Comentarios
 
   - Usa `/** ... */` para comentarios de múltiples líneas. Incluye una descripción, especificación de tipos y valores para todos los parámetros y valores de retorno.
 
@@ -901,7 +901,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='whitespace'>Espacios en blanco</a>
+## Espacios en blanco
 
   - Usa indentaciones blandas (sin TAB)  establecidas en dos espacios.
 
@@ -1103,7 +1103,7 @@ Otras Guías de Estilos
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='commas'>Comas</a>
+## Comas
 
   - Comas al inicio de línea: **Nop.**
 
@@ -1184,7 +1184,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='semicolons'>Puntos y Comas</a>
+## Puntos y Comas
 
   - **Sip.**
 
@@ -1212,7 +1212,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='type-coercion'>Casting de Tipos & Coerción</a>
+## Casting de Tipos y Coerción
 
   - Ejecuta coerción al inicio de una sentencia.
   - Strings:
@@ -1291,7 +1291,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='naming-conventions'>Convenciones de nomenclatura</a>
+## Convenciones de nomenclatura
 
   - Evita nombres de una sola letra. Sé descriptivo con tus nombres.
 
@@ -1444,7 +1444,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='accessors'>Funciones de Acceso</a>
+## Funciones de Acceso
 
   - Funciones de acceso para las propiedades no son requeridas.
   - No uses getters/setters de JavaScript ya que causan efectos colaterales no esperados y son difíciles de probar, mantener y razonar. En vez de ello, si creas funciones de acceso usa  ```getVal()``` y ```setVal('hello')```.
@@ -1509,7 +1509,7 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='events'>Eventos</a>
+## Eventos
 
   - Cuando envíes paquetes de datos a los eventos (ya sea con eventos del DOM o algo propietario como los eventos de Backbone), pasa un mapa en vez de un valor directo. Esto permitirá a un próximo colaborador a agregar más datos al paquete de datos sin que tenga que encontrar o actualizar un handler para cada evento. Por ejemplo, en vez de:
 
@@ -1539,7 +1539,7 @@ Otras Guías de Estilos
 
   **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='jquery'>jQuery</a>
+## jQuery
 
   - Nombre las variables de objetos jQuery con un prefijo `$`.
 
@@ -1601,13 +1601,13 @@ Otras Guías de Estilos
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='es5'>Compatibilidad con ECMAScript 5</a>
+## Compatibilidad con ECMAScript 5
 
   - Revisa la [tabla de compatibilidad](http://kangax.github.com/es5-compat-table/) de ES5 de [Kangax](https://twitter.com/kangax/).
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name="ecmascript-6-styles"></a>Estilos de ES6+ (ES 2015+)
+## Estilos de EcmaScript6+ (ES 2015+)
 
     - A continuación, un conjunto de enlaces hacia los estilos para las nuevas características de ES6:
 
@@ -1631,7 +1631,7 @@ Otras Guías de Estilos
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='testing'>Pruebas</a>
+## Pruebas
 
   - **Sip**.
 
@@ -1651,7 +1651,7 @@ Otras Guías de Estilos
 
     **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='performance'>Desempeño</a>
+## Desempeño
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1666,7 +1666,7 @@ Otras Guías de Estilos
   **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
 
-## <a name='resources'>Recursos</a>
+## Recursos
 
 **Learning ES6**
 
@@ -1746,7 +1746,7 @@ Otras Guías de Estilos
 
   **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
 
-## <a name='in-the-wild'>En la cancha</a>
+## En la cancha
 
   Esta es una lista de las organizaciones que están usando esta guía de estilo. Envíanos un pull request o abre un issue y te agregaremos a la lista.
 
@@ -1775,7 +1775,7 @@ Otras Guías de Estilos
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-## <a name='translation'>Traducciones</a>
+## Traducciones
 
   Esta guía de estilo es también disponible en otros lenguajes:
 
@@ -1794,19 +1794,19 @@ Otras Guías de Estilos
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Ruso**: [uprock/javascript](https://github.com/uprock/javascript)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Tailandés**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnamita**: [giangpii/javascript-style-guide](https://github.com/giangpii/javascript-style-guide)
-## <a name='guide-guide'>La guía de la Guía de Estilos de Javascript</a>
+## La guía de la Guía de Estilos de Javascript
 
   - [Referencia](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## <a name='chat-with-us-about-javascript'>Charla con nosotros sobre Javascript</a>
+## Charla con nosotros sobre Javascript
   - Encuéntranos en [gitter](https://gitter.im/airbnb/javascript).
 
-## <a name='authors'>Colaboradores</a>
+## Colaboradores
 
   - [Vea a los colaboradores](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## <a name='license'>Licencia</a>
+## Licencia
 
 (The MIT License)
 

@@ -248,41 +248,41 @@ Otras Guías de Estilos
 
   > **Nota:** Cuando se usa sin criterio, las cadenas de texto largas pueden impactar en el desempeño. [jsPerf](http://jsperf.com/ya-string-concat) & [Discusión](https://github.com/airbnb/javascript/issues/40)
 
-    ```javascript
-    // mal
-    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+  ```javascript
+  // mal
+  var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
-    // bien
-    var errorMessage = 'This is a super long error that was thrown because\
-    of Batman. When you stop to think about how Batman had anything to do \
-    with this, you would get nowhere fast.';
+  // bien
+  var errorMessage = 'This is a super long error that was thrown because\
+  of Batman. When you stop to think about how Batman had anything to do \
+  with this, you would get nowhere fast.';
 
-    // bien
-    var errorMessage = 'This is a super long error that was thrown because' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
-    ```
+  // bien
+  var errorMessage = 'This is a super long error that was thrown because' +
+    'of Batman. When you stop to think about how Batman had anything to do ' +
+    'with this, you would get nowhere fast.';
+  ```
 
   - Cuando se crean cadenas de texto de forma programática, usa template strings (cadena de plantillas) en vez de concatenación.
 
   > ¿Por qué? Los template strings te dan mayor legibilidad, sintaxis concisa con nuevas líneas apropiadas y capacidades de interpolación.
 
-    ```javascript
-    // mal
-    function sayHi(name) {
-      return 'How are you, ' + name + '?';
-    }
+  ```javascript
+  // mal
+  function sayHi(name) {
+    return 'How are you, ' + name + '?';
+  }
 
-    // mal
-    function sayHi(name) {
-      return ['How are you, ', name, '?'].join();
-    }
+  // mal
+  function sayHi(name) {
+    return ['How are you, ', name, '?'].join();
+  }
 
-    // bien
-    function sayHi(name) {
-      return `How are you, ${name}?`;
-    }
-    ```
+  // bien
+  function sayHi(name) {
+    return `How are you, ${name}?`;
+  }
+  ```
 
   - Nunca uses `eval()` en una cadena de texto, abre una caja de Pandora de vulnerabilidades.
 
@@ -309,22 +309,22 @@ Otras Guías de Estilos
 
   > **Nota:** ECMA-262 define un bloque como una lista de sentencias. Una declaración de función no es una sentencia. [Lee la nota de ECMA-262 sobre este inconveniente](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
-    ```javascript
-    // mal
-    if (currentUser) {
-      function test() {
-        console.log('Nope.');
-      }
+  ```javascript
+  // mal
+  if (currentUser) {
+    function test() {
+      console.log('Nope.');
     }
+  }
 
-    // bien
-    let test;
-    if (currentUser) {
-      test = () => {
-        console.log('Yup.');
-      };
-    }
-    ```
+  // bien
+  let test;
+  if (currentUser) {
+    test = () => {
+      console.log('Yup.');
+    };
+  }
+  ```
 
   - Nunca nombres a un parámetro como `arguments`, esto tendrá precedencia sobre el objeto `arguments` que es brindado en cada ámbito de función.
 
@@ -1142,44 +1142,44 @@ Otras Guías de Estilos
   - Coma adicional al final: **Sip.**
   > ¿Por qué? Esto lleva a diferenciales en git más claros. Además los transpiladores como Babel removerán la coma del final en el código transpilado lo que significa que no te tendrás que preocupar del [problema de la coma adicional al final](es5/README.md#commas) en navegadores antiguos.
 
-    ```javascript
-    // mal - git diff sin coma adicional al final
-    const hero = {
-         firstName: 'Florence',
-    -    lastName: 'Nightingale'
-    +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing']
-    };
+  ```javascript
+  // mal - git diff sin coma adicional al final
+  const hero = {
+       firstName: 'Florence',
+  -    lastName: 'Nightingale'
+  +    lastName: 'Nightingale',
+  +    inventorOf: ['coxcomb chart', 'modern nursing']
+  };
 
-    // bien - git diff con coma adicional al final
-    const hero = {
-         firstName: 'Florence',
-         lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
-    };
+  // bien - git diff con coma adicional al final
+  const hero = {
+       firstName: 'Florence',
+       lastName: 'Nightingale',
+  +    inventorOf: ['coxcomb chart', 'modern nursing'],
+  };
 
-    // mal
-    const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
-    };
+  // mal
+  const hero = {
+    firstName: 'Dana',
+    lastName: 'Scully'
+  };
 
-    const heroes = [
-      'Batman',
-      'Superman'
-    ];
+  const heroes = [
+    'Batman',
+    'Superman'
+  ];
 
-    // bien
-    const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
-    };
+  // bien
+  const hero = {
+    firstName: 'Dana',
+    lastName: 'Scully',
+  };
 
-    const heroes = [
-      'Batman',
-      'Superman',
-    ];
-    ```
+  const heroes = [
+    'Batman',
+    'Superman',
+  ];
+  ```
 
 **[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
@@ -1348,16 +1348,16 @@ Otras Guías de Estilos
   - No uses prefijos ni sufijos de guiones bajo.
   > ¿Por qué? JavaScript no tiene el concepto de privacidad en términos de propiedades o métodos. A pesar que un guión bajo como prefijo es una convención común para indicar que son "privados", la realidad es que estas propiedades son absolutamente públicas, y por ello, parte de tu contrato público de API. La convención del prefijo de guión bajo podría orientar a los desarrolladores a pensar erróneamente que un cambio a aquellos no será de impacto o que los tests no son necesarios.
 
-    ```javascript
-    // mal
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-    this._firstName = 'Panda';
+  ```javascript
+  // mal
+  this.__firstName__ = 'Panda';
+  this.firstName_ = 'Panda';
+  this._firstName = 'Panda';
 
 
-    // bien
-    this.firstName = 'Panda';
-    ```
+  // bien
+  this.firstName = 'Panda';
+  ```
 
   - Nunca guardes referencias a `this`. Usa funciones arrow o la función [#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
 

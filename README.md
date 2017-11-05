@@ -374,7 +374,7 @@ Otras Guías de Estilos
 
   - Métodos pueden retornar `this` para ayudar con el encadenamiento de métodos (*chaining*).
 
-  ```javascript
+    ```javascript
     // mal
     Jedi.prototype.jump = function () {
       this.jumping = true;
@@ -507,7 +507,7 @@ Otras Guías de Estilos
   - Agrupa tus `const`s y luego agrupa tus `let`s.
     > ¿Por qué? Esto es útil cuando necesites asignar una variable luego dependiendo de una de las variables asignadas previamente.
 
-    ```javascript
+   ```javascript
    // mal
    let i, len, dragonball,
        items = getItems(),
@@ -531,7 +531,7 @@ Otras Guías de Estilos
   - Asigna las variables cuando las necesites, pero ponlas en un lugar razonable.
     > ¿Por qué? `let` y `const` están a nivel de bloque, no a  nivel de función.
 
-    ```javascript
+   ```javascript
    // mal - llamada a funcion innecesaria
    function checkName(hasName) {
      const name = getName();
@@ -1449,7 +1449,7 @@ Otras Guías de Estilos
   - Funciones de acceso para las propiedades no son requeridas.
   - No uses getters/setters de JavaScript ya que causan efectos colaterales no esperados y son difíciles de probar, mantener y razonar. En vez de ello, si creas funciones de acceso usa  ```getVal()``` y ```setVal('hello')```.
 
-  ```javascript
+     ```javascript
      // Maintainable-JavaScript-Nicholas-C-Zakas
      class Dragon {
        get age() {

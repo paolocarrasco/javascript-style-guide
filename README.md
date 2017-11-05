@@ -231,6 +231,72 @@ Otras Guías de Estilos
 
 **[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
+## Destructuring
+
+  - Usa object destructuring cuando accedas y uses múltiples propiedades de un objeto.
+
+    > ¿Por qué? Destructuring te ahorra crear referencias temporales para esas propiedades.
+
+    ```javascript
+    // mal
+    function getFullName(user) {
+      const firstName = user.firstName;
+      const lastName = user.lastName;
+
+      return `${firstName} ${lastName}`;
+    }
+
+    // bien
+    function getFullName(user) {
+      const { firstName, lastName } = user;
+      return `${firstName} ${lastName}`;
+    }
+
+    // mejor
+    function getFullName({ firstName, lastName }) {
+      return `${firstName} ${lastName}`;
+    }
+    ```
+
+  - Usa array destructuring.
+
+    ```javascript
+    const arr = [1, 2, 3, 4];
+
+    // mal
+    const first = arr[0];
+    const second = arr[1];
+
+    // bien
+    const [first, second] = arr;
+    ```
+
+  - Usa object destructuring para múltiple valores de retorno, no array destructuring.
+
+    > ¿Por qué? Puedes agregar nuevas propiedades en el tiempo o cambiar el orden de las cosas sin afectar la forma en que se llama.
+
+    ```javascript
+    // mal
+    function processInput(input) {
+      // then a miracle occurs
+      return [left, right, top, bottom];
+    }
+
+    // el que llama necesita pensar en el orden de la data de retorno
+    const [left, __, top] = processInput(input);
+
+    // bien
+    function processInput(input) {
+      // then a miracle occurs
+      return { left, right, top, bottom };
+    }
+
+    // el que llama elige solo la data que necesita
+    const { left, top } = processInput(input);
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
 
 ## Cadenas de Texto
 

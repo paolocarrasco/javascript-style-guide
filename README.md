@@ -86,7 +86,7 @@ Otras Guías de Estilos
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Referencias
   - Usa `const` para todas tus referencias; evita usar `var`.
@@ -180,7 +180,7 @@ Otras Guías de Estilos
       type: 'alien'
     };
     ```
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Arreglos
 
@@ -229,7 +229,7 @@ Otras Guías de Estilos
     const nodes = Array.from(foo);
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Cadenas de Texto
@@ -286,7 +286,7 @@ Otras Guías de Estilos
 
   - Nunca uses `eval()` en una cadena de texto, abre una caja de Pandora de vulnerabilidades.
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Funciones
@@ -340,7 +340,7 @@ Otras Guías de Estilos
     }
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Clases y Constructores
 
@@ -426,7 +426,7 @@ Otras Guías de Estilos
     }
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Propiedades
@@ -461,7 +461,7 @@ Otras Guías de Estilos
     const isJedi = getProp('jedi');
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Variables
@@ -565,7 +565,7 @@ Otras Guías de Estilos
    }
    ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Hoisting
@@ -656,7 +656,7 @@ Otras Guías de Estilos
 
   - Para más información lee [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) por [Ben Cherry](http://www.adequatelygood.com/)
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 
@@ -753,7 +753,7 @@ Otras Guías de Estilos
     }
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Bloques
@@ -803,7 +803,7 @@ Otras Guías de Estilos
     }
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Comentarios
@@ -898,7 +898,7 @@ Otras Guías de Estilos
     }
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Espacios en blanco
@@ -1101,7 +1101,7 @@ Otras Guías de Estilos
     return arr;
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Comas
 
@@ -1181,7 +1181,7 @@ Otras Guías de Estilos
     ];
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Puntos y Comas
@@ -1209,7 +1209,7 @@ Otras Guías de Estilos
     }());
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Casting de Tipos y Coerción
@@ -1288,7 +1288,7 @@ Otras Guías de Estilos
     const hasAge = !!age;
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Convenciones de nomenclatura
@@ -1441,7 +1441,7 @@ Otras Guías de Estilos
   export default AirbnbStyleGuide;
   ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Funciones de Acceso
@@ -1506,7 +1506,7 @@ Otras Guías de Estilos
     }
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Eventos
@@ -1537,7 +1537,7 @@ Otras Guías de Estilos
     });
     ```
 
-  **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## jQuery
 
@@ -1598,14 +1598,14 @@ Otras Guías de Estilos
     $sidebar.find('ul');
     ```
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Compatibilidad con ECMAScript 5
 
   - Revisa la [tabla de compatibilidad](http://kangax.github.com/es5-compat-table/) de ES5 de [Kangax](https://twitter.com/kangax/).
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Estilos de EcmaScript6+ (ES 2015+)
 
@@ -1629,7 +1629,7 @@ Otras Guías de Estilos
 
       > ¿Por qué? [No están finalizadas](https://tc39.github.io/process-document/), y están sujetas a cambios o reescritas completamente. Vamos a usar JavaScript y las propuestas aún no son JavaScript.
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Pruebas
 
@@ -1649,7 +1649,7 @@ Otras Guías de Estilos
    - 100% de cobertura de pruebas es una buena meta a perseguir, a pesar que no es siempre práctico conseguirlo.
    - Cuando corrijas una incidencia (bug), _escribe una prueba de regresión_. Una incidencia sin una prueba de regresión es casi seguro que volverá a ocurrir en el futuro.
 
-    **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Desempeño
 
@@ -1663,7 +1663,7 @@ Otras Guías de Estilos
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
-  **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Recursos
@@ -1744,7 +1744,7 @@ Otras Guías de Estilos
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
-  **[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## En la cancha
 
@@ -1831,7 +1831,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[[⬆ regresar a la Tabla de Contenido]](#TOC)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Enmiendas
 

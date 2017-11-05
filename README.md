@@ -295,7 +295,7 @@ Otras Guías de Estilos
     const { left, top } = processInput(input);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 
 ## Cadenas de Texto

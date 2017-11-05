@@ -24,7 +24,7 @@ Otras Guías de Estilos
   1. [Cadenas de Texto](#cadenas-de-texto)
   1. [Funciones](#funciones)
   1. [Notación de Funciones de Flecha](#notacion-de-funciones-de-flecha)
-  1. [Clases y Constructores](#clases-y constructores)
+  1. [Clases y Constructores](#clases-y-constructores)
   1. [Módulos](#modulos)
   1. [Iteradores y Generadores](#iteradores-y-generadores)
   1. [Propiedades](#propiedades)

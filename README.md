@@ -633,6 +633,151 @@ Otras Guías de Estilos
 
 **[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
+## Módulos
+
+  - Siempre usa módulos (`import`/`export`) antes que un sistema de módulos no estándar. Siempre puedes transpilar a tu sistema de módulos preferido.
+
+    > ¿Por qué? Los módulos son el futuro, comencemos a usar el futuro en el presente.
+
+    ```javascript
+    // mal
+    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
+    module.exports = AirbnbStyleGuide.es6;
+
+    // ok
+    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    export default AirbnbStyleGuide.es6;
+
+    // mejor
+    import { es6 } from './AirbnbStyleGuide';
+    export default es6;
+    ```
+
+  - No uses imports con comodines (asterisco).
+
+    > ¿Por qué? Esto te asegura de tener una única exportación por defecto.
+
+    ```javascript
+    // mal
+    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+
+    // bien
+    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    ```
+
+  - Y no exportes directamente lo que traigas de un import.
+
+    > ¿Por qué? A pesar que hacer las cosas en una línea es conciso, tener un modo claro de importar y un modo claro de exportar, hace las cosas consistentes.
+
+    ```javascript
+    // mal
+    // filename es6.js
+    export { es6 as default } from './AirbnbStyleGuide';
+
+    // bien
+    // filename es6.js
+    import { es6 } from './AirbnbStyleGuide';
+    export default es6;
+    ```
+
+  - Solo importa de una ruta en un mismo lugar.
+
+    > ¿Por qué? Tener varias líneas que importan de una misma ruta hace al código difícil de mantener.
+
+    ```javascript
+    // mal
+    import foo from 'foo';
+    // … some other imports … //
+    import { named1, named2 } from 'foo';
+
+    // bien
+    import foo, { named1, named2 } from 'foo';
+
+    // bien
+    import foo, {
+      named1,
+      named2,
+    } from 'foo';
+    ```
+
+  - No exportes las asociaciones (bindings) mutables.
+
+    > ¿Por qué? La mutación debe ser evitada en general, pero en particular cuando se exportan asociaciones (bindings) mutables. Mientras esta técnica puede ser necesaria para algunos casos especiales, en general solo referencias constantes deben ser exportadas.
+
+    ```javascript
+    // mal
+    let foo = 3;
+    export { foo };
+
+    // bien
+    const foo = 3;
+    export { foo };
+    ```
+
+  - En módulos con una única exportación, prefiere la exportación por defecto sobre la exportación nombrada.
+
+    > ¿Por qué? Para forzar a que más archivos solo exporten una sola cosa, lo que es mejor para la legibilidad y mantenibilidad.
+
+    ```javascript
+    // mal
+    export function foo() {}
+
+    // bien
+    export default function foo() {}
+    ```
+
+  - Pon todos los `import`s encima de las sentencias de no importación.
+
+    > ¿Por qué? Desde que los `import`s son elevados (hoisted), mantenerlos en el inicio previene comportamientos sorpresivos.
+
+    ```javascript
+    // mal
+    import foo from 'foo';
+    foo.init();
+
+    import bar from 'bar';
+
+    // bien
+    import foo from 'foo';
+    import bar from 'bar';
+
+    foo.init();
+    ```
+
+  - Imports de multi-línea deben ser indentados como los arreglos multi-línea y literales de objeto.
+
+    > ¿Por qué? Las llaves deben seguir las mismas reglas de indentación como en otros bloques de llaves en la guía de estilos, así como las comas finales.
+
+    ```javascript
+    // mal
+    import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
+
+    // bien
+    import {
+      longNameA,
+      longNameB,
+      longNameC,
+      longNameD,
+      longNameE,
+    } from 'path';
+    ```
+
+  - No permitas la sintaxis de carga de Webpack en las sentencias de importación de módulos.
+
+    > ¿Por qué? Debido a que usar la sintaxis de Webpack en los imports acopla el código a un ensamblador de módulos. Prefiere usar aquella sintaxis de carga en el archivo de `webpack.config.js`.
+
+    ```javascript
+    // mal
+    import fooSass from 'css!sass!foo.scss';
+    import barCss from 'style!css!bar.css';
+
+    // bien
+    import fooSass from 'foo.scss';
+    import barCss from 'bar.css';
+    ```
+
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
+
 
 ## Propiedades
 
@@ -667,7 +812,6 @@ Otras Guías de Estilos
     ```
 
 **[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
-
 
 ## Variables
 

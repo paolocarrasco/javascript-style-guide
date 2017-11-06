@@ -359,7 +359,7 @@ Otras Guías de Estilos
 
   - Usa declaración de función en vez de expresiones de función.
 
-  > ¿Por qué? Las declaraciones de función son nombradas, por lo que son más sencillos de identificar en las pilas de llamadas. Además todo el contenido de una declaración de función es *hoisted*, mientras que solo la referencia de una expresión de función es *hoisted*. Esta regla hace posible que siempre se usen [Arrow Functions](#arrow-functions) en vez de las funciones de expresión.
+  > ¿Por qué? Las declaraciones de función son nombradas, por lo que son más sencillas de identificar en las pilas de llamadas. Además todo el contenido de una declaración de función es *hoisted*, mientras que solo la referencia de una expresión de función es *hoisted*. Esta regla hace posible que siempre se usen [Arrow Functions](#notación-de-funciones-de-flecha) en vez de las funciones de expresión.
 
   ```javascript
    // mal
@@ -407,6 +407,145 @@ Otras Guías de Estilos
     ```
 
 **[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
+
+## Notación de Funciones de Flecha
+
+  - Cuando debas usar funciones anónimas (como cuando pasas un callback inline), usa la notación de funciones de flecha.
+
+    > ¿Por qué? Crea una versión de la función que ejecuta en el contexto de `this`, lo que usualmente es lo que deseas, además que tiene una sintaxis más concisa.
+
+    > ¿Por qué no? Si tienes una función complicada, debes mover esa lógica fuera de su expresión de función nombrada.
+
+    ```javascript
+    // mal
+    [1, 2, 3].map(function (x) {
+      const y = x + 1;
+      return x * y;
+    });
+
+    // bien
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+    ```
+
+  - Si el cuerpo de la función consiste en una sola sentencia retornando una [expresión](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) sin efectos colaterales, omite las llaves y usa el retorno implícito.
+  De otro modo, mantén las llaves y usa una sentencia de retorno.
+
+    > ¿Por qué? Un edulcorante sintáctico. Se lee bien cuando múltiples funciones están encadenadas entre sí.
+
+    ```javascript
+    // mal
+    [1, 2, 3].map(number => {
+      const nextNumber = number + 1;
+      `A string containing the ${nextNumber}.`;
+    });
+
+    // bien
+    [1, 2, 3].map(number => `A string containing the ${number}.`);
+
+    // bien
+    [1, 2, 3].map((number) => {
+      const nextNumber = number + 1;
+      return `A string containing the ${nextNumber}.`;
+    });
+
+    // bien
+    [1, 2, 3].map((number, index) => ({
+      [index]: number,
+    }));
+
+    // Sin efectos colaterales para retorno implícito
+    function foo(callback) {
+      const val = callback();
+      if (val === true) {
+        // Do something if callback returns true
+      }
+    }
+
+    let bool = false;
+
+    // mal
+    foo(() => bool = true);
+
+    // bien
+    foo(() => {
+      bool = true;
+    });
+    ```
+
+  - En caso que la expresión se expanda en varias líneas, envuélvela en paréntesis para una mejor legibilidad.
+
+    > ¿Por qué? Se observa claramente dónde empieza y termina la función.
+
+    ```javascript
+    // mal
+    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
+        httpMagicObjectWithAVeryLongName,
+        httpMethod,
+      )
+    );
+
+    // bien
+    ['get', 'post', 'put'].map(httpMethod => (
+      Object.prototype.hasOwnProperty.call(
+        httpMagicObjectWithAVeryLongName,
+        httpMethod,
+      )
+    ));
+    ```
+
+  - Si tu función tiene un solo argumento y no usa llaves, omite los paréntesis. De otra forma, siempre incluye paréntesis alrededor de los argumentos por claridad y consistencia.
+  Nota: es también aceptable siempre usar paréntesis, en cuyo caso usa la [opción de "always"](https://eslint.org/docs/rules/arrow-parens#always) para eslint o no incluyas [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) para jscs.
+
+    > ¿Por qué? Menos basura visual.
+
+    ```javascript
+    // mal
+    [1, 2, 3].map((x) => x * x);
+
+    // bien
+    [1, 2, 3].map(x => x * x);
+
+    // bien
+    [1, 2, 3].map(number => (
+      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+    ));
+
+    // mal
+    [1, 2, 3].map(x => {
+      const y = x + 1;
+      return x * y;
+    });
+
+    // bien
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+    ```
+
+  - Evita confundir la sintaxis de función de flecha (`=>`) con los operadores de comparación (`<=`, `>=`).
+
+    ```javascript
+    // mal
+    const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
+
+    // mal
+    const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
+
+    // bien
+    const itemHeight = item => (item.height > 256 ? item.largeSize : item.smallSize);
+
+    // bien
+    const itemHeight = (item) => {
+      const { height, largeSize, smallSize } = item;
+      return height > 256 ? largeSize : smallSize;
+    };
+    ```
+
+**[⬆ regresar a la Tabla de Contenido](#tabla-de-contenido)**
 
 ## Clases y Constructores
 

@@ -9,9 +9,9 @@
 
 Otras Guías de Estilos
 - [ES5](es5/) (Obsoleto)
-- [React](https://github.com/airbnb/javascript/tree/master/react)
+- [React](https://github.com/agrcrobles/javascript/tree/master/react)
 - [CSS-in-JavaScript](https://github.com/airbnb/javascript/tree/master/css-in-javascript/)
-- [CSS & SASS](https://github.com/airbnb/css)
+- [CSS & SASS](https://github.com/ismamz/css)
 - [Ruby](https://github.com/airbnb/ruby)
 
 ## Tabla de Contenido

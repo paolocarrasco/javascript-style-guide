@@ -14,7 +14,7 @@ Otras Guías de Estilos
 - [React](https://github.com/agrcrobles/javascript/tree/master/react)
 - [CSS-in-JavaScript](https://github.com/airbnb/javascript/tree/master/css-in-javascript/)
 - [CSS & SASS](https://github.com/ismamz/css)
-G- [Ruby](https://github.com/airbnb/ruby)
+- [Ruby](https://github.com/airbnb/ruby)
 
 ## Tabla de Contenido
 

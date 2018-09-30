@@ -2,17 +2,19 @@
 
 *Un enfoque altamente razonable para JavaScript*
 
+> **Nota**: Esta guía asume que usas [Babel](https://babeljs.io), adicionalmente de tener instalado [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) o su equivalente. También asume que tienes instalado shims/pollyfills en tu aplicación, con 
+[airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) o su equivalente.
+
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 
 Otras Guías de Estilos
 - [ES5](es5/) (Obsoleto)
 - [React](https://github.com/agrcrobles/javascript/tree/master/react)
 - [CSS-in-JavaScript](https://github.com/airbnb/javascript/tree/master/css-in-javascript/)
 - [CSS & SASS](https://github.com/ismamz/css)
-- [Ruby](https://github.com/airbnb/ruby)
+G- [Ruby](https://github.com/airbnb/ruby)
 
 ## Tabla de Contenido
 

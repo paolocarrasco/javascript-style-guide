@@ -45,6 +45,7 @@ Otras Guías de Estilos
   1. [jQuery](#jquery)
   1. [Compatibilidad con EcmaScript 5](#compatibilidad-con-ecmascript-5)
   1. [Estilos de EcmaScript6+ (ES2015+)](#estilos-de-ecmascript6-es-2015)
+  1. [Librería estándar](#librería-estándar)
   1. [Pruebas](#pruebas)
   1. [Desempeño](#desempeño)
   1. [Recursos](#recursos)
@@ -780,6 +781,117 @@ Otras Guías de Estilos
 
 **[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
+
+## Iteradores y Generadores
+
+  - No uses iteradores. Prefiere las funciones de orden superior de JavaScript en lugar de bucles como `for-in` o `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
+
+    > ¿Por qué? Esto refuerza nuestra regla de inmutabilidad. Trabajar con funciones puras que devuelven valores es más fácil de razonar que trabajar con efectos secundarios.
+
+    > Usa `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... para iterar sobre arreglos, y `Object.keys()` / `Object.values()` / `Object.entries()` para producir arreglos y así poder iterar sobre objetos.
+
+    ```javascript
+    const numbers = [1, 2, 3, 4, 5];
+
+    // mal
+    let sum = 0;
+    for (let num of numbers) {
+      sum += num;
+    }
+    sum === 15;
+
+    // bien
+    let sum = 0;
+    numbers.forEach((num) => {
+      sum += num;
+    });
+    sum === 15;
+
+    // lo mejor (usa la fuerza funcional)
+    const sum = numbers.reduce((total, num) => total + num, 0);
+    sum === 15;
+
+    // mal
+    const increasedByOne = [];
+    for (let i = 0; i < numbers.length; i++) {
+      increasedByOne.push(numbers[i] + 1);
+    }
+
+    // bien
+    const increasedByOne = [];
+    numbers.forEach((num) => {
+      increasedByOne.push(num + 1);
+    });
+
+    // lo mejor (manteniéndolo funcional)
+    const increasedByOne = numbers.map((num) => num + 1);
+    ```
+
+  - No uses generadores por ahora.
+
+    > ¿Por qué? No se transpilan bien a ES5.
+
+  - Si debes usar generadores, o si ignoras el consejo anterior, asegúrate de que la firma de la función tenga los espacios correctos. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
+
+    > ¿Por qué? `function` y `*` son parte del mismo concepto de palabra clave: `*` no es un modificador de `function`; `function*` es una construcción única, distinta de `function`.
+
+    ```javascript
+    // mal
+    function * foo() {
+      // ...
+    }
+
+    // mal
+    const bar = function * () {
+      // ...
+    };
+
+    // mal
+    const baz = function *() {
+      // ...
+    };
+
+    // mal
+    const quux = function*() {
+      // ...
+    };
+
+    // mal
+    function*foo() {
+      // ...
+    }
+
+    // mal
+    function *foo() {
+      // ...
+    }
+
+    // muy mal
+    function
+    *
+    foo() {
+      // ...
+    }
+
+    // muy mal
+    const wat = function
+    *
+    () {
+      // ...
+    };
+
+    // bien
+    function* foo() {
+      // ...
+    }
+
+    // bien
+    const foo = function* () {
+      // ...
+    };
+    ```
+
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
 ## Propiedades
 
@@ -1973,12 +2085,45 @@ Otras Guías de Estilos
   1. [Rest](#es6-rest)
   1. [Spreads de arreglos](#es6-array-spreads)
   1. [Let y Const](#references)
-  1. [Iteradores y Generadores](#iterators-and-generators)
+  1. [Iteradores y Generadores](#iteradores-y-generadores)
   1. [Módulos](#modules)
 
     - No uses [las propuestas de TC39](https://github.com/tc39/proposals) puesto que aún no han llegado a la tercera etapa.
 
       > ¿Por qué? [No están finalizadas](https://tc39.github.io/process-document/), y están sujetas a cambios o reescritas completamente. Vamos a usar JavaScript y las propuestas aún no son JavaScript.
+
+**[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
+
+## Librería estándar
+
+  La [Librería Estándar](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects) contiene utilidades que son funcionalmente defectuosas, pero se mantienen por razones de compatibilidad.
+
+  - Usa `Number.isNaN` en lugar del `isNaN` global. eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
+
+    > ¿Por qué? El `isNaN` global convierte los valores que no son números en números, y devuelve `true` para cualquier cosa que se convierta en `NaN`. Si ese comportamiento es el que deseas, hazlo explícito.
+
+    ```javascript
+    // mal
+    isNaN('1.2'); // false
+    isNaN('1.2.3'); // true
+
+    // bien
+    Number.isNaN('1.2.3'); // false
+    Number.isNaN(Number('1.2.3')); // true
+    ```
+
+  - Usa `Number.isFinite` en lugar del `isFinite` global. eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
+
+    > ¿Por qué? El `isFinite` global convierte los valores que no son números en números, y devuelve `true` para cualquier cosa que se convierta en un número finito. Si ese comportamiento es el que deseas, hazlo explícito.
+
+    ```javascript
+    // mal
+    isFinite('2e3'); // true
+
+    // bien
+    Number.isFinite('2e3'); // false
+    Number.isFinite(parseInt('2e3', 10)); // true
+    ```
 
 **[[⬆ regresar a la Tabla de Contenido]](#tabla-de-contenido)**
 
